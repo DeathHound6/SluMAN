@@ -66,7 +66,13 @@ function sly3_reload_cp()
 	Memory.WriteInt(0x78D2C0, 1)
 end
 
-function sly3_load_map(map)
+function sly3_set_map(map_name)
+	-- Loads a map from the memory
+	-- Spawn location should be spesified separately	
+
+	-- map_name: string (such as "v_ext" or "h_hotel")
+
+	-- Clears the memory
 	Memory.WriteInt(0x78D2C8, 0)
 	Memory.WriteInt(0x78D2CC, 0)
 	Memory.WriteInt(0x78D2D0, 0)
@@ -76,10 +82,109 @@ function sly3_load_map(map)
 	Memory.WriteInt(0x78D2E0, 0)
 	Memory.WriteInt(0x78D2E4, 0)
 
+	-- Sets the map name and reloads the game
+	API:WriteMemory(0x78D2C8, "Y$KF" .. map_name)
+
+end
+
+
+function sly3_load_map(map_name)
+	sly3_set_map(map_name)
+	sly3_load()
+end
+
+
+function sly3_load_location(location_name)
+	sly3_insta_load()
+end
+
+
+
+function sly3_load()
 	Memory.WriteInt(0x78D2C4, 14)
-	API:WriteMemory(0x78D2C8, "Y$KF" .. map)
 	Memory.WriteInt(0x78D2C0, 1)
 end
+
+function sly3_insta_load()
+	Memory.WriteInt(0x78D2C4, 0)
+	Memory.WriteInt(0x78D2C0, 1)
+end
+
+function sly3_full_load()
+	Memory.WriteInt(0x78D2C4, 15)
+	Memory.WriteInt(0x78D2C0, 1)
+end
+
+function sly3_get_coordinates(entity_address)
+	trf_address = Memory.ReadInt(entity_address+0x44)
+	x = Memory.ReadFloat(trf_address+0x130)
+	y = Memory.ReadFloat(trf_address+0x134)
+	z = Memory.ReadFloat(trf_address+0x138)
+	return {x,y,z}
+end
+
+function sly3_load_job(job_index)
+	rl_value = 0
+	job_id = sly3_get_job_id(job_index)
+
+	if		job_id == 1798	then 
+		rl_value = 1799
+		sly3_set_map("m_ext")
+	elseif	job_id == 2117  then 
+		rl_value = 2118
+		sly3_set_map("v_ext")
+	elseif	job_id == 2261	then 
+		rl_value = 2268
+		sly3_set_map("v_ext")
+	elseif	job_id == 2314	then 
+		rl_value = 2315
+		sly3_set_map("v_ext")
+	elseif	job_id == 2360	then 
+		rl_value = 2362
+		sly3_set_map("v_ext")
+	elseif	job_id == 2170	then 
+		rl_value = 2172
+		sly3_set_map("v_ext")
+	elseif	job_id == 2199	then 
+		rl_value = 2202
+		sly3_set_map("v_ext")
+	elseif	job_id == 2218	then 
+		rl_value = 2223
+		sly3_set_map("v_ext")
+	elseif	job_id == 2382	then 
+		rl_value = 2383
+		sly3_set_map("v_ext")
+	elseif	job_id == 2448	then 
+		rl_value = 2453
+		sly3_set_map("v_ext")
+	else					     
+		return
+	end
+
+	Memory.WriteInt(0x5EB488, job_id)
+	Memory.WriteInt(0x5EB490, rl_value)
+	sly3_load()
+	
+
+end
+
+
+function sly3_get_job_id(index)
+	if		index == 0	then return 1798
+	elseif	index == 1	then return 2117
+	elseif	index == 2	then return 2261
+	elseif	index == 3	then return 2314
+	elseif	index == 4	then return 2360
+	elseif	index == 5	then return 2170
+	elseif	index == 6	then return 2199
+	elseif	index == 7	then return 2218
+	elseif	index == 8	then return 2382
+	elseif	index == 9	then return 2448
+	else				     return 0
+	end
+end
+
+
 
 function toBits(num, bits)
     -- returns a table of bits

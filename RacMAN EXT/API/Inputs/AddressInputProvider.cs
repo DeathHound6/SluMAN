@@ -29,7 +29,7 @@ internal class AddressInputProvider : IInputProvider
             //bytes = LuaFunctions.ReverseArray(bytes);
 
             ly = (float)(Convert.ToInt32(bytes[0]) - 127) / 128f;
-            lx = (float)(Convert.ToInt32(bytes[1]) - 127)  /128f;
+            lx = (float)(Convert.ToInt32(bytes[1]) - 127) / 128f;
 
             if (lx > 0 && ly != 0)
             {
