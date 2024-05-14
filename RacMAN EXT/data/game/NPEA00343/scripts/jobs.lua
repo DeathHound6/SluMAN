@@ -1,0 +1,108 @@
+function load_job_helper(job_id, cp_id, load_mode, map)
+	sly3_set_map(map)	
+
+	-- Avoiding game crashes
+	if job_id ~= Memory.ReadInt(0x5EB488) then load_mode = 134 end
+
+
+	Memory.WriteInt(0x5EB488, job_id)
+	Memory.WriteInt(0x5EB48C, cp_id)
+	Memory.WriteInt(0x5EB490, cp_id)
+	Memory.WriteInt(0x78D2C4, load_mode)
+	Memory.WriteInt(0x78D2C0, 1)
+end
+
+function sly3_load_job(index)
+	-- Loads a job based on the selection in the dropdown menu
+
+	local name = Trainer.GetControlByName('jobSelectDropDown').Items[index] 
+	-- using names instead of indices in case the order is later changed
+
+	if		name == "The Cooper Vault"				then load_job_helper(1798, 1799, 134, "Y$KFm_ext")
+	elseif	name == " [TCV] Cave"					then load_job_helper(1798, 1800, 4, "Y$KFm_ext")
+	elseif	name == " [TCV] Top"					then load_job_helper(1798, 1801, 4, "Y$KFm_ext")
+	elseif	name == " [TCV] Chase"					then load_job_helper(1798, 1803, 4, "Y$KFm_ext")
+	elseif	name == " [TCV] End"					then load_job_helper(1798, 1804, 4, "Y$KFm_ext")
+	elseif	name == "Police HQ"						then load_job_helper(2117, 2118, 134, "Y$KFv_ext")
+	elseif	name == " [PHQ] Exit the vent"			then load_job_helper(2117, 2123, 4, "Y$KFv_interpol")
+	elseif	name == " [PHQ] Crawl to the key"		then load_job_helper(2117, 2131, 4, "Y$KFv_interpol")
+	elseif	name == " [PHQ] Crawl back to Dimitri"	then load_job_helper(2117, 2138, 4, "Y$KFv_interpol")
+	elseif	name == " [PHQ] Pick the lock"			then load_job_helper(2117, 2144, 4, "Y$KFv_interpol")
+	elseif	name == " [PHQ] Carmelita chase"		then load_job_helper(2117, 2154, 4, "Y$KFv_ext")
+	elseif	name == "Octavio Snap"					then load_job_helper(2261, 2268, 134, "Y$KFv_ext")
+	elseif	name == " [OS] After 1st picture"		then load_job_helper(2261, 2273, 4, "Y$KFv_ext")
+	elseif	name == " [OS] Taking 2nd picture"		then load_job_helper(2261, 2276, 4, "Y$KFv_ext")
+	elseif	name == " [OS] After 2nd picture"		then load_job_helper(2261, 2278, 4, "Y$KFv_ext")
+	elseif	name == " [OS] Taking 3rd picture"		then load_job_helper(2261, 2281, 4, "Y$KFv_ext")
+	elseif	name == " [OS] After 3rd picture"		then load_job_helper(2261, 2283, 4, "Y$KFv_ext")
+	elseif	name == " [OS] Taking 4th picture"		then load_job_helper(2261, 2287, 4, "Y$KFv_ext")
+	elseif	name == " [OS] After 4th picture"		then load_job_helper(2261, 2291, 4, "Y$KFv_ext")
+	elseif	name == " [OS] Ferris Wheel"			then load_job_helper(2261, 2297, 4, "Y$KFv_ext")
+	elseif	name == "Into the Depths"				then load_job_helper(2314, 2315, 134, "Y$KFv_ext")
+	elseif	name == " [ItD] Enter the Opera House"	then load_job_helper(2314, 1811, 4, "Y$KFv_gauntlet")
+	elseif	name == " [ItD] Canal"					then load_job_helper(2314, 2327, 4, "Y$KFv_gauntlet")
+	elseif	name == " [ItD] First laser door"		then load_job_helper(2314, 2335, 4, "Y$KFv_gauntlet")
+	elseif	name == " [ItD] Computer Room"			then load_job_helper(2314, 2351, 4, "Y$KFv_gauntlet")
+	elseif	name == "Canal Chase"					then load_job_helper(2360, 2362, 134, "Y$KFv_ext")
+	elseif	name == " [CC] Start of the chase"		then load_job_helper(2360, 1805, 4, "Y$KFv_canal")
+	elseif	name == "Turf War!"						then load_job_helper(2170, 2172, 134, "Y$KFv_ext")
+	elseif	name == " [TW] Wave #1"					then load_job_helper(2170, 2182, 4, "Y$KFv_ext")
+	elseif	name == " [TW] Wave #2"					then load_job_helper(2170, 2186, 4, "Y$KFv_ext")
+	elseif	name == " [TW] Wave #3"					then load_job_helper(2170, 2190, 4, "Y$KFv_ext")
+	elseif	name == " [TW] Wave #4"					then load_job_helper(2170, 2194, 4, "Y$KFv_ext")
+	elseif	name == "Tar Ball"						then load_job_helper(2199, 2202, 134, "Y$KFv_ext")
+	elseif	name == "Run 'n Bomb"					then load_job_helper(2218, 2223, 134, "Y$KFv_ext")
+	elseif	name == "Guard Duty"					then load_job_helper(2382, 2383, 134, "Y$KFv_ext")
+	elseif	name == "OP: Tar Be Gone!"				then load_job_helper(2448, 2453, 134, "Y$KFv_ext")
+	elseif	name == "Search for the Guru"			then load_job_helper(2605, 2606, 134, "Y$KFo_ext")
+	elseif	name == "Spelunking"					then load_job_helper(2623, 2624, 134, "Y$KFo_ext")
+	elseif	name == "Dark Caves"					then load_job_helper(2829, 2833, 134, "Y$KFo_ext")
+	elseif	name == "Big Truck"						then load_job_helper(2722, 2731, 134, "Y$KFo_ext")
+	elseif	name == "Unleash the Guru"				then load_job_helper(2690, 1807, 134, "Y$KFo_ext")
+	elseif	name == "The Claw"						then load_job_helper(2650, 2654, 134, "Y$KFo_ext")
+	elseif	name == "Lemon Rage"					then load_job_helper(2756, 2757, 134, "Y$KFo_ext")
+	elseif	name == "Hungry Croc"					then load_job_helper(2804, 2810, 134, "Y$KFo_ext")
+	elseif	name == "OP: Moon Crash"				then load_job_helper(2867, 2869, 134, "Y$KFo_ext")
+	elseif	name == "Hidden Flight Roster"			then load_job_helper(3007, 3009, 134, "Y$KFh_hotel")
+	elseif	name == "Frame Team Belgium"			then load_job_helper(3049, 3051, 134, "Y$KFh_ext")
+	elseif	name == "Frame Team Iceland"			then load_job_helper(3085, 3086, 134, "Y$KFh_ext")
+	elseif	name == "Cooper Hangar Defence"			then load_job_helper(3125, 3126, 134, "Y$KFh_ext")
+	elseif	name == "ACES Semi-finals"				then load_job_helper(3167, 3164, 134, "Y$KFh_ext")
+	elseif	name == "Giant Wolf Massacre"			then load_job_helper(3225, 3227, 134, "Y$KFh_ext")
+	elseif	name == "Windmill Firewall"				then load_job_helper(3187, 3193, 134, "Y$KFh_ext")
+	elseif	name == "Beauty and the Beast"			then load_job_helper(3248, 3249, 134, "Y$KFh_ext")
+	elseif	name == "OP: Turbo Dominant Eagle"		then load_job_helper(3281, 3283, 134, "Y$KFh_ext")
+	elseif	name == "King of Fire"					then load_job_helper(3403, 3405, 134, "Y$KFc_intro")
+	elseif	name == "Get a Job"						then load_job_helper(3471, 3473, 134, "Y$KFc_ext")
+	elseif	name == "Tearful Reunion"				then load_job_helper(3531, 3536, 134, "Y$KFc_ext")
+	elseif	name == "Grapple-Cam Break-in"			then load_job_helper(3562, 3565, 134, "Y$KFc_ext")
+	elseif	name == "Laptop Retrieval"				then load_job_helper(3606, 3607, 134, "Y$KFc_ext")
+	elseif	name == "Vampiric Demise"				then load_job_helper(3651, 3654, 134, "Y$KFc_ext")
+	elseif	name == "Down the Line"					then load_job_helper(3693, 3694, 134, "Y$KFc_ext")
+	elseif	name == "A Battery of Peril"			then load_job_helper(3705, 3706, 134, "Y$KFc_ext")
+	elseif	name == "OP: Wedding Crasher"			then load_job_helper(3733, 3734, 134, "Y$KFc_ext")
+	elseif	name == "The Talk of Pirates"			then load_job_helper(3867, 3871, 134, "Y$KFp_ext")
+	elseif	name == "Dynamic Duo"					then load_job_helper(3926, 3927, 134, "Y$KFp_ext")
+	elseif	name == "Jollyboat of Destruction"		then load_job_helper(4055, 4056, 134, "Y$KFp_ext")
+	elseif	name == "X Marks the Spot"				then load_job_helper(4009, 4011, 134, "Y$KFp_ext")
+	elseif	name == "Crusher from the Depths"		then load_job_helper(4088, 4091, 134, "Y$KFp_at_the_sea")
+	elseif	name == "Deep Sea Danger"				then load_job_helper(4117, 4118, 134, "Y$KFp_at_the_sea")
+	elseif	name == "Battle on the High Seas"		then load_job_helper(4136, 4137, 134, "Y$KFp_at_the_sea")
+	elseif	name == "OP: Reverse Double-Cross"		then load_job_helper(4161, 4163, 134, "Y$KFp_ext")
+	elseif	name == "Carmelita to the Rescue"		then load_job_helper(4342, 1842, 134, "Y$KFm_ext")
+	elseif	name == "A Deadly Bite"					then load_job_helper(4384, 1843, 134, "Y$KFm_ext")
+	elseif	name == "The Dark Current"				then load_job_helper(4411, 1844, 134, "Y$KFm_ext")
+	elseif	name == "Bump-Charge-Jump"				then load_job_helper(4427, 1845, 134, "Y$KFm_ext")
+	elseif	name == "Danger in the Skies"			then load_job_helper(4451, 1846, 134, "Y$KFm_ext")
+	elseif	name == "The Ancestors' Gauntlet"		then load_job_helper(4494, 1847, 134, "Y$KFm_vault")
+	elseif	name == "Stand Your Ground"				then load_job_helper(4520, 1848, 134, "Y$KFm_vault")
+	elseif	name == "Final Legacy"					then load_job_helper(4558, 1849, 134, "Y$KFm_boss")
+	end
+	
+end
+
+
+function update_job_cp_list(index)
+	local cp_list = {"Default"}
+	Trainer.GetControlByName('jobSelectDropDown').Items = cp_list
+end

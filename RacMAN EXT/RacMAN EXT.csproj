@@ -45,6 +45,8 @@
 	  <None Remove="data\game\NPEA00343\scripts\Common.lua" />
 	  <None Remove="data\game\NPEA00343\scripts\inputp.lua" />
 	  <None Remove="data\game\NPEA00343\scripts\input_test_autosplitter.lua" />
+	  <None Remove="data\game\npea00343\scripts\jobs.lua" />
+	  <None Remove="data\game\npea00343\scripts\maps.lua" />
 	  <None Remove="data\game\NPEA00343\trainer.json" />
 	</ItemGroup>
 
