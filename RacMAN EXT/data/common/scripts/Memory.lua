@@ -31,6 +31,10 @@ Memory.ReadByte = function(addr)
     return Convert.ByteArrayToInt(API:ReadMemory(addr, 1))
 end
 
+Memory.ReadBytes = function(addr, size)
+    return Convert.ByteArrayToInt(API:ReadMemory(addr, size))
+end
+
 -- Write a float (4-byte) to memory
 Memory.WriteFloat = function(addr, float)
     API:WriteMemory(addr, Convert.FloatToByteArray(float))

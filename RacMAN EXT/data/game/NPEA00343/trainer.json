@@ -1,0 +1,248 @@
+{
+  "TitleID": "NPEA00343",
+  "RacmanVersion": "1",
+  "Labels": [
+    {
+      "Name": "",
+      "Text": "Coin Count:",
+      "Position": {
+        "IsEmpty": false,
+        "X": 50,
+        "Y": 50
+      }
+    }
+  ],
+  "Buttons": [
+    {
+      "Name": "unlockGadgetsButton",
+      "Enabled": true,
+      "Text": "Unlock Gadgets",
+      "Position": {
+        "IsEmpty": false,
+        "X": 374,
+        "Y": 90
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 120,
+        "Height": 30
+      },
+      "OnClick": "sly3_unlock_all_gadgets()"
+    },
+    {
+      "Name": "reloadCpButton",
+      "Enabled": true,
+      "Text": "Reload",
+      "Position": {
+        "IsEmpty": false,
+        "X": 174,
+        "Y": 90
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 120,
+        "Height": 30
+      },
+      "OnClick": "sly3_load_map(Trainer.GetControlByName(\u0027mapsDropDown\u0027).Text)"
+    },
+    {
+      "Name": "resetGadgetsButton",
+      "Enabled": true,
+      "Text": "Reset Gadgets",
+      "Position": {
+        "IsEmpty": false,
+        "X": 374,
+        "Y": 50
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 120,
+        "Height": 30
+      },
+      "OnClick": "sly3_remove_all_gadgets()"
+    },
+    {
+      "Name": "infJuiceBtn",
+      "Enabled": true,
+      "Text": "Infinite Juice",
+      "Position": {
+        "IsEmpty": false,
+        "X": 374,
+        "Y": 150
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 120,
+        "Height": 30
+      },
+      "OnClick": "sly3_infinite_juice()"
+    },
+    {
+      "Name": "infHealthBtn",
+      "Enabled": true,
+      "Text": "Infinite Health",
+      "Position": {
+        "IsEmpty": false,
+        "X": 374,
+        "Y": 180
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 120,
+        "Height": 30
+      },
+      "OnClick": "sly3_infinite_health()"
+    },
+    {
+      "Name": "restJuiceBtn",
+      "Enabled": true,
+      "Text": "Restore Juice",
+      "Position": {
+        "IsEmpty": false,
+        "X": 374,
+        "Y": 210
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 120,
+        "Height": 30
+      },
+      "OnClick": "sly3_restore_juice()"
+    },
+    {
+      "Name": "restHealBtn",
+      "Enabled": true,
+      "Text": "Restore Health",
+      "Position": {
+        "IsEmpty": false,
+        "X": 374,
+        "Y": 240
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 120,
+        "Height": 30
+      },
+      "OnClick": "sly3_restore_health()"
+    }
+  ],
+  "TextBoxes": [
+    {
+      "Name": "coinCountTextBox",
+      "Enabled": true,
+      "Text": "",
+      "Position": {
+        "IsEmpty": false,
+        "X": 50,
+        "Y": 80
+      },
+      "OnEnter": "sly3_set_coincount(tonumber(Trainer.GetControlByName(\u0027coinCountTextBox\u0027).Text))"
+    },
+    {
+      "Name": "gadgetIndexTextBox",
+      "Enabled": true,
+      "Text": "",
+      "Position": {
+        "IsEmpty": false,
+        "X": 50,
+        "Y": 280
+      },
+      "OnEnter": "sly3_unlock_gadget(tonumber(Trainer.GetControlByName(\u0027gadgetIndexTextBox\u0027).Text))"
+    }
+  ],
+  "CheckBoxes": [],
+  "Dropdowns": [
+    {
+      "Name": "mapsDropDown",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 50,
+        "Y": 200
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 171,
+        "Height": 23
+      },
+      "Options": [
+        "dvd_menu",
+        "sampler_menu",
+        "i_trainer",
+        "v_ext",
+        "v_canal",
+        "v_apt",
+        "v_gauntlet",
+        "v_interpol",
+        "o_ext",
+        "o_quarry",
+        "o_arena",
+        "o_cave_a",
+        "o_cave_b",
+        "o_bar",
+        "o_cave_murray",
+        "h_ext",
+        "h_hotel",
+        "h_hangar_a",
+        "h_hangar_b",
+        "h_hangar_c",
+        "h_sewer",
+        "h_dogfight",
+        "h_hack",
+        "c_ext",
+        "c_intro",
+        "c_flashback",
+        "c_forest",
+        "c_apt",
+        "c_hall_a",
+        "c_hall_b",
+        "c_tilt_hall",
+        "p_ext",
+        "p_at_sea",
+        "p_dive",
+        "p_island_map",
+        "m_ext",
+        "m_underwater",
+        "m_vault",
+        "m_gauntlet",
+        "m_boss"
+      ],
+      "Index": 0,
+      "OnItemSelected": ""
+    },
+    {
+      "Name": "cinematicDropDown",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 50,
+        "Y": 170
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 171,
+        "Height": 23
+      },
+      "Options": [
+        "splash_sony",
+        "splash_suckerpunch",
+        "e1_intro",
+        "e2_intro",
+        "e3_intro",
+        "e4_intro_b",
+        "e5_intro",
+        "e6_intro",
+        "e1_chalktalk_3",
+        "e2_chalktalk_3",
+        "e3_chalktalk_3",
+        "e4_chalktalk_3",
+        "e5_chalktalk_3"
+
+      ],
+      "Index": 0,
+      "OnItemSelected": ""
+    }
+  ],
+  "OnLoad": "",
+  "OnUnload": ""
+}
