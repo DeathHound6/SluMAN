@@ -18,7 +18,7 @@ function get_map_aob_value(name)
 	elseif  name == "Holland Hub"					then return "Y$KFh_ext"
 	elseif  name == "    Hotel"						then return "Y$KFh_hotel"
 	elseif  name == "    Black Baron's Hangar"		then return "Y$KFh_hangar_b"
-	elseif  name == "    Team Iceland's Hangar"		then return "Y$KFh_hangar_a"
+	elseif  name == "    Cooper Gang Hangar"		then return "Y$KFh_hangar_a"
 	elseif  name == "    Team Belgium's Hangar"		then return "Y$KFh_hangar_c"
 	elseif  name == "    Sewer"						then return "Y$KFh_sewer"
 	elseif  name == "    Dogfight Arena"			then return "Y$KFh_dogfight"
@@ -34,7 +34,7 @@ function get_map_aob_value(name)
 	elseif  name == "Pirate Hub"					then return "Y$KFp_ext"
 	elseif  name == "    Sailing Map"				then return "Y$KFp_at_sea"
 	elseif  name == "    Underwater Shipwreck"		then return "Y$KFp_dive"
-	elseif  name == "    Dagger Island"				then return "Y$KFp_island_ name"
+	elseif  name == "    Dagger Island"				then return "Y$KFp_island_map"
 	elseif  name == "Kaine Island"					then return "Y$KFm_ext"
 	elseif  name == "    Underwater"				then return "Y$KFm_underwater"
 	elseif  name == "    Cooper Vault"				then return "Y$KFm_vault"
@@ -52,4 +52,31 @@ function get_reload_spawn_value( name)
 	elseif  name == "Top of a building"				then return 0
 	end
 	return 0
+end
+
+function sly3_set_map(map_name)
+	-- Loads a map from the memory
+	-- Spawn location should be spesified separately	
+
+	-- map_name: string (such as "v_ext" or "h_hotel")
+
+	-- Clears the memory
+	Memory.WriteInt(0x78D2C8, 0)
+	Memory.WriteInt(0x78D2CC, 0)
+	Memory.WriteInt(0x78D2D0, 0)
+	Memory.WriteInt(0x78D2D4, 0)
+	Memory.WriteInt(0x78D2D8, 0)
+	Memory.WriteInt(0x78D2DC, 0)
+	Memory.WriteInt(0x78D2E0, 0)
+	Memory.WriteInt(0x78D2E4, 0)
+
+	-- Sets the map name and reloads the game
+	API:WriteMemory(0x78D2C8, map_name)
+
+end
+
+function sly3_load_map(map_name)
+	sly3_set_map(map_name)
+	sly3_reset_job()
+	sly3_load()
 end

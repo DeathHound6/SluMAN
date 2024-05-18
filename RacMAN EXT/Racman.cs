@@ -4,6 +4,7 @@ using RacMAN.API;
 using RacMAN.API.Inputs;
 using RacMAN.Autosplitters;
 using RacMAN.ControllerCombos;
+using System.Threading.Tasks;
 using RacMAN.Forms;
 using System.Net;
 using System.Reflection;
@@ -251,6 +252,7 @@ public class Racman
         ConsoleForm.BeginInvoke(ConsoleForm.Error, msg);
     }
 
+
     public void MakeAddressInputProviderIfNull(uint buttonAddress, uint analogAddress)
     {
         if (API == null)
@@ -274,4 +276,5 @@ public class Racman
         
         File.WriteAllText(settingsPath, JsonSerializer.Serialize(Settings, o));
     }
+
 }
