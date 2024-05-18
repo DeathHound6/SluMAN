@@ -17,6 +17,7 @@ function sly3_load_job(index)
 	local name = Trainer.GetControlByName('jobSelectDropDown').Items[index] 
 	-- using names instead of indices in case the order or contents are later changed
 
+	-- If you change the names, remember to also change the name in trainer.json!
 	if		name == "The Cooper Vault"				then load_job_helper(1798, 1799, 134, "Y$KFm_ext")
 	elseif	name == " [TCV] Cave"					then load_job_helper(1798, 1800, 4, "Y$KFm_ext")
 	elseif	name == " [TCV] Top"					then load_job_helper(1798, 1801, 4, "Y$KFm_ext")
