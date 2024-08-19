@@ -109,7 +109,7 @@ public class Racman
         if (this.API == null)
         {
             this.Connected = false;
-            MainForm.Text = $"RaCMAN {Assembly.GetEntryAssembly().GetName().Version} (Not Connected)";
+            MainForm.Text = $"SluMAN (Not Connected)";
             Game = null;
         }
         else
@@ -117,7 +117,7 @@ public class Racman
             this.Connected = true;
             this.GameTitleID = this.API.GetGameTitleID();
             var gameTitle = API.GetGameTitle();
-            MainForm.Text = $"RaCMAN {Assembly.GetEntryAssembly().GetName().Version} - {this.GameTitleID} - {gameTitle}";
+            MainForm.Text = $"SluMAN - {this.GameTitleID} - {gameTitle}";
             // load game from disk
             Game = new(GameTitleID, gameTitle);
             if (API is IInputProvider input)

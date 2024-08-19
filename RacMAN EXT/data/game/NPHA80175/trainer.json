@@ -1,0 +1,336 @@
+{
+  "TitleID": "NPHA80175",
+  "RacmanVersion": "1",
+  "Labels": [],
+  "Buttons": [
+    {
+      "Name": "setCoinsButton",
+      "Enabled": true,
+      "Text": "Set Coins",
+      "Position": {
+        "IsEmpty": false,
+        "X": 120,
+        "Y": 100
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 70,
+        "Height": 20
+      },
+      "OnClick": "sly2_set_coin_count(tonumber(Trainer.GetControlByName(\u0027coinCountTextBox\u0027).Text))"
+    },
+    {
+      "Name": "unlockGadgetsButton",
+      "Enabled": true,
+      "Text": "Unlock\nAll\nPowerups",
+      "Position": {
+        "IsEmpty": false,
+        "X": 180,
+        "Y": 30
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 80,
+        "Height": 60
+      },
+      "OnClick": "sly2_unlock_all_gadgets()"
+    },
+    {
+      "Name": "reloadCpButton",
+      "Enabled": true,
+      "Text": "Reload",
+      "Position": {
+        "IsEmpty": false,
+        "X": 20,
+        "Y": 30
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 60,
+        "Height": 60
+      },
+      "OnClick": "sly2_kill_active_character()"
+    },
+    {
+      "Name": "infJuiceBtn",
+      "Enabled": true,
+      "Text": "Infinite\nGadget Power",
+      "Position": {
+        "IsEmpty": false,
+        "X": 120,
+        "Y": 30
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 60,
+        "Height": 60
+      },
+      "OnClick": ""
+    },
+    {
+      "Name": "infHealthBtn",
+      "Enabled": true,
+      "Text": "Infinite\nHealth",
+      "Position": {
+        "IsEmpty": false,
+        "X": 260,
+        "Y": 30
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 60,
+        "Height": 60
+      },
+      "OnClick": ""
+    },
+    {
+      "Name": "loadMapButton",
+      "Enabled": true,
+      "Text": "Load Map",
+      "Position": {
+        "IsEmpty": false,
+        "X": 180,
+        "Y": 200
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 70,
+        "Height": 25
+      },
+      "OnClick": "sly2_load_map(get_map_aob_value(Trainer.GetControlByName(\u0027mapsDropDown\u0027).Text))"
+    },
+    {
+      "Name": "warpLocationButton",
+      "Enabled": false,
+      "Text": "Warp",
+      "Position": {
+        "IsEmpty": false,
+        "X": 180,
+        "Y": 230
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 70,
+        "Height": 25
+      },
+      "OnClick": ""
+    },
+    {
+      "Name": "loadJobButton",
+      "Enabled": true,
+      "Text": "Load Job",
+      "Position": {
+        "IsEmpty": false,
+        "X": 230,
+        "Y": 270
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 80,
+        "Height": 25
+      },
+      "OnClick": "sly2_load_job(Trainer.GetControlByName(\u0027jobSelectDropDown\u0027).SelectedIndex)"
+    },
+    {
+      "Name": "loadCinematicButton",
+      "Enabled": false,
+      "Text": "Load Cinematic",
+      "Position": {
+        "IsEmpty": false,
+        "X": 180,
+        "Y": 170
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 70,
+        "Height": 25
+      },
+      "OnClick": ""
+    }
+  ],
+  "TextBoxes": [
+    {
+      "Name": "coinCountTextBox",
+      "Enabled": true,
+      "Text": "",
+      "Position": {
+        "IsEmpty": false,
+        "X": 10,
+        "Y": 100
+      },
+      "OnEnter": ""
+    }
+  ],
+  "CheckBoxes": [],
+  "Dropdowns": [
+    {
+      "Name": "mapsDropDown",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 20,
+        "Y": 200
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 150,
+        "Height": 20
+      },
+      "Options": [
+        "Museum",
+        "DVD Menu",
+        "Paris Hub",
+        "    Wine Cellar",
+        "    Disco",
+        "    Print Room",
+        "    Theater",
+        "    Pump Room",
+        "Palace Hub",
+        "    Hotel",
+        "    Basement",
+        "    Ballroom",
+        "Temple Hub",
+        "    Temple Interior",
+        "Prison Hub",
+        "    Jail",
+        "    Prison Vault",
+        "Castle Hub",
+        "    Interior",
+        "    Waterrails",
+        "    Guardbreak",
+        "    Wolftomb",
+        "    Heist",
+        "    Ewoktrainer",
+        "    Ewoktomb",
+        "    Ewokhall",
+        "    Ewokwater",
+        "Canada Hub",
+        "    Cabins",
+        "    Train A",
+        "    Train B",
+        "    Train C",
+        "Sawmill Hub",
+        "    Mulch",
+        "    Burn",
+        "    Lighthouse",
+        "    Bearcave",
+        "    Bison's Saw",
+        "Blimp Hub",
+        "    Arpeggio's Blimp",
+        "    Engine 1",
+        "    Engine 2",
+        "    Engine 3",
+        "    Clock-La"
+      ],
+      "Index": 0,
+      "OnItemSelected": ""
+    },
+    {
+      "Name": "warpLocationDropDown",
+      "Enabled": false,
+      "Position": {
+        "IsEmpty": false,
+        "X": 20,
+        "Y": 230
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 150,
+        "Height": 20
+      },
+      "Options": [""],
+      "Index": 0,
+      "OnItemSelected": ""
+    },
+    {
+      "Name": "jobSelectDropDown",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 20,
+        "Y": 270
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 200,
+        "Height": 20
+      },
+      "Options": [
+        "Cairo Museum Break-in",
+        "Satellite Sabotage",
+        "Breaking and Entering",
+        "Bug Dimitri's Office",
+        "Follow Dimitri",
+        "Waterpump Destruction",
+        "Silence the Alarms",
+        "Moonlight Rendezvous",
+        "Theater Pickpocketing",
+        "Disco Demolitions",
+        "OP: Thunder Beak",
+        "Recon the Ballroom",
+        "Lower the Drawbridge",
+        "Steal a Tuxedo",
+        "Battle the Chopper",
+        "Dominate the Dance Floor",
+        "RC Bombing Run",
+        "Elephant Rampage",
+        "Boardroom Brawl",
+        "OP: Hippo Drop",
+        "Spice Room Recon",
+        "Freeing the Elephant",
+        "Bug Rajan's Office",
+        "Leading Rajan",
+        "Blow the Dam",
+        "Spice Grinder Destruction",
+        "Neyla's Secret",
+        "Rip-Off the Ruby",
+        "OP: Wet Tiger",
+        "Eavesdrop on Contessa",
+        "Train Hack",
+        "Wall Bombing",
+        "Code Capture",
+        "Lightning Action",
+        "Close to Contessa",
+        "Big House Brawl",
+        "Disguise Bridge",
+        "OP: Trojan Tank",
+        "Know Your Enemy",
+        "Kidnap the General",
+        "Ghost Capture",
+        "Mojo Trap Action",
+        "Tank Showdown",
+        "Stealing Voices",
+        "Crypt Hack",
+        "OP: High Road",
+        "Cabin Crimes",
+        "Spice in the Sky",
+        "A Friend in Need",
+        "Ride the Iron Horse",
+        "Aerial Assault",
+        "Bear Cub Kidnapping",
+        "Theft on the Rails",
+        "OP: Choo-Choo",
+        "Recon the Sawmill",
+        "Laser Redirection",
+        "Bearcave Bugging",
+        "RC Combat Club",
+        "Old Grizzle Face",
+        "Lighthouse Break In",
+        "Thermal Ride",
+        "Boat Hack",
+        "OP: Canada Games",
+        "Blimp HQ Recon",
+        "Bentley/Murray Team Up",
+        "Murray/Sly Tag Team",
+        "Sly/Bentley Conspire",
+        "Charged TNT Run",
+        "Mega-Jump Job",
+        "Showdown with Clock-La"
+      ],
+      "Index": 0,
+      "OnItemSelected": ""
+    }
+  ],
+  "OnLoad": "",
+  "OnUnload": ""
+}

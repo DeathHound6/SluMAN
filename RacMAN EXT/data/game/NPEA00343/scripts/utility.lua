@@ -1,9 +1,34 @@
-function sly3_set_coincount(coins)
+ss_x = 0
+ss_y = 0
+ss_z = 0
+ss_coins = 0
+ss_health = 0
+ss_juice = 0
+
+function set_coins(coins)
 	Memory.WriteInt(0x6CC808, coins)
 end
 
-function sly3_get_cointcount()
+function get_coins()
 	return Memory.ReadInt(0x6CC808)
+end
+
+function sly3_save_state()
+	ss_coins = get_coins()
+	entity_address = Memory.ReadInt(0x5EC654)
+	trf_address = Memory.ReadInt(entity_address+0x44)
+	sly_x = Memory.ReadFloat(trf_address+0x130)
+	sly_y = Memory.ReadFloat(trf_address+0x134)
+	sly_z = Memory.ReadFloat(trf_address+0x138)
+end
+
+function sly3_load_state()
+	set_coins(ss_coins)
+
+	trf_address = Memory.ReadInt(entity_address+0x44)
+	Memory.WriteFloat(trf_address+0x130, ss_x)
+	Memory.WriteFloat(trf_address+0x134, ss_y)
+	Memory.WriteFloat(trf_address+0x138, ss_z)
 end
 
 function sly3_unlock_all_gadgets()
