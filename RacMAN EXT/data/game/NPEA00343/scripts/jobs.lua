@@ -301,7 +301,7 @@ function sly3_load_job(index)
 	elseif	name == "Bentley Tutorial"				then load_job_helper(4609, 4611, 134, "Y$KFi_trainer")
 	elseif	name == "Murray Tutorial"				then load_job_helper(4725, 4727, 134, "Y$KFi_trainer")
 	elseif	name == "Ultimate Gauntlet MTC"			then 
-		Memory.WriteInt(0x589A34, 316)
+		-- Memory.WriteInt(0x589A34, 316) --makes the 4th item give you health, banned for speedrun attempts
 		load_job_helper(4494, 4495, 134, "Y$KFm_gauntlet")
 	end
 end

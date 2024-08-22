@@ -5,6 +5,12 @@ ss_coins = 0
 ss_health = 0
 ss_juice = 0
 
+function testtest()
+percentage_left = Memory.ReadFloat(0x7DAB2C)
+time_passed = (1-percentage_left)*900
+timer:SetGameTime(string.format("<%.3f>", time_passed))
+end
+
 function set_coins(coins)
 	Memory.WriteInt(0x6CC808, coins)
 end

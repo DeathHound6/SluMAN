@@ -17,7 +17,7 @@ Memory.WriteInt = function(addr, int)
 end
 
 -- Read an int (32-bit) from memory.
-Memory.ReadInt = function(addr)
+Memory.ReadInt = function(addr, pid)
     return Convert.ByteArrayToInt(API:ReadMemory(addr, 4), bigendian)
 end
 
@@ -41,8 +41,8 @@ Memory.WriteFloat = function(addr, float)
 end
 
 -- Read a float (4-byte) to memory.
-Memory.ReadFloat = function(addr)
-    return Convert.ByteArrayToFloat(API:ReadMemory(addr, 4))
+Memory.ReadFloat = function(addr, pid)
+    return Convert.ByteArrayToFloat(API:ReadMemory(addr, 4), bigendian)
 end
 
 Memory.WriteTable = function(addr, table)

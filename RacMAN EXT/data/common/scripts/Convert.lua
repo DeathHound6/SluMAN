@@ -54,7 +54,10 @@ Convert.ByteArrayToInt = function(bytes, bigEndian)
 	end
 end
 
-Convert.ByteArrayToFloat = function(bytes)
+Convert.ByteArrayToFloat = function(bytes, bigEndian)
+	if bigEndian then
+		bytes = Convert.ReverseArray(bytes)
+	end
 	if bytes.Length == 4 then
 		return BitConverter.ToSingle(bytes,0)
 	elseif bytes.Length == 8 then

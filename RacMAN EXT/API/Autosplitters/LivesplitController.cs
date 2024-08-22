@@ -56,4 +56,5 @@ public class LivesplitController
     public void PauseGameTime() => DoCommand("pausegametime");
 
     public void UnpauseGameTime() => DoCommand("unpausegametime");
+    public void SetGameTime(string time) => DoCommand($"setgametime {time}");
 }
