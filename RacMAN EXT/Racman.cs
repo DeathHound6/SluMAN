@@ -253,7 +253,7 @@ public class Racman
     }
 
 
-    public void MakeAddressInputProviderIfNull(uint buttonAddress, uint analogAddress)
+    public void MakeAddressInputProviderIfNull(uint buttonAddress, uint buttonOffset, bool buttonEndianness, uint analogAddress, bool stickEndianness, bool stickPositionSwap)
     {
         if (API == null)
         {
@@ -262,7 +262,7 @@ public class Racman
         }
         if (InputProvider == null)
         {
-            InputProvider = new AddressInputProvider(API, buttonAddress, analogAddress);
+            InputProvider = new AddressInputProvider(API, buttonAddress, buttonOffset, buttonEndianness, analogAddress, stickEndianness, stickPositionSwap);
             Log($"Using address input provider (buttons = 0x{buttonAddress:X8}, analog = 0x{analogAddress:X8})");
         }
         else

@@ -9,3 +9,7 @@ end
 Trainer["GetControlByName"] = function(name)
 	return Racman.MainForm.TrainerPanel.Controls[name]
 end
+
+Trainer["ChangeCheckStatus"] = function(name)
+	Racman.MainForm.TrainerPanel.Controls[name].CheckState = CheckState.Unchecked
+end

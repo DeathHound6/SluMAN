@@ -52,38 +52,6 @@
       "OnClick": "sly3_insta_load()"
     },
     {
-      "Name": "infJuiceBtn",
-      "Enabled": true,
-      "Text": "Infinite\nGadget Power",
-      "Position": {
-        "IsEmpty": false,
-        "X": 120,
-        "Y": 30
-      },
-      "Size": {
-        "IsEmpty": false,
-        "Width": 60,
-        "Height": 60
-      },
-      "OnClick": "sly3_infinite_juice()"
-    },
-    {
-      "Name": "infHealthBtn",
-      "Enabled": true,
-      "Text": "Infinite\nHealth",
-      "Position": {
-        "IsEmpty": false,
-        "X": 260,
-        "Y": 30
-      },
-      "Size": {
-        "IsEmpty": false,
-        "Width": 60,
-        "Height": 60
-      },
-      "OnClick": "sly3_infinite_health()"
-    },
-    {
       "Name": "loadMapButton",
       "Enabled": true,
       "Text": "Load Map",
@@ -161,7 +129,63 @@
       "OnEnter": ""
     }
   ],
-  "CheckBoxes": [],
+  "CheckBoxes": [
+    {
+      "Name": "godModeCheckBox",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 340,
+        "Y": 30
+      },
+      "Text": "Invulnerability",
+      "OnCheck": "god_mode_toggle()"
+    },
+    {
+      "Name": "infiniteHealthCheckBox",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 340,
+        "Y": 50
+      },
+      "Text": "Infinite Health",
+      "OnCheck": "infinite_health_toggle()"
+    },
+    {
+      "Name": "infiniteGadgetPowerCheckBox",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 340,
+        "Y": 70
+      },
+      "Text": "Infinite Gadget Power",
+      "OnCheck": "infinite_gadget_power_toggle()"
+    },
+    {
+      "Name": "infiniteJumpsCheckBox",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 340,
+        "Y": 90
+      },
+      "Text": "Infinite Jumps",
+      "OnCheck": "infinite_jumps_toggle()"
+    },
+    {
+      "Name": "guardAICheckBox",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 340,
+        "Y": 110
+      },
+      "Text": "Disable Guard AI",
+      "OnCheck": "guard_ai_toggle()"
+    }
+  ],
   "Dropdowns": [
     {
       "Name": "mapsDropDown",

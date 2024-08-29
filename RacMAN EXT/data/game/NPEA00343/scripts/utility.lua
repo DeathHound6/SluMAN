@@ -5,11 +5,8 @@ ss_coins = 0
 ss_health = 0
 ss_juice = 0
 
-function testtest()
-percentage_left = Memory.ReadFloat(0x7DAB2C)
-time_passed = (1-percentage_left)*900
-timer:SetGameTime(string.format("<%.3f>", time_passed))
-end
+infinite_jumps_id = -1
+
 
 function set_coins(coins)
 	Memory.WriteInt(0x6CC808, coins)
@@ -93,4 +90,25 @@ function sly3_get_coordinates(entity_address)
 	y = Memory.ReadFloat(trf_address+0x134)
 	z = Memory.ReadFloat(trf_address+0x138)
 	return {x,y,z}
+end
+
+function sly3_activate_infinite_jumps()
+	-- Restores the juice meter back to normal
+	entity_address = Memory.ReadInt(0x5EC654)
+	infinite_jumps_id = API:FreezeMemory(entity_address + 0x33B, Convert.IntToByteArray(0, 4, true))
+end
+
+function sly3_remove_infinite_jumps()
+	-- Restores the juice meter back to normal
+	if (infinite_jumps_id ~= -1) then
+		API:ReleaseSubID(infinite_jumps_id)
+	end
+end
+
+function sly3_disable_guard_ai()
+	Memory.WriteInt(0x5EC6CC, 1)
+end
+
+function sly3_restore_guard_ai()
+	Memory.WriteInt(0x5EC6CC, 0)
 end
