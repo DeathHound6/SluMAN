@@ -5,7 +5,7 @@ Speedrun tool for Sly Cooper games, on console and emulator, based on [racman](h
 - Sly 2 digital download (KOR)
 - Sly 3 digital download (PAL)
 
-## Builidng
+## Building
 1. Use Visual Studio 2022
 2. Clone the GitHub repository
 3. Click Build > Build Solution
