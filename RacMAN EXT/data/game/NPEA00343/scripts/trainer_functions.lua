@@ -48,10 +48,21 @@ function guard_ai_toggle()
 	end
 end
 
+function game_clock_toggle()
+	if (tostring(Trainer.GetControlByName("gameClockCheckBox").CheckState) == "Checked: 1") then 
+		sly3_freeze_game_clock()
+		print("Activate: Freeze Game Clock")
+	else 
+		sly3_unfreeze_game_clock() 
+		print("Unactivate: Freeze Game Clock")
+	end
+end
+
 function uncheck_all_boxes()
 	Trainer.ChangeCheckStatus("infiniteGadgetPowerCheckBox")
 	Trainer.ChangeCheckStatus("guardAICheckBox")
 	Trainer.ChangeCheckStatus("infiniteJumpsCheckBox")
 	Trainer.ChangeCheckStatus("godModeCheckBox")
 	Trainer.ChangeCheckStatus("infiniteHealthCheckBox")
+	Trainer.ChangeCheckStatus("gameClockCheckBox")
 end

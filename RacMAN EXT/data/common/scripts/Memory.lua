@@ -37,7 +37,11 @@ end
 
 -- Write a float (4-byte) to memory
 Memory.WriteFloat = function(addr, float)
-    API:WriteMemory(addr, Convert.FloatToByteArray(float))
+    if bigendian then
+        API:WriteMemory(addr, Convert.ReverseArray(Convert.FloatToByteArray(float)))
+    else
+        API:WriteMemory(addr, Convert.FloatToByteArray(float))
+    end
 end
 
 -- Read a float (4-byte) to memory.

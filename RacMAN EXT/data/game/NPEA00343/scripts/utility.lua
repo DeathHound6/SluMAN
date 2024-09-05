@@ -6,13 +6,14 @@ ss_health = 0
 ss_juice = 0
 
 infinite_jumps_id = -1
+game_clock_id = -1
 
 
-function set_coins(coins)
+function sly3_set_coincount(coins)
 	Memory.WriteInt(0x6CC808, coins)
 end
 
-function get_coins()
+function sly3_get_coincount()
 	return Memory.ReadInt(0x6CC808)
 end
 
@@ -103,6 +104,18 @@ function sly3_remove_infinite_jumps()
 	if (infinite_jumps_id ~= -1) then
 		API:ReleaseSubID(infinite_jumps_id)
 	end
+end
+
+function sly3_freeze_game_clock()
+	Memory.WriteFloat(0x5898B8, 0)
+	game_clock_id = API:FreezeMemory(0x5898B8, Convert.FloatToByteArray(0))
+end
+
+function sly3_unfreeze_game_clock()
+	if (game_clock_id ~= -1) then
+		API:ReleaseSubID(game_clock_id)
+	end
+	Memory.WriteFloat(0x5898B8, 1)
 end
 
 function sly3_disable_guard_ai()

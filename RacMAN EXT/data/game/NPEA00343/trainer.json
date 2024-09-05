@@ -184,6 +184,17 @@
       },
       "Text": "Disable Guard AI",
       "OnCheck": "guard_ai_toggle()"
+    },
+    {
+      "Name": "gameClockCheckBox",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 340,
+        "Y": 130
+      },
+      "Text": "Freeze Game Clock",
+      "OnCheck": "game_clock_toggle()"
     }
   ],
   "Dropdowns": [
@@ -240,38 +251,6 @@
         "    Cooper Vault",
         "    Gauntlet",
         "    Inner Sanctum"
-      ],
-      "Index": 0,
-      "OnItemSelected": ""
-    },
-    {
-      "Name": "cinematicDropDown",
-      "Enabled": false,
-      "Position": {
-        "IsEmpty": false,
-        "X": 20,
-        "Y": 170
-      },
-      "Size": {
-        "IsEmpty": false,
-        "Width": 150,
-        "Height": 20
-      },
-      "Options": [
-        "splash_sony",
-        "splash_suckerpunch",
-        "e1_intro",
-        "e2_intro",
-        "e3_intro",
-        "e4_intro_b",
-        "e5_intro",
-        "e6_intro",
-        "e1_chalktalk_3",
-        "e2_chalktalk_3",
-        "e3_chalktalk_3",
-        "e4_chalktalk_3",
-        "e5_chalktalk_3"
-
       ],
       "Index": 0,
       "OnItemSelected": ""

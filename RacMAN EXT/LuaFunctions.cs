@@ -45,4 +45,15 @@ public static class LuaFunctions
         }
         return bytes.ToArray();
     }
+
+    public static byte[] FloatToByteArray(float num, int size, bool bigEndian = true)
+    {
+        //return BitConverter.GetBytes(num).Take(size).Reverse().ToArray();
+        var bytes = BitConverter.GetBytes(num).Take(size);
+        if (bigEndian)
+        {
+            bytes = bytes.Reverse();
+        }
+        return bytes.ToArray();
+    }
 }
