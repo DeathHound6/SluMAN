@@ -12,24 +12,16 @@ Speedrun tool for Sly Cooper games, on console and emulator, based on [racman](h
 
 ## Using on PS3
 You need a homebrew-enabled PS3 (either CFW or HEN) and webMAN MOD installed. Additionally you need the Ratchetron server VSH plugin installed (this is not currently included with the program). Launch the original [racman](https://github.com/MichaelRelaxen/racman) program once to install Ratchetron on your PS3.
-1. Open SluMAN, in the dropdown menu select "PS3"
-2. Enter your PS3's IP address and click 'Connect'. (If you use HEN, make sure it is enabled first.)
+1. Open SluMAN.
+2. Enter your PS3's IP address and click 'Attach'. (If you use HEN, make sure it is enabled first.)
 
 Be sure to close SluMAN before closing the game or turning off your PS3, or crashes/hardlocks may occur.
 
 ## Using on RPCS3
 1. Open RPCS3 (don't start the game yet)
 2. Click Configuration > IPC and check the box that says "Enable IPC Server". Note the IPC server port. Click "Save"
-3. Start SluMAN and select RPCS3 from the dropdown. Type the server port in the text box that says 'Slot'
-4. Click 'Connect'
-
-## Using on PCSX2 (not supported yet)
-1. Enable advanced settings (Tools > Show advanced settings)
-2. Open PCSX2 settings (System > Settings)
-3. Under "Advanced", scroll down to the bottom and under "PINE Settings" check the box that says "Enable". Note the slot number (default is 28011)
-4. If you have a game running, you'll have to restart it for the changes to apply.
-5. Start SluMAN and select PCSX2 from the dropdown. Type the slot number in the text box that says 'slot'
-6. Click 'connect'
+3. Start SluMAN.
+4. Click 'RPCS3'
 
 Please note that you'll need to reconnect SluMAN if you switch games.
 
