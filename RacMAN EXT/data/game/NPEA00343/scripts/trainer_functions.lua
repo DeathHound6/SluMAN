@@ -58,6 +58,17 @@ function game_clock_toggle()
 	end
 end
 
+function selected_character_toggle()
+	local character = Trainer.GetControlByName("characterComboBox").Text
+	if character == "Sly" then
+		sly3_select_sly()
+	elseif character == "Bentley" then
+		sly3_select_bentley()
+	elseif character == "Murray" then
+		sly3_select_murray()
+	end
+end
+
 function uncheck_all_boxes()
 	Trainer.ChangeCheckStatus("infiniteGadgetPowerCheckBox")
 	Trainer.ChangeCheckStatus("guardAICheckBox")

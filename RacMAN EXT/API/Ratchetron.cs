@@ -73,7 +73,7 @@ public class Ratchetron : MemoryAPI
                 this.connected = true;
 
 #if DEBUG
-                this.EnableDebugMessages();
+                //this.EnableDebugMessages();
 #endif
 
                 return true;

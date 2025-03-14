@@ -28,6 +28,7 @@ partial class MainForm
     /// </summary>
     private void InitializeComponent()
     {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
         menuStrip1 = new MenuStrip();
         fileToolStripMenuItem = new ToolStripMenuItem();
         aboutRaCMANToolStripMenuItem = new ToolStripMenuItem();
@@ -42,23 +43,16 @@ partial class MainForm
         inputDisplayToolStripMenuItem = new ToolStripMenuItem();
         autosplittersToolStripMenuItem = new ToolStripMenuItem();
         luaConsoleToolStripMenuItem = new ToolStripMenuItem();
-        rAMWatchToolStripMenuItem = new ToolStripMenuItem();
-        modLoaderToolStripMenuItem = new ToolStripMenuItem();
         trainerMenuItem = new ToolStripMenuItem();
         reloadToolStripMenuItem = new ToolStripMenuItem();
         openDesignerToolStripMenuItem = new ToolStripMenuItem();
-        modulesToolStripMenuItem = new ToolStripMenuItem();
-        addRemoveToolStripMenuItem = new ToolStripMenuItem();
-        toolStripSeparator1 = new ToolStripSeparator();
-        pS3ToolStripMenuItem = new ToolStripMenuItem();
-        savesManagerToolStripMenuItem = new ToolStripMenuItem();
         openFileDialog1 = new OpenFileDialog();
         menuStrip1.SuspendLayout();
         SuspendLayout();
         // 
         // menuStrip1
         // 
-        menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, toolsToolStripMenuItem, trainerMenuItem, modulesToolStripMenuItem, pS3ToolStripMenuItem });
+        menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, toolsToolStripMenuItem, trainerMenuItem });
         menuStrip1.Location = new Point(0, 0);
         menuStrip1.Name = "menuStrip1";
         menuStrip1.Padding = new Padding(7, 2, 0, 2);
@@ -78,7 +72,7 @@ partial class MainForm
         aboutRaCMANToolStripMenuItem.Image = Properties.Resources.Info;
         aboutRaCMANToolStripMenuItem.Name = "aboutRaCMANToolStripMenuItem";
         aboutRaCMANToolStripMenuItem.Size = new Size(195, 22);
-        aboutRaCMANToolStripMenuItem.Text = "About RaCMAN...";
+        aboutRaCMANToolStripMenuItem.Text = "About SluMAN...";
         aboutRaCMANToolStripMenuItem.Click += aboutRaCMANToolStripMenuItem_Click;
         // 
         // settingsToolStripMenuItem
@@ -125,9 +119,9 @@ partial class MainForm
         // 
         // toolsToolStripMenuItem
         // 
-        toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { combosHotkeysToolStripMenuItem, inputDisplayToolStripMenuItem, autosplittersToolStripMenuItem, luaConsoleToolStripMenuItem, rAMWatchToolStripMenuItem, modLoaderToolStripMenuItem });
+        toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { combosHotkeysToolStripMenuItem, inputDisplayToolStripMenuItem, autosplittersToolStripMenuItem, luaConsoleToolStripMenuItem });
         toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-        toolsToolStripMenuItem.Size = new Size(46, 20);
+        toolsToolStripMenuItem.Size = new Size(47, 20);
         toolsToolStripMenuItem.Text = "Tools";
         // 
         // combosHotkeysToolStripMenuItem
@@ -162,27 +156,11 @@ partial class MainForm
         luaConsoleToolStripMenuItem.Text = "Lua Console...";
         luaConsoleToolStripMenuItem.Click += luaConsoleToolStripMenuItem_Click;
         // 
-        // rAMWatchToolStripMenuItem
-        // 
-        rAMWatchToolStripMenuItem.Enabled = false;
-        rAMWatchToolStripMenuItem.Image = Properties.Resources.Find;
-        rAMWatchToolStripMenuItem.Name = "rAMWatchToolStripMenuItem";
-        rAMWatchToolStripMenuItem.Size = new Size(180, 22);
-        rAMWatchToolStripMenuItem.Text = "RAM Watch...";
-        // 
-        // modLoaderToolStripMenuItem
-        // 
-        modLoaderToolStripMenuItem.Enabled = false;
-        modLoaderToolStripMenuItem.Image = Properties.Resources.Script;
-        modLoaderToolStripMenuItem.Name = "modLoaderToolStripMenuItem";
-        modLoaderToolStripMenuItem.Size = new Size(180, 22);
-        modLoaderToolStripMenuItem.Text = "Mod Loader...";
-        // 
         // trainerMenuItem
         // 
         trainerMenuItem.DropDownItems.AddRange(new ToolStripItem[] { reloadToolStripMenuItem, openDesignerToolStripMenuItem });
         trainerMenuItem.Name = "trainerMenuItem";
-        trainerMenuItem.Size = new Size(54, 20);
+        trainerMenuItem.Size = new Size(55, 20);
         trainerMenuItem.Text = "Trainer";
         // 
         // reloadToolStripMenuItem
@@ -201,40 +179,6 @@ partial class MainForm
         openDesignerToolStripMenuItem.Text = "Open Editor...";
         openDesignerToolStripMenuItem.Click += openDesignerToolStripMenuItem_Click;
         // 
-        // modulesToolStripMenuItem
-        // 
-        modulesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addRemoveToolStripMenuItem, toolStripSeparator1 });
-        modulesToolStripMenuItem.Name = "modulesToolStripMenuItem";
-        modulesToolStripMenuItem.Size = new Size(50, 20);
-        modulesToolStripMenuItem.Text = "Game";
-        // 
-        // addRemoveToolStripMenuItem
-        // 
-        addRemoveToolStripMenuItem.Enabled = false;
-        addRemoveToolStripMenuItem.Image = Properties.Resources.Component;
-        addRemoveToolStripMenuItem.Name = "addRemoveToolStripMenuItem";
-        addRemoveToolStripMenuItem.Size = new Size(202, 22);
-        addRemoveToolStripMenuItem.Text = "Add/Remove modules...";
-        // 
-        // toolStripSeparator1
-        // 
-        toolStripSeparator1.Name = "toolStripSeparator1";
-        toolStripSeparator1.Size = new Size(199, 6);
-        // 
-        // pS3ToolStripMenuItem
-        // 
-        pS3ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { savesManagerToolStripMenuItem });
-        pS3ToolStripMenuItem.Name = "pS3ToolStripMenuItem";
-        pS3ToolStripMenuItem.Size = new Size(38, 20);
-        pS3ToolStripMenuItem.Text = "PS3";
-        // 
-        // savesManagerToolStripMenuItem
-        // 
-        savesManagerToolStripMenuItem.Enabled = false;
-        savesManagerToolStripMenuItem.Name = "savesManagerToolStripMenuItem";
-        savesManagerToolStripMenuItem.Size = new Size(180, 22);
-        savesManagerToolStripMenuItem.Text = "Saves Manager...";
-        // 
         // openFileDialog1
         // 
         openFileDialog1.Filter = "ZIP files|*.zip|All files|*.*";
@@ -246,10 +190,11 @@ partial class MainForm
         ClientSize = new Size(624, 441);
         Controls.Add(menuStrip1);
         DoubleBuffered = true;
+        Icon = (Icon)resources.GetObject("$this.Icon");
         MainMenuStrip = menuStrip1;
         Margin = new Padding(4, 3, 4, 3);
         Name = "MainForm";
-        Text = "RaCMAN {version} - {title ID} - {game title}";
+        Text = "SluMAN {version} - {title ID} - {game title}";
         FormClosing += MainForm_FormClosing;
         Shown += MainForm_Shown;
         menuStrip1.ResumeLayout(false);
@@ -265,18 +210,11 @@ partial class MainForm
     private System.Windows.Forms.ToolStripMenuItem aboutRaCMANToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem modulesToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem reconnectToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem combosHotkeysToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem inputDisplayToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem autosplittersToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem luaConsoleToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem addRemoveToolStripMenuItem;
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-    private System.Windows.Forms.ToolStripMenuItem rAMWatchToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem modLoaderToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem pS3ToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem savesManagerToolStripMenuItem;
     private ToolStripSeparator toolStripSeparator2;
     private ToolStripMenuItem reloadLuaStateToolStripMenuItem;
     private ToolStripMenuItem trainerMenuItem;

@@ -45,6 +45,20 @@ public class Racman
     private readonly JsonSerializerOptions o = new() { WriteIndented = true, Converters = { new ColorJsonConverter() } };
 
     public static Lua lua; // maybe shouldnt be static?
+    public static WebClient client = new WebClient();
+    public static string sprxPath = Environment.CurrentDirectory + @"\";
+    public static string get_data(string url)
+    {
+        string x = null;
+        try
+        {
+            x = client.DownloadString(url);
+        }
+        catch
+        {
+        }
+        return x;
+    }
 
     internal Racman()
     {
@@ -84,50 +98,51 @@ public class Racman
         switch (form.apiType)
         {
             case APIType.PS3:
+                string slot6sprx = get_data($"http://{form.BoxText}/home.ps3mapi");
+                // Check if data from PS3 can be read
+                if (slot6sprx == null)
+                {
+                    System.Windows.Forms.MessageBox.Show("Failed to connect to PS3. Make sure the PS3 is on and the IP is correct.");
+                    Environment.Exit(1);
+                }
+                // Check if user has Ratchetron server loaded
+                bool ratchetronLoaded = slot6sprx.Contains("ratchetron_server.sprx");
+                if (!ratchetronLoaded)
+                {
+                    client.UploadFile($"ftp://{form.BoxText}:21/dev_hdd0/tmp/ratchetron_server.sprx", sprxPath + @"\ratchetron_server.sprx");
+                    get_data($"http://{form.BoxText}/vshplugin.ps3mapi?prx=%2Fdev_hdd0%2Ftmp%2Fratchetron_server.sprx&load_slot=6");
+                }
                 this.API = new Ratchetron(form.BoxText, (int) Settings.SocketTimeoutInterval);
                 Settings.RatchetronIP = form.BoxText;
                 break;
             case APIType.RPCS3:
                 {
-                    var slot = UInt16.Parse(form.BoxText);
+                    var slot = UInt16.Parse("28012");
                     Settings.RPCS3Slot = slot;
                     this.API = new RPCS3(slot, (int) Settings.SocketTimeoutInterval);
                     break;
                 }
-            case APIType.PCSX2:
-                {
-                    var slot = UInt16.Parse(form.BoxText);
-                    Settings.PCSX2Slot = slot;
-                    this.API = new PCSX2(slot, (int) Settings.SocketTimeoutInterval);
-                    break;
-                }
             case APIType.None:
-                this.API = null;
+                // Close the program if no API is selected
+                System.Windows.Forms.MessageBox.Show("No API selected. Closing program.");
+                Environment.Exit(0);
                 break;
         }
 
-        if (this.API == null)
+
+        this.Connected = true;
+        this.GameTitleID = this.API.GetGameTitleID();
+        var gameTitle = API.GetGameTitle();
+        MainForm.Text = $"SluMAN - {this.GameTitleID} - {gameTitle}";
+        // load game from disk
+        Game = new(GameTitleID, gameTitle);
+        if (API is IInputProvider input)
         {
-            this.Connected = false;
-            MainForm.Text = $"SluMAN (Not Connected)";
-            Game = null;
+            InputProvider = input;
         }
         else
         {
-            this.Connected = true;
-            this.GameTitleID = this.API.GetGameTitleID();
-            var gameTitle = API.GetGameTitle();
-            MainForm.Text = $"SluMAN - {this.GameTitleID} - {gameTitle}";
-            // load game from disk
-            Game = new(GameTitleID, gameTitle);
-            if (API is IInputProvider input)
-            {
-                InputProvider = input;
-            }
-            else
-            {
-                InputProvider = null;
-            }
+            InputProvider = null;
         }
 
 

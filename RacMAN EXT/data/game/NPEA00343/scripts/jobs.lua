@@ -1,6 +1,5 @@
 function load_job_helper(job_id, cp_id, load_mode, map)
 	sly3_set_map(map)	
-	print("lol")
 	-- Proper reload if loading the job checkpoint first time
 	if cp_id ~= Memory.ReadInt(0x5EB490) then load_mode = 134 end
 
@@ -300,9 +299,6 @@ function sly3_load_job(index)
 	elseif	name == "Sly Tutorial #4"				then load_job_helper(4609, 4611, 134, "Y$KFi_trainer")
 	elseif	name == "Bentley Tutorial"				then load_job_helper(4609, 4611, 134, "Y$KFi_trainer")
 	elseif	name == "Murray Tutorial"				then load_job_helper(4725, 4727, 134, "Y$KFi_trainer")
-	elseif	name == "Ultimate Gauntlet MTC"			then 
-		-- Memory.WriteInt(0x589A34, 316) --makes the 4th item give you health, banned for speedrun attempts
-		load_job_helper(4494, 4495, 134, "Y$KFm_gauntlet")
 	end
 end
 

@@ -41,9 +41,16 @@ internal class PineClient
 
     public PineClient(UInt16 slot, int timeout = 1000)
     {
-        // This will have to be changed for platforms other than windows
         client = new TcpClient();
-        client.Connect(IPAddress.Parse("127.0.0.1"), slot);
+        try
+        {
+            client.Connect(IPAddress.Parse("127.0.0.1"), slot);
+        }
+        catch (SocketException)
+        {
+            System.Windows.Forms.MessageBox.Show("Failed to connect to PINE server. Exiting.");
+            Environment.Exit(1);
+        }
         stream = client.GetStream();
         reader = new BinaryReader(stream);
         client.ReceiveTimeout = timeout;
@@ -76,6 +83,7 @@ internal class PineClient
 
     private (int length, byte returnCode) readHeader()
     {
+
         var len = reader.ReadInt32();
         var ret = reader.ReadByte();
         return (len, ret);

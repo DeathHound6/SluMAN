@@ -41,25 +41,60 @@ function get_map_aob_value(name)
 	elseif  name == "    Gauntlet"					then return "Y$KFm_gauntlet"
 	elseif  name == "    Inner Sanctum"				then return "Y$KFm_boss"
 	end
+	--print("Error reading map name: option {"...name..."} does not exists")
 	return ""
 end
 
-function get_reload_spawn_value( name)
-	if		name == "Safe House"					then return 424
-	elseif	name == "Police HQ Start"				then return 49981
-	elseif	name == "In front of Safe House"		then return 44438
-	elseif  name == "Outside Police HQ"				then return 51210
-	elseif  name == "Top of a building"				then return 0
+function get_default_spawn_location(map_name)
+	-- Return the default spawn location ID for the map
+	if	    map_name == "Y$KFdvd_menu"			then return 0
+	elseif  map_name == "Y$KFi_trainer"			then return 424
+	elseif  map_name == "Y$KFv_ext"				then return 44438
+	elseif  map_name == "Y$KFv_canal"			then return 0
+	elseif  map_name == "Y$KFv_apt"				then return 0
+	elseif  map_name == "Y$KFv_gauntlet"		then return 0
+	elseif  map_name == "Y$KFv_interpol"		then return 0
+	elseif  map_name == "Y$KFo_ext"				then return 44438
+	elseif  map_name == "Y$KFo_quarry"			then return 0
+	elseif  map_name == "Y$KFo_arena"			then return 0
+	elseif  map_name == "Y$KFo_cave_a"			then return 0
+	elseif  map_name == "Y$KFo_cave_b"			then return 0
+	elseif  map_name == "Y$KFo_cave_murray"		then return 0
+	elseif  map_name == "Y$KFo_bar"				then return 0
+	elseif  map_name == "Y$KFh_ext"				then return 44438
+	elseif  map_name == "Y$KFh_hotel"			then return 0
+	elseif  map_name == "Y$KFh_hangar_b"		then return 0
+	elseif  map_name == "Y$KFh_hangar_a"		then return 0
+	elseif  map_name == "Y$KFh_hangar_c"		then return 0
+	elseif  map_name == "Y$KFh_sewer"			then return 0
+	elseif  map_name == "Y$KFh_dogfight"		then return 0
+	elseif  map_name == "Y$KFh_hack"			then return 0
+	elseif  map_name == "Y$KFc_ext"				then return 44438
+	elseif  map_name == "Y$KFc_intro"			then return 0
+	elseif  map_name == "Y$KFc_flashback"		then return 0
+	elseif  map_name == "Y$KFc_forest"			then return 0
+	elseif  map_name == "Y$KFc_apt"				then return 0
+	elseif  map_name == "Y$KFc_hall_a"			then return 0
+	elseif  map_name == "Y$KFc_hall_b"			then return 0
+	elseif  map_name == "Y$KFc_tilt_hall"		then return 0
+	elseif  map_name == "Y$KFp_ext"				then return 44438
+	elseif  map_name == "Y$KFp_at_sea"			then return 0
+	elseif  map_name == "Y$KFp_dive"			then return 0
+	elseif  map_name == "Y$KFp_island_map"		then return 0
+	elseif  map_name == "Y$KFm_ext"				then return 15022
+	elseif  map_name == "Y$KFm_underwater"		then return 0
+	elseif  map_name == "Y$KFm_vault"			then return 0
+	elseif  map_name == "Y$KFm_gauntlet"		then return 0
+	elseif  map_name == "Y$KFm_boss"			then return 0
 	end
+	--print("Error reading map name: map name {"...map_name..."} does not exists.")
 	return 0
 end
 
 function sly3_set_map(map_name)
 	-- Loads a map from the memory
 	-- Spawn location should be spesified separately	
-
 	-- map_name: string (such as "v_ext" or "h_hotel")
-
 	-- Clears the memory
 	Memory.WriteInt(0x78D2C8, 0)
 	Memory.WriteInt(0x78D2CC, 0)
@@ -69,10 +104,13 @@ function sly3_set_map(map_name)
 	Memory.WriteInt(0x78D2DC, 0)
 	Memory.WriteInt(0x78D2E0, 0)
 	Memory.WriteInt(0x78D2E4, 0)
-
-	-- Sets the map name and reloads the game
+	-- Sets the map name
 	API:WriteMemory(0x78D2C8, map_name)
-
+	-- Sets the spawn location as default
+	-- If this is not handled, player might spawn in void
+	--print(map_name)
+	--print(get_default_spawn_location(map_name).tostring())
+	--API:WriteMemory(0x78D308, get_default_spawn_location(map_name))
 end
 
 function sly3_load_map(map_name)

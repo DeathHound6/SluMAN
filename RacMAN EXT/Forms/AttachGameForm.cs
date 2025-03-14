@@ -14,72 +14,47 @@ public partial class AttachGameForm : Form
         InitializeComponent();
         versionLabel.Text = $"v{Assembly.GetEntryAssembly()!.GetName().Version}";
         this.state = state;
-        comboBox1.SelectedIndex = state.Settings.DefaultAPIDropdownIndex ?? 0;
-
-        
     }
 
-    private void continueButton_Click(object sender, EventArgs e)
-    {
-        this.apiType = APIType.None;
 
+    private void attachButton_ClickRPCS3(object sender, EventArgs e)
+    {
+        ConnectRPCS3();
+    }
+
+    private void attachButton_ClickPS3(object sender, EventArgs e)
+    {
+        ConnectPS3();
+    }
+
+
+    private void ConnectPS3()
+    {
+        this.apiType = APIType.PS3;
         this.Hide();
     }
 
-    private void attachButton_Click(object sender, EventArgs e)
+    private void ConnectRPCS3()
     {
-        Connect();
-    }
-
-    private void Connect()
-    {
-        state.Settings.DefaultAPIDropdownIndex = comboBox1.SelectedIndex;
-        switch (this.comboBox1.SelectedIndex)
-        {
-            case 0:
-                this.apiType = APIType.PS3;
-                break;
-            case 1:
-                this.apiType = APIType.RPCS3;
-                break;
-            case 2:
-                this.apiType = APIType.PCSX2;
-                break;
-        }
-
+        this.apiType = APIType.RPCS3;
         this.Hide();
-    }
-
-    private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        switch (comboBox1.SelectedIndex)
-        {
-            case 0:
-                textBox1.Text = state.Settings.RatchetronIP;
-                label3.Text = "IP Address:";
-                break;
-            case 1:
-                textBox1.Text = state.Settings.RPCS3Slot.ToString();
-                label3.Text = "PINE Slot:";
-                break;
-            case 2:
-                textBox1.Text = state.Settings.PCSX2Slot.ToString();
-                label3.Text = "PINE Slot:";
-                break;
-        }
-
     }
 
     private void textBox1_KeyDown(object sender, KeyEventArgs e)
     {
         if (e.KeyCode == Keys.Enter)
         {
-            Connect();
+            ConnectPS3();
         }
     }
 
     private void AttachGameForm_Shown(object sender, EventArgs e)
     {
-        if ((bool) state.Settings.AutoConnect!) Connect();
+        if ((bool)state.Settings.AutoConnect!) ConnectPS3();
+    }
+
+    private void AttachGameForm_Load(object sender, EventArgs e)
+    {
+
     }
 }

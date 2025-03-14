@@ -22,15 +22,6 @@ public partial class MainForm : Form
     private void ReloadGameSpecificStuff()
     {
         LoadTrainer();
-
-        if (state.APIType == APIType.PS3)
-        {
-            pS3ToolStripMenuItem.Enabled = true;
-        }
-        else
-        {
-            pS3ToolStripMenuItem.Enabled = false;
-        }
     }
 
     internal void LoadTrainer()
