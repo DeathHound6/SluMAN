@@ -11,7 +11,7 @@ public partial class AttachGameForm : Form
 
     public AttachGameForm(Racman state)
     {
-        InitializeComponent();
+        InitializeComponent(state);
         versionLabel.Text = $"v{Assembly.GetEntryAssembly()!.GetName().Version}";
         this.state = state;
     }

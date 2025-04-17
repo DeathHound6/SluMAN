@@ -100,9 +100,9 @@
       "OnClick": "sly3_load_job(Trainer.GetControlByName(\u0027jobSelectDropDown\u0027).SelectedIndex)"
     },
     {
-      "Name": "loadCinematicButton",
-      "Enabled": false,
-      "Text": "Load Cinematic",
+      "Name": "skipCinematicButton",
+      "Enabled": true,
+      "Text": "Skip Cinematic",
       "Position": {
         "IsEmpty": false,
         "X": 180,
@@ -110,10 +110,10 @@
       },
       "Size": {
         "IsEmpty": false,
-        "Width": 70,
+        "Width": 150,
         "Height": 25
       },
-      "OnClick": "sly3_load_job(Trainer.GetControlByName(\u0027cinematicDropDown\u0027).SelectedIndex)"
+      "OnClick": "sly3_skip_FMV()"
     }
   ],
   "TextBoxes": [
@@ -563,6 +563,67 @@
         "Sly Tutorial #4",
         "Bentley Tutorial",
         "Murray Tutorial"
+      ],
+      "Index": 0,
+      "OnItemSelected": ""
+    },
+    {
+      "Name": "gadgetSelectDropDown",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 20,
+        "Y": 310
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 200,
+        "Height": 20
+      },
+      "Options": [
+        "Fishing Pole",
+        "Trigger Bomb",
+        "Rage Bomb",
+        "Size Destabilizer",
+        "Grapple-Cam",
+        "Insanity Strike",
+        "Hover Pack",
+        "Health Extractor",
+        "Adrenaline Burst",
+        "Alarm Clock",
+        "Reduction Bomb",
+        "Raging Inferno Flop",
+        "Temporal Lock",
+        "Fists of Flame",
+        "Guttural Roar",
+        "Juggernaut Throw",
+        "Berserker Charge",
+        "Be The Ball",
+        "Diablo Fire Slam",
+        "Knockout Dive",
+        "Mega Jump",
+        "Feral Pounce",
+        "Silent Obliteration",
+        "Paraglider",
+        "Combat Dodge",
+        "Smoke Bomb",
+        "Venice Disguise",
+        "Photographer Disguise",
+        "Pirate Disguise",
+        "Treasure Map",
+        "Rocket Boots",
+        "Shadow Power 1",
+        "Shadow Power 2",
+        "Thief Reflexes",
+        "Push Attack 1",
+        "Push Attack 2",
+        "Push Attack 3",
+        "Spin Attack 1",
+        "Spin Attack 2",
+        "Spin Attack 3",
+        "Jump Attack 1",
+        "Jump Attack 2",
+        "Jump Attack 3"
       ],
       "Index": 0,
       "OnItemSelected": ""

@@ -44,8 +44,8 @@
 	  <None Remove="data\common\inputdisplay\Custom\skin.txt" />
 	  <None Remove="data\common\user\settings.json" />
 	  <None Remove="data\game\npea00343\scripts\freecam.lua" />
+	  <None Remove="data\game\npea00343\scripts\gadgets.lua" />
 	  <None Remove="data\game\NPEA00343\scripts\inputp.lua" />
-	  <None Remove="data\game\NPEA00343\scripts\input_test_autosplitter.lua" />
 	  <None Remove="data\game\npea00343\scripts\jobs.lua" />
 	  <None Remove="data\game\npea00343\scripts\load.lua" />
 	  <None Remove="data\game\npea00343\scripts\maps.lua" />

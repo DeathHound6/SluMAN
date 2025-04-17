@@ -257,6 +257,11 @@ public class Racman
         ConsoleForm.BeginInvoke(ConsoleForm.Log, msg);
     }
 
+    public void Wait(int millisecondsTimeout)
+    {
+        Thread.Sleep(millisecondsTimeout);
+    }
+
     public void Warn(string msg)
     {
         ConsoleForm.BeginInvoke(ConsoleForm.Warn, msg);

@@ -26,10 +26,11 @@ partial class AttachGameForm
     /// Required method for Designer support - do not modify
     /// the contents of this method with the code editor.
     /// </summary>
-    private void InitializeComponent()
+    private void InitializeComponent(Racman state)
     {
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AttachGameForm));
         textBox1 = new TextBox();
+        textBox1.Text = state.Settings.RatchetronIP;
         label3 = new Label();
         attachButton = new Button();
         versionLabel = new Label();
