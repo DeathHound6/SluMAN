@@ -1,13 +1,6 @@
-ss_x = 0
-ss_y = 0
-ss_z = 0
-ss_coins = 0
-ss_health = 0
-ss_juice = 0
-
 infinite_jumps_id = -1
 game_clock_id = -1
-
+time_variable = os.clock()
 
 function sly3_set_coincount(coins)
 	Memory.WriteInt(0x6CC808, coins)
@@ -15,29 +8,6 @@ end
 
 function sly3_get_coincount()
 	return Memory.ReadInt(0x6CC808)
-end
-
-function sly3_save_state()
-	ss_coins = get_coins()
-	entity_address = Memory.ReadInt(0x5EC654)
-	trf_address = Memory.ReadInt(entity_address+0x44)
-	sly_x = Memory.ReadFloat(trf_address+0x130)
-	sly_y = Memory.ReadFloat(trf_address+0x134)
-	sly_z = Memory.ReadFloat(trf_address+0x138)
-end
-
-function sly3_load_state()
-	set_coins(ss_coins)
-
-	trf_address = Memory.ReadInt(entity_address+0x44)
-	Memory.WriteFloat(trf_address+0x130, ss_x)
-	Memory.WriteFloat(trf_address+0x134, ss_y)
-	Memory.WriteFloat(trf_address+0x138, ss_z)
-end
-
-function sly3_unlock_all_gadgets()
-	local table = { 255, 255, 255, 255, 255, 255, 255, 255 }
-	API:WriteMemory(0x6CC7F8, Convert.TableToByteArray(table))
 end
 
 function sly3_infinite_juice()
@@ -80,17 +50,36 @@ function sly3_restore_health()
 	Memory.WriteInt(entity_address + 0x16C,40)
 end
 
-function sly3_remove_all_gadgets()
-	local table = { 0, 0, 0, 0, 0, 0, 0, 0 }
-	API:WriteMemory(0x6CC7F8, Convert.TableToByteArray(table))
-end
-
 function sly3_get_coordinates(entity_address)
 	trf_address = Memory.ReadInt(entity_address+0x44)
 	x = Memory.ReadFloat(trf_address+0x130)
 	y = Memory.ReadFloat(trf_address+0x134)
 	z = Memory.ReadFloat(trf_address+0x138)
 	return {x,y,z}
+end
+
+function sly3_skip_FMV()
+	-- Splash FMV
+	if (Memory.ReadInt(0x303E5ECC) > 10) then
+		Memory.WriteInt(0x303E5EC8, 1)
+	end
+
+	-- Outro/Chalktalk FMV
+	if (Memory.ReadInt(0x303F256C) > 10) then
+		Memory.WriteInt(0x303F2568, 1)
+	end
+
+	-- Intro FMV
+	if (Memory.ReadInt(0x303F6C4C) > 10) then
+		Memory.WriteInt(0x303F6C48, 1)
+	end
+
+	-- Dialogues
+	if (Memory.ReadInt(0x39B13F54) > 10) then
+		-- Skips the current dialogue to the end
+		Memory.WriteInt(0x39B13F70, 0)
+	end
+
 end
 
 function sly3_activate_infinite_jumps()
@@ -124,4 +113,24 @@ end
 
 function sly3_restore_guard_ai()
 	Memory.WriteInt(0x5EC6CC, 0)
+end
+
+
+-- Thank you ChatGPT for writing these convertion functions
+-- Convert single byte to array of 8 bits
+function byte_to_bits(byte)
+    local bits = {}
+    for i = 7, 0, -1 do
+        bits[#bits + 1] = (byte >> i) & 1
+    end
+    return bits
+end
+
+-- Convert array of 8 bits to single byte
+function bits_to_int32(bits)
+    local value = 0
+    for i = 1, 32 do
+        value = (value << 1) | bits[i]
+    end
+    return value
 end
