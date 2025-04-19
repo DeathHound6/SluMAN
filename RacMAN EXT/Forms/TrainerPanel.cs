@@ -28,7 +28,8 @@ public class TrainerPanel : Panel
 
     internal void CallOnUnloadEvent()
     {
-        Program.state.EvalLua(trainerJson.OnUnload);
+        Environment.Exit(0); // TODO: this is a temporary fix to prevent the app from crashing when unloading the trainer
+        // Program.state.EvalLua(trainerJson.OnUnload);
     }
 
     /// <summary>

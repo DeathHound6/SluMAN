@@ -1,7 +1,17 @@
 {
   "TitleID": "NPEA00343",
   "RacmanVersion": "1",
-  "Labels": [],
+  "Labels": [
+    {
+      "Name": "sly3Label",
+      "Text": "Sly 3: Honor Among Thieves",
+      "Position": {
+        "IsEmpty": false,
+        "X": 200,
+        "Y": 300
+      }
+    }
+  ],
   "Buttons": [
     {
       "Name": "setCoinsButton",
@@ -98,6 +108,102 @@
         "Height": 25
       },
       "OnClick": "sly3_load_job(Trainer.GetControlByName(\u0027jobSelectDropDown\u0027).SelectedIndex)"
+    },
+    {
+      "Name": "disableGadgetButton",
+      "Enabled": true,
+      "Text": "Disable",
+      "Position": {
+        "IsEmpty": false,
+        "X": 20,
+        "Y": 335
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 100,
+        "Height": 25
+      },
+      "OnClick": "change_gadget_state(0)"
+    },
+    {
+      "Name": "enableGadgetButton",
+      "Enabled": true,
+      "Text": "Enable",
+      "Position": {
+        "IsEmpty": false,
+        "X": 120,
+        "Y": 335
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 100,
+        "Height": 25
+      },
+      "OnClick": "change_gadget_state(1)"
+    },
+    {
+      "Name": "l1GadgetButton",
+      "Enabled": true,
+      "Text": "L1",
+      "Position": {
+        "IsEmpty": false,
+        "X": 20,
+        "Y": 360
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 40,
+        "Height": 25
+      },
+      "OnClick": "bind_gadget(0)"
+    },
+    {
+      "Name": "l2GadgetButton",
+      "Enabled": true,
+      "Text": "L2",
+      "Position": {
+        "IsEmpty": false,
+        "X": 60,
+        "Y": 360
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 40,
+        "Height": 25
+      },
+      "OnClick": "bind_gadget(1)"
+    },
+    {
+      "Name": "r2GadgetButton",
+      "Enabled": true,
+      "Text": "R2",
+      "Position": {
+        "IsEmpty": false,
+        "X": 100,
+        "Y": 360
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 40,
+        "Height": 25
+      },
+      "OnClick": "bind_gadget(2)"
+    },
+    {
+      "Name": "unbindGadgetButton",
+      "Enabled": true,
+      "Text": "Unbind",
+      "Position": {
+        "IsEmpty": false,
+        "X": 140,
+        "Y": 360
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 80,
+        "Height": 25
+      },
+      "OnClick": "bind_gadget(4)"
     },
     {
       "Name": "skipCinematicButton",
@@ -268,7 +374,7 @@
         "Width": 150,
         "Height": 20
       },
-      "Options": [""],
+      "Options": [ "" ],
       "Index": 0,
       "OnItemSelected": ""
     },
@@ -624,6 +730,25 @@
         "Jump Attack 1",
         "Jump Attack 2",
         "Jump Attack 3"
+      ],
+      "Index": 0,
+      "OnItemSelected": ""
+    },
+    {
+      "Name": "cssSelectDropDown",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 300,
+        "Y": 310
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 200,
+        "Height": 20
+      },
+      "Options": [
+        "Guard Duty"
       ],
       "Index": 0,
       "OnItemSelected": ""

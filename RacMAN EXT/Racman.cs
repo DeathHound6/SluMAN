@@ -171,6 +171,7 @@ public class Racman
         lua.RegisterFunction("Convert.ReverseArray", typeof(LuaFunctions).GetMethod("ReverseArray"));
         lua.RegisterFunction("Autosplitter.Create", typeof(Autosplitter).GetMethod("Create"));
         lua["API"] = API;
+        lua["MainForm"] = MainForm;
         lua["Racman"] = this;
 
         // if a game script and racman script have the same name for some reason, the racman script will be prioritized.

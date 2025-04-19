@@ -1,4 +1,5 @@
 function sly3_set_gadget_state(name, state)
+	print("Setting gadget state: " .. name .. " to " .. tostring(state))
 	if name == "fishing_pole" then sly3_set_gadget(1, state)
 	elseif name == "trigger_bomb" then sly3_set_gadget(2, state)
 	elseif name == "bentley_bomb" then sly3_set_gadget(4, state)
@@ -86,4 +87,70 @@ function sly3_set_gadget(index, value)
 	local gadgets = sly3_get_unlocked_gadgets()
 	gadgets[index] = value
 	sly3_set_unlocked_gadgets(gadgets)
+end
+
+function sly3_bind_gadget(name, button_index)
+	local gadgets = {}
+	local base = 0x6CC7B0
+	local gadget_index = 0
+
+	if name == "fishing_pole" then gadget_index = 7
+	elseif name == "trigger_bomb" then gadget_index = 6
+	elseif name == "rage_bomb" then gadget_index = 15
+	elseif name == "size_destabilizer" then gadget_index = 14
+	elseif name == "grapple_cam" then gadget_index = 13
+	elseif name == "insanity_strike" then gadget_index = 12
+	elseif name == "health_extractor" then gadget_index = 10
+	elseif name == "adrenaline_burst" then gadget_index = 9
+	elseif name == "alarm_clock" then gadget_index = 8
+	elseif name == "raging_inferno_flop" then gadget_index = 23
+	elseif name == "temporal_lock" then gadget_index = 22
+	elseif name == "fists_of_flame" then gadget_index = 21
+	elseif name == "guttural_roar" then gadget_index = 20
+	elseif name == "berserker_charge" then gadget_index = 18
+	elseif name == "be_the_ball" then gadget_index = 17
+	elseif name == "reduction_bomb" then gadget_index = 16
+	elseif name == "knockout_dive" then gadget_index = 31
+	elseif name == "mega_jump" then gadget_index = 30
+	elseif name == "feral_pounce" then gadget_index = 29
+	elseif name == "combat_dodge" then gadget_index = 26
+	elseif name == "smoke_bomb" then gadget_index = 25
+	elseif name == "diablo_fire_slam" then gadget_index = 24
+	elseif name == "photographer_disguise" then gadget_index = 39
+	elseif name == "venice_disguise" then gadget_index = 38
+	elseif name == "shield" then gadget_index = 37
+	elseif name == "treasure_map" then gadget_index = 36
+	elseif name == "rocket_boots" then gadget_index = 35
+	elseif name == "shadow_power_2" then gadget_index = 34
+	elseif name == "thief_reflexes" then gadget_index = 33
+	elseif name == "shadow_power_1" then gadget_index = 32
+	elseif name == "pirate_disguise" then gadget_index = 40
+	end
+
+	-- Check first if gadget is already binded and unbind in that case
+	for i = 1, 9 do
+		if gadget_index == Memory.ReadInt(base + i * 4) then
+			Memory.WriteInt(base + i * 4, -1)
+			break
+		end
+	end
+
+	if button_index == 4 then return end
+
+	if gadget_index < 17 or gadget_index == 24 then
+		Memory.WriteInt(base + (button_index + 3) * 4, gadget_index)
+	elseif gadget_index < 24 or gadget_index == 32 then
+		Memory.WriteInt(base + (button_index + 6) * 4, gadget_index)
+	elseif gadget_index < 57 then
+		Memory.WriteInt(base + button_index * 4, gadget_index)
+	else return
+	end
+	sly3_set_gadget_state(name, 1)
+end
+
+function format_string(input)
+    local formatted = string.gsub(input, " ", "_")
+	formatted = string.gsub(formatted, "-", "_")
+    formatted = string.lower(formatted)
+    return formatted
 end

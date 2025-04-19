@@ -10,6 +10,24 @@ function sly3_get_coincount()
 	return Memory.ReadInt(0x6CC808)
 end
 
+function sly3_set_language(index)
+	-- 1 = English
+	-- 2 = French
+	-- 3 = Italian
+	-- 4 = German
+	-- 5 = Spanish
+	-- 7 = Dutch
+	-- 8 = Danish
+	-- 9 = Norwegian
+	-- 10 = Swedish
+	-- 11 = Finnish
+	Memory.WriteInt(0x7E28F0, index)
+end
+
+function sly3_get_language()
+	return Memory.ReadInt(0x7E28F0)
+end
+
 function sly3_infinite_juice()
 	-- Fake infinite, adds a shit ton of juice tho
 	entity_address = Memory.ReadInt(0x5EC654)

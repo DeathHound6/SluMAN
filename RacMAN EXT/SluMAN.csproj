@@ -43,6 +43,8 @@
 	  <None Remove="data\common\inputdisplay\Custom\skin.png" />
 	  <None Remove="data\common\inputdisplay\Custom\skin.txt" />
 	  <None Remove="data\common\user\settings.json" />
+	  <None Remove="data\game\npea00343\scripts\characters.lua" />
+	  <None Remove="data\game\npea00343\scripts\css_practice.lua" />
 	  <None Remove="data\game\npea00343\scripts\freecam.lua" />
 	  <None Remove="data\game\npea00343\scripts\gadgets.lua" />
 	  <None Remove="data\game\NPEA00343\scripts\inputp.lua" />

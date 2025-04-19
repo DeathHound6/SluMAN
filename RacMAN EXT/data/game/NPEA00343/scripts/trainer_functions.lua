@@ -77,3 +77,15 @@ function uncheck_all_boxes()
 	Trainer.ChangeCheckStatus("infiniteHealthCheckBox")
 	Trainer.ChangeCheckStatus("gameClockCheckBox")
 end
+
+function change_gadget_state(new_state)
+	local menu_name = Trainer.GetControlByName("gadgetSelectDropDown").Text
+	local name = format_string(menu_name)
+	sly3_set_gadget_state(name, new_state)
+end
+
+function bind_gadget(button_index)
+	local menu_name = Trainer.GetControlByName("gadgetSelectDropDown").Text
+	local name = format_string(menu_name)
+	sly3_bind_gadget(name, button_index)
+end

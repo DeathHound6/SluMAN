@@ -96,21 +96,14 @@ function sly3_set_map(map_name)
 	-- Spawn location should be spesified separately	
 	-- map_name: string (such as "v_ext" or "h_hotel")
 	-- Clears the memory
-	Memory.WriteInt(0x78D2C8, 0)
-	Memory.WriteInt(0x78D2CC, 0)
-	Memory.WriteInt(0x78D2D0, 0)
-	Memory.WriteInt(0x78D2D4, 0)
-	Memory.WriteInt(0x78D2D8, 0)
-	Memory.WriteInt(0x78D2DC, 0)
-	Memory.WriteInt(0x78D2E0, 0)
-	Memory.WriteInt(0x78D2E4, 0)
+	for i = 0,7 do
+		Memory.WriteInt(0x78D2C8 + (i * 4), 0)
+	end
 	-- Sets the map name
 	API:WriteMemory(0x78D2C8, map_name)
 	-- Sets the spawn location as default
 	-- If this is not handled, player might spawn in void
-	--print(map_name)
-	--print(get_default_spawn_location(map_name).tostring())
-	--API:WriteMemory(0x78D308, get_default_spawn_location(map_name))
+	Memory.WriteInt(0x78D308, get_default_spawn_location(map_name))
 end
 
 function sly3_load_map(map_name)
