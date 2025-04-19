@@ -161,4 +161,44 @@ public partial class MainForm : Form
     {
         new SettingsForm(state).Show();
     }
+
+    private void MainForm_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    public void ClearDropDown(string dropdown_name)
+    {
+        if (this.TrainerPanel == null)
+        {
+            return;
+        }
+        ComboBox cb = this.TrainerPanel.Controls[dropdown_name] as ComboBox;
+        if (cb == null)
+        {
+            return;
+        }
+        cb.Items.Clear();
+        // Clear the selected item
+        cb.Text = "";
+        return;
+
+    }
+
+    public void AddItemToDropDown(string item_name, string dropdown_name)
+    {
+        if (this.TrainerPanel == null)
+        {
+            return;
+        }
+        ComboBox cb = this.TrainerPanel.Controls[dropdown_name] as ComboBox;
+        if (cb == null)
+        {
+            return;
+        }
+        cb.Items.Add(item_name);
+        cb.SelectedIndex = 0;
+        return;
+
+    }
 }

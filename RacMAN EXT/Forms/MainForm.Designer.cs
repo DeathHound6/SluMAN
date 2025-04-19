@@ -128,7 +128,7 @@ partial class MainForm
         // 
         combosHotkeysToolStripMenuItem.Image = Properties.Resources.HotKeys;
         combosHotkeysToolStripMenuItem.Name = "combosHotkeysToolStripMenuItem";
-        combosHotkeysToolStripMenuItem.Size = new Size(180, 22);
+        combosHotkeysToolStripMenuItem.Size = new Size(176, 22);
         combosHotkeysToolStripMenuItem.Text = "Combos/Hotkeys...";
         combosHotkeysToolStripMenuItem.Click += combosHotkeysToolStripMenuItem_Click;
         // 
@@ -136,7 +136,7 @@ partial class MainForm
         // 
         inputDisplayToolStripMenuItem.Image = Properties.Resources.GameController;
         inputDisplayToolStripMenuItem.Name = "inputDisplayToolStripMenuItem";
-        inputDisplayToolStripMenuItem.Size = new Size(180, 22);
+        inputDisplayToolStripMenuItem.Size = new Size(176, 22);
         inputDisplayToolStripMenuItem.Text = "Input Display...";
         inputDisplayToolStripMenuItem.Click += inputDisplayToolStripMenuItem_Click;
         // 
@@ -144,7 +144,7 @@ partial class MainForm
         // 
         autosplittersToolStripMenuItem.Image = Properties.Resources.Clock;
         autosplittersToolStripMenuItem.Name = "autosplittersToolStripMenuItem";
-        autosplittersToolStripMenuItem.Size = new Size(180, 22);
+        autosplittersToolStripMenuItem.Size = new Size(176, 22);
         autosplittersToolStripMenuItem.Text = "Autosplitters...";
         autosplittersToolStripMenuItem.Click += autosplittersToolStripMenuItem_Click;
         // 
@@ -152,7 +152,7 @@ partial class MainForm
         // 
         luaConsoleToolStripMenuItem.Image = Properties.Resources.Equipment;
         luaConsoleToolStripMenuItem.Name = "luaConsoleToolStripMenuItem";
-        luaConsoleToolStripMenuItem.Size = new Size(180, 22);
+        luaConsoleToolStripMenuItem.Size = new Size(176, 22);
         luaConsoleToolStripMenuItem.Text = "Lua Console...";
         luaConsoleToolStripMenuItem.Click += luaConsoleToolStripMenuItem_Click;
         // 
@@ -167,7 +167,7 @@ partial class MainForm
         // 
         reloadToolStripMenuItem.Image = Properties.Resources.Refresh;
         reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
-        reloadToolStripMenuItem.Size = new Size(180, 22);
+        reloadToolStripMenuItem.Size = new Size(146, 22);
         reloadToolStripMenuItem.Text = "Reload";
         reloadToolStripMenuItem.Click += reloadToolStripMenuItem_Click;
         // 
@@ -175,7 +175,7 @@ partial class MainForm
         // 
         openDesignerToolStripMenuItem.Image = Properties.Resources.Wrench;
         openDesignerToolStripMenuItem.Name = "openDesignerToolStripMenuItem";
-        openDesignerToolStripMenuItem.Size = new Size(180, 22);
+        openDesignerToolStripMenuItem.Size = new Size(146, 22);
         openDesignerToolStripMenuItem.Text = "Open Editor...";
         openDesignerToolStripMenuItem.Click += openDesignerToolStripMenuItem_Click;
         // 
@@ -196,6 +196,7 @@ partial class MainForm
         Name = "MainForm";
         Text = "SluMAN {version} - {title ID} - {game title}";
         FormClosing += MainForm_FormClosing;
+        Load += MainForm_Load;
         Shown += MainForm_Shown;
         menuStrip1.ResumeLayout(false);
         menuStrip1.PerformLayout();
