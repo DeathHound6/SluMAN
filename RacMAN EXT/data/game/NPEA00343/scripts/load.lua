@@ -21,3 +21,8 @@ function sly3_full_load()
 	Memory.WriteInt(0x78D2C4, 15)
 	Memory.WriteInt(0x78D2C0, 1)
 end
+
+function load(mode)
+	Memory.WriteInt(0x78D2C4, mode)
+	Memory.WriteInt(0x78D2C0, 1)
+end

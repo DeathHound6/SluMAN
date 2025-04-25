@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Reflection;
 using RacMAN.API;
+using DarkModeForms;
 
 namespace RacMAN.Forms;
 public partial class AttachGameForm : Form
@@ -9,9 +10,16 @@ public partial class AttachGameForm : Form
     public APIType apiType = APIType.None;
     public string BoxText => textBox1.Text;
 
+    private DarkModeCS dm = null;
+
     public AttachGameForm(Racman state)
     {
         InitializeComponent(state);
+        dm = new DarkModeCS(this)
+        {
+            //[Optional] Choose your preferred color mode here:
+            ColorMode = DarkModeCS.DisplayMode.SystemDefault
+        };
         versionLabel.Text = $"v{Assembly.GetEntryAssembly()!.GetName().Version}";
         this.state = state;
     }

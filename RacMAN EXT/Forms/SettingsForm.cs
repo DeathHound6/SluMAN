@@ -8,16 +8,23 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DarkModeForms;
 
 namespace RacMAN.Forms;
 public partial class SettingsForm : Form
 {
     Racman state;
     UserSettings settings;
+    private DarkModeCS dm = null;
 
     public SettingsForm(Racman state)
     {
         InitializeComponent();
+        dm = new DarkModeCS(this)
+        {
+            //[Optional] Choose your preferred color mode here:
+            ColorMode = DarkModeCS.DisplayMode.SystemDefault
+        };
         this.state = state;
         this.settings = state.Settings;
 

@@ -9,36 +9,36 @@
       "Text": "Set Coins",
       "Position": {
         "IsEmpty": false,
-        "X": 120,
+        "X": 105,
         "Y": 100
       },
       "Size": {
         "IsEmpty": false,
-        "Width": 70,
-        "Height": 20
+        "Width": 80,
+        "Height": 25
       },
       "OnClick": "sly2_set_coin_count(tonumber(Trainer.GetControlByName(\u0027coinCountTextBox\u0027).Text))"
     },
     {
-      "Name": "unlockGadgetsButton",
+      "Name": "setHealthButton",
       "Enabled": true,
-      "Text": "Unlock\nAll\nPowerups",
+      "Text": "Set Health",
       "Position": {
         "IsEmpty": false,
-        "X": 180,
-        "Y": 30
+        "X": 105,
+        "Y": 130
       },
       "Size": {
         "IsEmpty": false,
         "Width": 80,
-        "Height": 60
+        "Height": 25
       },
-      "OnClick": "sly2_unlock_all_gadgets()"
+      "OnClick": "sly2_set_health(tonumber(Trainer.GetControlByName(\u0027healthTextBox\u0027).Text))"
     },
     {
-      "Name": "reloadCpButton",
+      "Name": "killButton",
       "Enabled": true,
-      "Text": "Reload",
+      "Text": "Kill",
       "Position": {
         "IsEmpty": false,
         "X": 20,
@@ -47,41 +47,25 @@
       "Size": {
         "IsEmpty": false,
         "Width": 60,
-        "Height": 60
+        "Height": 25
       },
       "OnClick": "sly2_kill_active_character()"
     },
     {
-      "Name": "infJuiceBtn",
+      "Name": "reloadButton",
       "Enabled": true,
-      "Text": "Infinite\nGadget Power",
+      "Text": "Reload",
       "Position": {
         "IsEmpty": false,
-        "X": 120,
-        "Y": 30
+        "X": 20,
+        "Y": 60
       },
       "Size": {
         "IsEmpty": false,
         "Width": 60,
-        "Height": 60
+        "Height": 25
       },
-      "OnClick": ""
-    },
-    {
-      "Name": "infHealthBtn",
-      "Enabled": true,
-      "Text": "Infinite\nHealth",
-      "Position": {
-        "IsEmpty": false,
-        "X": 260,
-        "Y": 30
-      },
-      "Size": {
-        "IsEmpty": false,
-        "Width": 60,
-        "Height": 60
-      },
-      "OnClick": ""
+      "OnClick": "sly2_reload()"
     },
     {
       "Name": "loadMapButton",
@@ -132,20 +116,100 @@
       "OnClick": "sly2_load_job(Trainer.GetControlByName(\u0027jobSelectDropDown\u0027).SelectedIndex)"
     },
     {
-      "Name": "loadCinematicButton",
-      "Enabled": false,
-      "Text": "Load Cinematic",
+      "Name": "disableGadgetButton",
+      "Enabled": true,
+      "Text": "Disable",
       "Position": {
         "IsEmpty": false,
-        "X": 180,
-        "Y": 170
+        "X": 20,
+        "Y": 340
       },
       "Size": {
         "IsEmpty": false,
-        "Width": 70,
+        "Width": 97,
         "Height": 25
       },
-      "OnClick": ""
+      "OnClick": "change_gadget_state(0)"
+    },
+    {
+      "Name": "enableGadgetButton",
+      "Enabled": true,
+      "Text": "Enable",
+      "Position": {
+        "IsEmpty": false,
+        "X": 122,
+        "Y": 340
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 98,
+        "Height": 25
+      },
+      "OnClick": "change_gadget_state(1)"
+    },
+    {
+      "Name": "l1GadgetButton",
+      "Enabled": true,
+      "Text": "L1",
+      "Position": {
+        "IsEmpty": false,
+        "X": 20,
+        "Y": 370
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 35,
+        "Height": 25
+      },
+      "OnClick": "bind_gadget(0)"
+    },
+    {
+      "Name": "l2GadgetButton",
+      "Enabled": true,
+      "Text": "L2",
+      "Position": {
+        "IsEmpty": false,
+        "X": 60,
+        "Y": 370
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 35,
+        "Height": 25
+      },
+      "OnClick": "bind_gadget(1)"
+    },
+    {
+      "Name": "r2GadgetButton",
+      "Enabled": true,
+      "Text": "R2",
+      "Position": {
+        "IsEmpty": false,
+        "X": 100,
+        "Y": 370
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 35,
+        "Height": 25
+      },
+      "OnClick": "bind_gadget(2)"
+    },
+    {
+      "Name": "unbindGadgetButton",
+      "Enabled": true,
+      "Text": "Unbind",
+      "Position": {
+        "IsEmpty": false,
+        "X": 140,
+        "Y": 370
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 80,
+        "Height": 25
+      },
+      "OnClick": "bind_gadget(4)"
     }
   ],
   "TextBoxes": [
@@ -155,8 +219,29 @@
       "Text": "",
       "Position": {
         "IsEmpty": false,
-        "X": 10,
+        "X": 20,
         "Y": 100
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 80,
+        "Height": 25
+      },
+      "OnEnter": ""
+    },
+    {
+      "Name": "healthTextBox",
+      "Enabled": true,
+      "Text": "",
+      "Position": {
+        "IsEmpty": false,
+        "X": 20,
+        "Y": 130
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 80,
+        "Height": 25
       },
       "OnEnter": ""
     }
@@ -238,7 +323,7 @@
         "Width": 150,
         "Height": 20
       },
-      "Options": [""],
+      "Options": [ "" ],
       "Index": 0,
       "OnItemSelected": ""
     },
@@ -267,9 +352,6 @@
         "Theater Pickpocketing",
         "Disco Demolitions",
         "OP: Thunder Beak",
-        " [TB] Steal the Key",
-        " [TB] Climb the Peacock",
-        " [TB] Dimitri Fight",
         "Recon the Ballroom",
         "Lower the Drawbridge",
         "Steal a Tuxedo",
@@ -329,6 +411,59 @@
         "Charged TNT Run",
         "Mega-Jump Job",
         "Showdown with Clock-La"
+      ],
+      "Index": 0,
+      "OnItemSelected": ""
+    },
+    {
+      "Name": "gadgetSelectDropDown",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 20,
+        "Y": 310
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 200,
+        "Height": 20
+      },
+      "Options": [
+        "Trigger Bomb",
+        "Size Destabilizer",
+        "Snooze Bomb",
+        "Adrenaline Burst",
+        "Health Extractor",
+        "Hover Pack",
+        "Reduction Bomb",
+        "Temporal Lock",
+        "Fists of Flame",
+        "Turnbuckle Launch",
+        "Juggernaut Throw",
+        "Atlas Strength",
+        "Diablo Fire Slam",
+        "Berserker Charge",
+        "Guttural Roar",
+        "Raging Inferno Flop",
+        "Smoke Bomb",
+        "Combat Dodge",
+        "Stealth Slide",
+        "Alarm Clock",
+        "Paraglider",
+        "Silent Obliteration",
+        "Thief Reflexes",
+        "Feral Pounce",
+        "Knockout Dive",
+        "Insanity Strike",
+        "Voltage Attack",
+        "Long Toss",
+        "Rage Bomb",
+        "Music Box",
+        "Lightning Spin",
+        "Shadow Power",
+        "Mega Jump",
+        "Time Rush",
+        "TOM"
       ],
       "Index": 0,
       "OnItemSelected": ""

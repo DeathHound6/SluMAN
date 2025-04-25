@@ -7,5 +7,5 @@ function load_css_state()
 	sly3_set_active_character(24)
 	sly3_load_map("Y$KFv_ext")
 	-- set spawn location to third coffee house
-	Memory.WriteInt(0x78D308, 139057)
+	Memory.WriteInt(0x78D308, 138333)
 end

@@ -9,7 +9,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>RacMAN.Program</StartupObject>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-	  <VersionPrefix>0.1.0</VersionPrefix>
+	  <VersionPrefix>0.1.1</VersionPrefix>
 	  <VersionSuffix>alpha</VersionSuffix>
 	  <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
@@ -50,10 +50,12 @@
 	  <None Remove="data\game\NPEA00343\scripts\inputp.lua" />
 	  <None Remove="data\game\npea00343\scripts\jobs.lua" />
 	  <None Remove="data\game\npea00343\scripts\load.lua" />
+	  <None Remove="data\game\npea00343\scripts\load_file_states.lua" />
 	  <None Remove="data\game\npea00343\scripts\maps.lua" />
 	  <None Remove="data\game\NPEA00343\scripts\trainer_functions.lua" />
 	  <None Remove="data\game\NPEA00343\scripts\utility.lua" />
 	  <None Remove="data\game\NPEA00343\trainer.json" />
+	  <None Remove="data\game\npha80175\scripts\gadgets.lua" />
 	  <None Remove="data\game\NPHA80175\scripts\inputp.lua" />
 	  <None Remove="data\game\NPHA80175\scripts\jobs.lua" />
 	  <None Remove="data\game\npha80175\scripts\job_states.lua" />

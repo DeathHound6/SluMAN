@@ -90,6 +90,7 @@ public class DefineTextBox
 {
     public string Name { get; set; }
     public bool Enabled { get; set; }
+    public Size Size { get; set; } // size of the textbox
     public string Text { get; set; } // default value on load, can be changed by code.
     public Point Position { get; set; } // is a rectangle necessary here? idk
     public string OnEnter { get; set; } // for when the enter key is pressed

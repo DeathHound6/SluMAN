@@ -67,6 +67,7 @@ public class TrainerPanel : Panel
         textBox.Location = define.Position;
         textBox.Text = define.Text;
         textBox.Enabled = define.Enabled;
+        textBox.Size = define.Size;
         textBox.Tag = define;
         textBox.KeyDown += TextBox_KeyDown;
         return textBox;

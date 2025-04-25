@@ -190,6 +190,7 @@ partial class MainForm
         ClientSize = new Size(624, 441);
         Controls.Add(menuStrip1);
         DoubleBuffered = true;
+        Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
         Icon = (Icon)resources.GetObject("$this.Icon");
         MainMenuStrip = menuStrip1;
         Margin = new Padding(4, 3, 4, 3);

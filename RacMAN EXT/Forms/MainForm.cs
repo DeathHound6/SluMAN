@@ -2,6 +2,7 @@
 using RacMAN.Forms.InputDisplay;
 using System.IO.Compression;
 using System.Text.Json;
+using DarkModeForms;
 
 namespace RacMAN.Forms;
 public partial class MainForm : Form
@@ -10,10 +11,16 @@ public partial class MainForm : Form
     public TrainerPanel? TrainerPanel { get; set; }
     public Trainer Trainer { get; set; }
     public InputDisplayForm? InputDisplay { get; set; }
+    private DarkModeCS dm = null;
 
     public MainForm(Racman state)
     {
         InitializeComponent();
+        dm = new DarkModeCS(this)
+        {
+            //[Optional] Choose your preferred color mode here:
+            ColorMode = DarkModeCS.DisplayMode.SystemDefault
+        };
         this.state = state;
         state.APIConnected += ReloadGameSpecificStuff;
         state.InputProviderChanged += CheckForInputProvider;
@@ -173,13 +180,12 @@ public partial class MainForm : Form
         {
             return;
         }
-        ComboBox cb = this.TrainerPanel.Controls[dropdown_name] as ComboBox;
+        ComboBox? cb = this.TrainerPanel.Controls[dropdown_name] as ComboBox;
         if (cb == null)
         {
             return;
         }
         cb.Items.Clear();
-        // Clear the selected item
         cb.Text = "";
         return;
 
@@ -191,7 +197,7 @@ public partial class MainForm : Form
         {
             return;
         }
-        ComboBox cb = this.TrainerPanel.Controls[dropdown_name] as ComboBox;
+        ComboBox? cb = this.TrainerPanel.Controls[dropdown_name] as ComboBox;
         if (cb == null)
         {
             return;

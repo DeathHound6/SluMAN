@@ -30,6 +30,14 @@ function sly2_infinite_health()
 	end
 end
 
+function sly2_set_health(health)
+	local character = Memory.ReadInt(0x7A830C)
+	if character == 7 then Memory.WriteInt(0x7A8360, health)
+	elseif character == 8 then Memory.WriteInt(0x7A8378, health)
+	elseif character == 9 then Memory.WriteInt(0x7A8390, health)
+	end
+end
+
 
 function sly2_activate_invulnerability()
 	entity_address = Memory.ReadInt(0x49E290)

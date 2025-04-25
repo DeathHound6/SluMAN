@@ -68,6 +68,11 @@ function sly3_restore_health()
 	Memory.WriteInt(entity_address + 0x16C,40)
 end
 
+function sly3_set_health(health)
+	entity_address = Memory.ReadInt(0x5EC654)
+	Memory.WriteInt(entity_address + 0x168,health)
+end
+
 function sly3_get_coordinates(entity_address)
 	trf_address = Memory.ReadInt(entity_address+0x44)
 	x = Memory.ReadFloat(trf_address+0x130)
@@ -97,6 +102,8 @@ function sly3_skip_FMV()
 		-- Skips the current dialogue to the end
 		Memory.WriteInt(0x39B13F70, 0)
 	end
+
+	Memory.WriteInt(0x3A2E0B28, 1)
 
 end
 
@@ -132,6 +139,7 @@ end
 function sly3_restore_guard_ai()
 	Memory.WriteInt(0x5EC6CC, 0)
 end
+
 
 
 -- Thank you ChatGPT for writing these convertion functions
