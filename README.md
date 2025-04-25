@@ -5,11 +5,6 @@ Speedrun tool for Sly Cooper games, on console and emulator, based on [racman](h
 - Sly 2 digital download (KOR)
 - Sly 3 digital download (PAL)
 
-## Building
-1. Use Visual Studio 2022
-2. Clone the GitHub repository
-3. Click Build > Build Solution
-
 ## Using on PS3
 You need a homebrew-enabled PS3 (either CFW or HEN) and webMAN MOD installed. 
 1. Open game on your PS3.
@@ -27,13 +22,10 @@ Be sure to close SluMAN before closing the game or turning off your PS3, or cras
 
 Please note that you'll need to reconnect SluMAN if you switch games.
 
-## Using autosplitters with LiveSplit
-
-### 1.8.28 and before:
-You'll need to install the [LiveSplit Server component](https://github.com/LiveSplit/LiveSplit.Server/releases) and add it to your layout.
-
-### 1.8.29 and after:
-Everything should work right out of the box... hopefully
+## Building
+1. Use Visual Studio 2022
+2. Clone the GitHub repository
+3. Click Build > Build Solution
 
 ## Credits & Acknowledgments
 - [racman](https://github.com/MichaelRelaxen/racman) contributors
