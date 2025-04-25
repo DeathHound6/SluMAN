@@ -11,17 +11,19 @@ Speedrun tool for Sly Cooper games, on console and emulator, based on [racman](h
 3. Click Build > Build Solution
 
 ## Using on PS3
-You need a homebrew-enabled PS3 (either CFW or HEN) and webMAN MOD installed. Additionally you need the Ratchetron server VSH plugin installed (this is not currently included with the program). Launch the original [racman](https://github.com/MichaelRelaxen/racman) program once to install Ratchetron on your PS3.
-1. Open SluMAN.
-2. Enter your PS3's IP address and click 'Attach'. (If you use HEN, make sure it is enabled first.)
+You need a homebrew-enabled PS3 (either CFW or HEN) and webMAN MOD installed. 
+1. Open game on your PS3.
+2. Open SluMAN.
+3. Enter your PS3's IP address and click 'Attach'. (If you use HEN, make sure it is enabled first.)
 
 Be sure to close SluMAN before closing the game or turning off your PS3, or crashes/hardlocks may occur.
 
 ## Using on RPCS3
-1. Open RPCS3 (don't start the game yet)
-2. Click Configuration > IPC and check the box that says "Enable IPC Server". Note the IPC server port. Click "Save"
+1. Open game on RPCS3.
 3. Start SluMAN.
-4. Click 'RPCS3'
+4. Click 'RPCS3'.
+
+*Before the first use on RPCS3 you need to enable IPC server in RPCS3. Click "Configuration" > "IPC" and check the box that says "Enable IPC Server". Note the IPC server port. Click "Save".*
 
 Please note that you'll need to reconnect SluMAN if you switch games.
 
