@@ -92,6 +92,7 @@ public class DefineTextBox
     public bool Enabled { get; set; }
     public Size Size { get; set; } // size of the textbox
     public string Text { get; set; } // default value on load, can be changed by code.
+    public string PlaceholderText { get; set; } // text shown when the textbox is empty
     public Point Position { get; set; } // is a rectangle necessary here? idk
     public string OnEnter { get; set; } // for when the enter key is pressed
                                         // maybe add an action for when the text is changed?

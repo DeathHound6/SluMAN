@@ -24,6 +24,25 @@ function sly3_set_language(index)
 	Memory.WriteInt(0x7E28F0, index)
 end
 
+function sly3_change_language()
+	local name = Trainer.GetControlByName('languageDropDown').Text
+	if name == "English" then sly3_set_language(1)
+	elseif name == "French" then sly3_set_language(2)
+	elseif name == "Italian" then sly3_set_language(3)
+	elseif name == "German" then sly3_set_language(4)
+	elseif name == "Spanish" then sly3_set_language(5)
+	elseif name == "Portuguese" then sly3_set_language(6)
+	elseif name == "Dutch" then sly3_set_language(7)
+	elseif name == "Danish" then sly3_set_language(8)
+	elseif name == "Norwegian" then sly3_set_language(9)
+	elseif name == "Swedish" then sly3_set_language(10)
+	elseif name == "Finnish" then sly3_set_language(11)
+	else
+		print("Error reading language: language {"..tostring(name).."} does not exists.")
+	end
+	load(134)
+end
+
 function sly3_get_language()
 	return Memory.ReadInt(0x7E28F0)
 end

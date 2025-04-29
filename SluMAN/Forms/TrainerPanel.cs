@@ -69,6 +69,7 @@ public class TrainerPanel : Panel
         textBox.Enabled = define.Enabled;
         textBox.Size = define.Size;
         textBox.Tag = define;
+        textBox.PlaceholderText = define.PlaceholderText;
         textBox.KeyDown += TextBox_KeyDown;
         return textBox;
     }

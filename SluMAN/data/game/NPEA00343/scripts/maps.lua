@@ -108,7 +108,7 @@ function sly3_set_map(map_name)
 	API:WriteMemory(0x78D2C8, map_name)
 	-- Sets the spawn location as default
 	-- If this is not handled, player might spawn in void
-	--Memory.WriteInt(0x78D308, get_default_spawn_location(map_name))
+	--, get_default_spawn_location(map_name))
 end
 
 function sly3_load_map(map_name)

@@ -22,6 +22,38 @@
       "OnClick": "sly3_set_coincount(tonumber(Trainer.GetControlByName(\u0027coinCountTextBox\u0027).Text))"
     },
     {
+      "Name": "loadRunFileButton",
+      "Enabled": true,
+      "Text": "Load File",
+      "Position": {
+        "IsEmpty": false,
+        "X": 475,
+        "Y": 170
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 80,
+        "Height": 25
+      },
+      "OnClick": "sly3_load_run_file()"
+    },
+    {
+      "Name": "languageButton",
+      "Enabled": true,
+      "Text": "Change",
+      "Position": {
+        "IsEmpty": false,
+        "X": 475,
+        "Y": 200
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 80,
+        "Height": 25
+      },
+      "OnClick": "sly3_change_language()"
+    },
+    {
       "Name": "setHealthButton",
       "Enabled": true,
       "Text": "Set Health",
@@ -51,7 +83,7 @@
         "Width": 80,
         "Height": 25
       },
-      "OnClick": "load(0)"
+      "OnClick": "load(132)"
     },
     {
       "Name": "reloadCpButton2",
@@ -67,7 +99,7 @@
         "Width": 80,
         "Height": 25
       },
-      "OnClick": "load(18)"
+      "OnClick": "load(134)"
     },
     {
       "Name": "loadMapButton",
@@ -235,6 +267,7 @@
       "Name": "coinCountTextBox",
       "Enabled": true,
       "Text": "",
+      "PlaceholderText": "Coins",
       "Position": {
         "IsEmpty": false,
         "X": 20,
@@ -251,6 +284,7 @@
       "Name": "healthTextBox",
       "Enabled": true,
       "Text": "",
+      "PlaceholderText": "Health",
       "Position": {
         "IsEmpty": false,
         "X": 20,
@@ -344,7 +378,7 @@
       "Size": {
         "IsEmpty": false,
         "Width": 150,
-        "Height": 20
+        "Height": 25
       },
       "Options": [
         "Main Menu",
@@ -386,6 +420,60 @@
         "    Cooper Vault",
         "    Gauntlet",
         "    Inner Sanctum"
+      ],
+      "Index": 0,
+      "OnItemSelected": ""
+    },
+    {
+      "Name": "languageDropDown",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 320,
+        "Y": 200
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 150,
+        "Height": 25
+      },
+      "Options": [
+        "English",
+        "Dutch",
+        "Norwegian",
+        "Finnish",
+        "Spanish",
+        "Danish",
+        "Portuguese",
+        "Swedish",
+        "French",
+        "German",
+        "Italian"
+      ],
+      "Index": 0,
+      "OnItemSelected": ""
+    },
+    {
+      "Name": "runFileDropDown",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 320,
+        "Y": 170
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 150,
+        "Height": 25
+      },
+      "Options": [
+        "Episode 1",
+        "Episode 2",
+        "Episode 3",
+        "Episode 4",
+        "Episode 5",
+        "Episode 6 Any% (No CE)",
+        "Episode 6 NG+ (CE)"
       ],
       "Index": 0,
       "OnItemSelected": ""
