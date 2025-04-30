@@ -1,6 +1,8 @@
 # SluMAN
 Speedrun tool for Sly Cooper games, on console and emulator, based on [racman](https://github.com/MichaelRelaxen/racman)
 
+### [DOWNLOAD HERE](https://github.com/knuutti/SluMAN/releases/latest/download/SluMAN.zip)
+
 # Supported games:
 - Sly 2: Band of Thieves (KOR) - NPHA80175
 - Sly 3: Honor Among Thieves (PAL) - NPEA00343
