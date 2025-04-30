@@ -1,5 +1,5 @@
 function write_table_slices(address, values)
-    local slice_size = 64
+    local slice_size = 128
     local num_slices = math.ceil(#values / slice_size)
     for i = 1, num_slices do
         local start_index = (i - 1) * slice_size + 1
