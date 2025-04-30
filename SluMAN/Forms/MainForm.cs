@@ -50,7 +50,7 @@ public partial class MainForm : Form
             panel.CallOnLoadEvent();
             LuaConsoleForm.instance.Log($"Done loading trainer for {trainer.TitleID}");
         }
-        trainerMenuItem.Enabled = TrainerPanel != null;
+        //trainerMenuItem.Enabled = TrainerPanel != null;
     }
 
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -205,6 +205,11 @@ public partial class MainForm : Form
         cb.Items.Add(item_name);
         cb.SelectedIndex = 0;
         return;
+
+    }
+
+    private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+    {
 
     }
 }
