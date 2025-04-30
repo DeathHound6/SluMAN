@@ -9,7 +9,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>RacMAN.Program</StartupObject>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-	  <VersionPrefix>0.1.2</VersionPrefix>
+	  <VersionPrefix>0.1.3</VersionPrefix>
 	  <VersionSuffix>alpha</VersionSuffix>
 	  <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
