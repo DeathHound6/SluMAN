@@ -37,7 +37,7 @@ partial class AboutBox
         textBoxDescription = new TextBox();
         okButton = new Button();
         tableLayoutPanel.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize) logoPictureBox).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)logoPictureBox).BeginInit();
         SuspendLayout();
         // 
         // tableLayoutPanel
@@ -69,13 +69,13 @@ partial class AboutBox
         // logoPictureBox
         // 
         logoPictureBox.Dock = DockStyle.Fill;
-        logoPictureBox.Image = (Image) resources.GetObject("logoPictureBox.Image");
+        logoPictureBox.Image = (Image)resources.GetObject("logoPictureBox.Image");
         logoPictureBox.Location = new Point(4, 3);
         logoPictureBox.Margin = new Padding(4, 3, 4, 3);
         logoPictureBox.Name = "logoPictureBox";
         tableLayoutPanel.SetRowSpan(logoPictureBox, 6);
         logoPictureBox.Size = new Size(152, 301);
-        logoPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+        logoPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
         logoPictureBox.TabIndex = 12;
         logoPictureBox.TabStop = false;
         // 
@@ -143,7 +143,7 @@ partial class AboutBox
         // 
         // okButton
         // 
-        okButton.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
+        okButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         okButton.DialogResult = DialogResult.Cancel;
         okButton.Location = new Point(395, 277);
         okButton.Margin = new Padding(4, 3, 4, 3);
@@ -171,7 +171,7 @@ partial class AboutBox
         Text = "AboutBox";
         tableLayoutPanel.ResumeLayout(false);
         tableLayoutPanel.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize) logoPictureBox).EndInit();
+        ((System.ComponentModel.ISupportInitialize)logoPictureBox).EndInit();
         ResumeLayout(false);
     }
 

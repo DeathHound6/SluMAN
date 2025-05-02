@@ -11,7 +11,7 @@
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
 	  <VersionPrefix>0.1.3</VersionPrefix>
 	  <VersionSuffix>alpha</VersionSuffix>
-	  <ApplicationIcon>favicon.ico</ApplicationIcon>
+	  <ApplicationIcon>sluman_icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
