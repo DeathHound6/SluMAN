@@ -35,7 +35,7 @@
         "Width": 80,
         "Height": 25
       },
-      "OnClick": "sly3_load_run_file()"
+      "OnClick": "load_run_file(Trainer.GetControlByName(\u0027runFileDropDown\u0027).Text)"
     },
     {
       "Name": "languageButton",
@@ -51,7 +51,7 @@
         "Width": 80,
         "Height": 25
       },
-      "OnClick": "sly3_change_language()"
+      "OnClick": "change_language(Trainer.GetControlByName(\u0027languageDropDown\u0027).Text)"
     },
     {
       "Name": "setHealthButton",
@@ -131,7 +131,7 @@
         "Width": 70,
         "Height": 25
       },
-      "OnClick": "sly3_load_location(Trainer.GetControlByName(\u0027warpLocationDropDown\u0027).Text)"
+      "OnClick": "load_location(Trainer.GetControlByName(\u0027warpLocationDropDown\u0027).Text)"
     },
     {
       "Name": "loadJobButton",

@@ -1,20 +1,47 @@
 function load_job_helper(job_id, cp_id, load_mode, map)
 	sly3_set_map(map)	
-	-- Proper reload if loading the job checkpoint first time
-	if cp_id ~= Memory.ReadInt(0x5EB490) then load_mode = 134 end
+	sly3_set_active_character(-1)
+	-- Reset the world state
+	local start_address = 0x0
+	local values = {}
+	if job_id < 1799 then
+		start_address = 0x6CD764
+		values = dag_table_ep1_start
+	elseif job_id < 2449 then
+		start_address = 0x6CD764
+		values = dag_table_ep1_start
+	elseif job_id < 3007 then
+		start_address = 0x6CE314
+        values = dag_table_ep2_start
+	elseif job_id < 3402 then
+		start_address = 0x6CED80
+        values = dag_table_ep3_start
+	elseif job_id < 3867 then
+		start_address = 0x6CF688
+        values = dag_table_ep4_start
+	elseif job_id < 4342 then 
+		start_address = 0x6D0680
+        values = dag_table_ep5_start
+	else if job_id < 4590 
+		start_address = 0x6D1258
+        values = dag_table_ep6_start
+	else 
+		start_address = 0x6D1258
+        values = dag_table_ep6_start
+	end
+	write_table_slices(start_address, values)
 
 	Memory.WriteInt(0x5EB488, job_id)
 	Memory.WriteInt(0x5EB48C, cp_id)
 	Memory.WriteInt(0x5EB490, cp_id)
-	Memory.WriteInt(0x78D2C4, load_mode)
+	Memory.WriteInt(0x78D2C4, 134)
 	Memory.WriteInt(0x78D2C0, 1)
 end
 
 function sly3_load_job(index)
 	-- Loads a job based on the selection in the dropdown menu
 
-	local name = Trainer.GetControlByName('jobSelectDropDown').Items[index] 
-	-- using names instead of indices in case the order or contents are later changed
+	local name = Trainer.GetControlByName('jobSelectDropDown').Text
 
 	-- If you change the names, remember to also change the name in trainer.json!
 	if		name == "The Cooper Vault"				then load_job_helper(1798, 1799, 134, "Y$KFm_ext")

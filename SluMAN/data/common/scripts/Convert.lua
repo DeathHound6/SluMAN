@@ -66,3 +66,20 @@ Convert.ByteArrayToFloat = function(bytes, bigEndian)
 		Console.Error('ByteArrayToFloat: Invalid array size')
 	end
 end
+
+Convert.ByteToBits = function(byte)
+    local bits = {}
+    for i = 7, 0, -1 do
+        bits[#bits + 1] = (byte >> i) & 1
+    end
+    return bits
+end
+
+-- Convert array of 8 bits to single byte
+Convert.BitsToInt = function(bits)
+    local value = 0
+    for i = 1, 32 do
+        value = (value << 1) | bits[i]
+    end
+    return value
+end

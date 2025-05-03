@@ -114,12 +114,7 @@ end
 function sly3_load_map(map_name)
 	sly3_set_map(map_name)
 	Memory.WriteInt(0x78D308, get_default_spawn_location(map_name))
-	local warp_locations = sly3_get_current_warp_locations()
-	MainForm:ClearDropDown("warpLocationDropDown")
-	for i = 1, #warp_locations do
-		print(tostring(warp_locations[i]))
-		MainForm:AddItemToDropDown( warp_locations[i], "warpLocationDropDown")
-	end
+	refresh_warp_locations()
 	sly3_reset_job()
 	sly3_load()
 end
@@ -133,19 +128,19 @@ function sly3_get_current_warp_locations()
 	elseif  map_name == "v_apt"				then return {"Coffee House 1", "Coffee House 2", "Coffee House 3"}
 	elseif  map_name == "v_gauntlet"		then return {"Main Entrance", "Pump Room", "Cellar Entrance", "Water Room Entrance", "Water Room Exit", "Computer Room"}
 	elseif  map_name == "v_interpol"		then return {"Cell", "Office"}
-	elseif  map_name == "o_ext"				then return {""}
+	elseif  map_name == "o_ext"				then return {"Safehouse", "Prison", "Lemonade Bar", "Guru's Hut", "Truck", "Kurki"}
 	elseif  map_name == "o_quarry"			then return {""}
 	elseif  map_name == "o_arena"			then return {""}
 	elseif  map_name == "o_cave_a"			then return {""}
 	elseif  map_name == "o_cave_b"			then return {""}
 	elseif  map_name == "o_cave_murray"		then return {""}
 	elseif  map_name == "o_bar"				then return {""}
-	elseif  map_name == "h_ext"				then return {""}
+	elseif  map_name == "h_ext"				then return {"Safehouse", "Castle", "Hangars", "Tori"}
 	elseif  map_name == "h_hotel"			then return {""}
 	elseif  map_name == "h_hangar_b"		then return {""}
 	elseif  map_name == "h_hangar_a"		then return {""}
 	elseif  map_name == "h_hangar_c"		then return {""}
-	elseif  map_name == "h_sewer"			then return {""}
+	elseif  map_name == "h_sewer"			then return {"Street Entrance", "Middle Point", "Hotel Entrance"}
 	elseif  map_name == "h_dogfight"		then return {""}
 	elseif  map_name == "h_hack"			then return {""}
 	elseif  map_name == "c_ext"				then return {""}
@@ -160,10 +155,21 @@ function sly3_get_current_warp_locations()
 	elseif  map_name == "p_at_sea"			then return {""}
 	elseif  map_name == "p_dive"			then return {""}
 	elseif  map_name == "p_island_map"		then return {""}
-	elseif  map_name == "m_ext"				then return {""}
+	elseif  map_name == "m_ext"				then return {"Vault", "Boat", "Lab"}
 	elseif  map_name == "m_underwater"		then return {""}
 	elseif  map_name == "m_vault"			then return {""}
-	elseif  map_name == "m_gauntlet"		then return {""}
+	elseif  map_name == "m_gauntlet"		then return {"Slytunkhamon", "Sir Galeth", "Salim al Kupar", "Sleigh", "Rioichi", "Henriette", "Tennessee", "Thadious", "Otto", "Connor"}
 	elseif  map_name == "m_boss"			then return {""}
+	end
+end
+
+-- Refresh the warp locations manually
+function refresh_warp_locations()
+	local map_name = Trainer.GetControlByName("mapsDropDown").Text
+	local warp_locations = sly3_get_current_warp_locations(get_map_true_name(map_name))
+	MainForm:ClearDropDown("warpLocationDropDown")
+	for i = 1, #warp_locations do
+		print(tostring(warp_locations[i]))
+		MainForm:AddItemToDropDown( warp_locations[i], "warpLocationDropDown")
 	end
 end

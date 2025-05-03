@@ -64,7 +64,7 @@ function sly3_get_unlocked_gadgets()
 	local gadgets = {}
 	for i = 0, 7 do
 		local byte = Memory.ReadByte(0x6CC7F8 + i)
-		local bits = byte_to_bits(byte)
+		local bits = Convert.ByteToBits(byte)
 
 		for j, bit in ipairs(bits) do
 			gadgets[i * 8 + j] = bit
@@ -79,7 +79,7 @@ function sly3_set_unlocked_gadgets(gadgets)
 		for j = 1, 32 do
 			bits[j] = gadgets[32 * i + j]
 		end
-		Memory.WriteInt(0x6CC7F8 + 4 * i, bits_to_int32(bits))
+		Memory.WriteInt(0x6CC7F8 + 4 * i, Convert.BitsToInt(bits))
 	end
 end
 

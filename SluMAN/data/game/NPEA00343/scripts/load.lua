@@ -1,6 +1,6 @@
 -- Loading related functions
 
-function sly3_load_location(location_name)
+function load_location(location_name)
 	sly3_insta_load()
 end
 

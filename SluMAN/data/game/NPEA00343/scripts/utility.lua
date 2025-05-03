@@ -24,8 +24,7 @@ function sly3_set_language(index)
 	Memory.WriteInt(0x7E28F0, index)
 end
 
-function sly3_change_language()
-	local name = Trainer.GetControlByName('languageDropDown').Text
+function change_language(name)
 	if name == "English" then sly3_set_language(1)
 	elseif name == "French" then sly3_set_language(2)
 	elseif name == "Italian" then sly3_set_language(3)
@@ -69,13 +68,11 @@ function sly3_restore_juice()
 end
 
 function sly3_activate_invulnerability()
-	-- Restores the juice meter back to normal
 	entity_address = Memory.ReadInt(0x5EC654)
 	Memory.WriteInt(entity_address + 0x17C,1)
 end
 
 function sly3_remove_invulnerability()
-	-- Restores the juice meter back to normal
 	entity_address = Memory.ReadInt(0x5EC654)
 	Memory.WriteInt(entity_address + 0x17C,0)
 end
@@ -151,31 +148,18 @@ function sly3_unfreeze_game_clock()
 	Memory.WriteFloat(0x5898B8, 1)
 end
 
+function set_clock_speed(speed)
+	Memory.WriteFloat(0x5898B8, speed)
+end
+
+function get_clock_speed()
+	return Memory.ReadFloat(0x5898B8)
+end
+
 function sly3_disable_guard_ai()
 	Memory.WriteInt(0x5EC6CC, 1)
 end
 
 function sly3_restore_guard_ai()
 	Memory.WriteInt(0x5EC6CC, 0)
-end
-
-
-
--- Thank you ChatGPT for writing these convertion functions
--- Convert single byte to array of 8 bits
-function byte_to_bits(byte)
-    local bits = {}
-    for i = 7, 0, -1 do
-        bits[#bits + 1] = (byte >> i) & 1
-    end
-    return bits
-end
-
--- Convert array of 8 bits to single byte
-function bits_to_int32(bits)
-    local value = 0
-    for i = 1, 32 do
-        value = (value << 1) | bits[i]
-    end
-    return value
 end
