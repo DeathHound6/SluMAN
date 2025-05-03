@@ -22,7 +22,7 @@ function load_job_helper(job_id, cp_id, load_mode, map)
 	elseif job_id < 4342 then 
 		start_address = 0x6D0680
         values = dag_table_ep5_start
-	else if job_id < 4590 
+	elseif job_id < 4590 then
 		start_address = 0x6D1258
         values = dag_table_ep6_start
 	else 
