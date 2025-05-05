@@ -29,7 +29,7 @@ function load_job_helper(job_id, cp_id, load_mode, map)
 		start_address = 0x6D1258
         values = dag_table_ep6_start
 	end
-	write_table_slices(start_address, values)
+	Memory.WriteTable(start_address, values)
 
 	Memory.WriteInt(0x5EB488, job_id)
 	Memory.WriteInt(0x5EB48C, cp_id)

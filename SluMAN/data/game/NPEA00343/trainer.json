@@ -852,6 +852,7 @@
       "OnItemSelected": ""
     }
   ],
+  "GroupBoxes": [],
   "OnLoad": "",
   "OnUnload": ""
 }

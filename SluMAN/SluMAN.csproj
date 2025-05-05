@@ -9,7 +9,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>RacMAN.Program</StartupObject>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-	  <VersionPrefix>0.1.3</VersionPrefix>
+	  <VersionPrefix>0.1.4</VersionPrefix>
 	  <VersionSuffix>alpha</VersionSuffix>
 	  <ApplicationIcon>sluman_icon.ico</ApplicationIcon>
   </PropertyGroup>
@@ -56,6 +56,7 @@
 	  <None Remove="data\game\NPEA00343\scripts\trainer_functions.lua" />
 	  <None Remove="data\game\NPEA00343\scripts\utility.lua" />
 	  <None Remove="data\game\NPEA00343\trainer.json" />
+	  <None Remove="data\game\npha80175\scripts\dag_tables.lua" />
 	  <None Remove="data\game\npha80175\scripts\gadgets.lua" />
 	  <None Remove="data\game\NPHA80175\scripts\inputp.lua" />
 	  <None Remove="data\game\NPHA80175\scripts\jobs.lua" />

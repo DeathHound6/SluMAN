@@ -17,6 +17,7 @@ public class TrainerPanel : Panel
         foreach (var textbox in trainer.TextBoxes) Controls.Add(ConstructTextBox(textbox));
         foreach (var checkbox in trainer.CheckBoxes) Controls.Add(ConstructCheckBox(checkbox));
         foreach (var combobox in trainer.Dropdowns) Controls.Add(ConstructComboBox(combobox));
+        foreach (var gropubox in trainer.GroupBoxes) Controls.Add(ConstructGroupBox(gropubox));
 
         ResumeLayout();
     }
@@ -101,6 +102,16 @@ public class TrainerPanel : Panel
         comboBox.Tag = define;
         comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
         return comboBox;
+    }
+
+    private static GroupBox ConstructGroupBox(DefineGroupBox define)
+    {
+        GroupBox groupBox = new GroupBox();
+        groupBox.Name = define.Name;
+        groupBox.Text = define.Text;
+        groupBox.Location = define.Position;
+        groupBox.Size = define.Size;
+        return groupBox;
     }
 
     private static void ComboBox_SelectedIndexChanged(object? sender, EventArgs e)

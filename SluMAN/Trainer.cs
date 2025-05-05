@@ -15,6 +15,7 @@ public class Trainer
     public List<DefineTextBox> TextBoxes { get; set; }
     public List<DefineCheckBox> CheckBoxes { get; set; }
     public List<DefineDropdown> Dropdowns { get; set; }
+    public List<DefineGroupBox> GroupBoxes { get; set; } // not implemented yet, but will be in the future
 
     // Lua actions
     public string OnLoad { get; set; } // action run when trainer is loaded.
@@ -29,6 +30,7 @@ public class Trainer
         TextBoxes = [];
         CheckBoxes = [];
         Dropdowns = [];
+        GroupBoxes = [];
         OnLoad = "";
         OnUnload = "";
     }
@@ -44,7 +46,8 @@ public class Trainer
             Buttons = t.Buttons.ConvertAll(DefineButton.Copy),
             TextBoxes = t.TextBoxes.ConvertAll(DefineTextBox.Copy),
             CheckBoxes = t.CheckBoxes.ConvertAll(DefineCheckBox.Copy),
-            Dropdowns = t.Dropdowns.ConvertAll(DefineDropdown.Copy)
+            Dropdowns = t.Dropdowns.ConvertAll(DefineDropdown.Copy),
+            GroupBoxes = t.GroupBoxes.ConvertAll(DefineGroupBox.Copy)
         };
     }
 }
@@ -146,6 +149,24 @@ public class DefineDropdown
     }
 
     internal DefineDropdown Copy()
+    {
+        return Copy(this);
+    }
+}
+
+public class DefineGroupBox
+{
+    public string Name { get; set; }
+    public string Text { get; set; } 
+    public Point Position { get; set; }
+    public Size Size { get; set; }
+
+    internal static DefineGroupBox Copy(DefineGroupBox o)
+    {
+        return (DefineGroupBox)o.MemberwiseClone();
+    }
+
+    internal DefineGroupBox Copy()
     {
         return Copy(this);
     }

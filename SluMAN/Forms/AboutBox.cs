@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DarkModeForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -6,19 +7,27 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DarkModeForms;
 
 namespace RacMAN.Forms;
 partial class AboutBox : Form
 {
+
+    private DarkModeCS dm = null;
     public AboutBox()
     {
         InitializeComponent();
+        dm = new DarkModeCS(this)
+        {
+            //[Optional] Choose your preferred color mode here:
+            ColorMode = DarkModeCS.DisplayMode.SystemDefault
+        };
         this.Text = String.Format("About {0}", AssemblyTitle);
-        this.labelProductName.Text = AssemblyProduct;
+        //this.labelProductName.Text = AssemblyProduct;
         this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
-        this.labelCopyright.Text = AssemblyCopyright;
-        this.labelCompanyName.Text = AssemblyCompany;
-        this.textBoxDescription.Text = AssemblyDescription;
+        //this.labelCopyright.Text = AssemblyCopyright;
+        //this.labelCompanyName.Text = AssemblyCompany;
+        //this.textBoxDescription.Text = AssemblyDescription;
     }
 
     #region Assembly Attribute Accessors
@@ -30,7 +39,7 @@ partial class AboutBox : Form
             object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
             if (attributes.Length > 0)
             {
-                AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute) attributes[0];
+                AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
                 if (titleAttribute.Title != "")
                 {
                     return titleAttribute.Title;
@@ -57,7 +66,7 @@ partial class AboutBox : Form
             {
                 return "";
             }
-            return ((AssemblyDescriptionAttribute) attributes[0]).Description;
+            return ((AssemblyDescriptionAttribute)attributes[0]).Description;
         }
     }
 
@@ -70,7 +79,7 @@ partial class AboutBox : Form
             {
                 return "";
             }
-            return ((AssemblyProductAttribute) attributes[0]).Product;
+            return ((AssemblyProductAttribute)attributes[0]).Product;
         }
     }
 
@@ -83,7 +92,7 @@ partial class AboutBox : Form
             {
                 return "";
             }
-            return ((AssemblyCopyrightAttribute) attributes[0]).Copyright;
+            return ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
         }
     }
 
@@ -96,8 +105,23 @@ partial class AboutBox : Form
             {
                 return "";
             }
-            return ((AssemblyCompanyAttribute) attributes[0]).Company;
+            return ((AssemblyCompanyAttribute)attributes[0]).Company;
         }
     }
     #endregion
+
+    private void labelProductName_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void textBoxDescription_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void labelCompanyName_Click(object sender, EventArgs e)
+    {
+
+    }
 }

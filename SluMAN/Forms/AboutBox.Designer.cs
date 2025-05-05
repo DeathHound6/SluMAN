@@ -34,7 +34,6 @@ partial class AboutBox
         labelVersion = new Label();
         labelCopyright = new Label();
         labelCompanyName = new Label();
-        textBoxDescription = new TextBox();
         okButton = new Button();
         tableLayoutPanel.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)logoPictureBox).BeginInit();
@@ -50,7 +49,6 @@ partial class AboutBox
         tableLayoutPanel.Controls.Add(labelVersion, 1, 1);
         tableLayoutPanel.Controls.Add(labelCopyright, 1, 2);
         tableLayoutPanel.Controls.Add(labelCompanyName, 1, 3);
-        tableLayoutPanel.Controls.Add(textBoxDescription, 1, 4);
         tableLayoutPanel.Controls.Add(okButton, 1, 5);
         tableLayoutPanel.Dock = DockStyle.Fill;
         tableLayoutPanel.Location = new Point(10, 10);
@@ -60,9 +58,11 @@ partial class AboutBox
         tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
         tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
         tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+        tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 57.0032578F));
+        tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 2.605863F));
         tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-        tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+        tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+        tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
         tableLayoutPanel.Size = new Size(487, 307);
         tableLayoutPanel.TabIndex = 0;
         // 
@@ -88,8 +88,9 @@ partial class AboutBox
         labelProductName.Name = "labelProductName";
         labelProductName.Size = new Size(316, 20);
         labelProductName.TabIndex = 19;
-        labelProductName.Text = "Product Name";
+        labelProductName.Text = "SluMAN - Sly Cooper Practice Tool";
         labelProductName.TextAlign = ContentAlignment.MiddleLeft;
+        labelProductName.Click += labelProductName_Click;
         // 
         // labelVersion
         // 
@@ -112,34 +113,21 @@ partial class AboutBox
         labelCopyright.Name = "labelCopyright";
         labelCopyright.Size = new Size(316, 20);
         labelCopyright.TabIndex = 21;
-        labelCopyright.Text = "Copyright";
+        labelCopyright.Text = "Developed by Knuutti";
         labelCopyright.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // labelCompanyName
         // 
-        labelCompanyName.Dock = DockStyle.Fill;
+        labelCompanyName.AccessibleRole = AccessibleRole.Client;
         labelCompanyName.Location = new Point(167, 90);
         labelCompanyName.Margin = new Padding(7, 0, 4, 0);
-        labelCompanyName.MaximumSize = new Size(0, 20);
+        labelCompanyName.MaximumSize = new Size(0, 300);
         labelCompanyName.Name = "labelCompanyName";
-        labelCompanyName.Size = new Size(316, 20);
+        labelCompanyName.Size = new Size(316, 175);
         labelCompanyName.TabIndex = 22;
-        labelCompanyName.Text = "Company Name";
+        labelCompanyName.Text = resources.GetString("labelCompanyName.Text");
         labelCompanyName.TextAlign = ContentAlignment.MiddleLeft;
-        // 
-        // textBoxDescription
-        // 
-        textBoxDescription.Dock = DockStyle.Fill;
-        textBoxDescription.Location = new Point(167, 123);
-        textBoxDescription.Margin = new Padding(7, 3, 4, 3);
-        textBoxDescription.Multiline = true;
-        textBoxDescription.Name = "textBoxDescription";
-        textBoxDescription.ReadOnly = true;
-        textBoxDescription.ScrollBars = ScrollBars.Both;
-        textBoxDescription.Size = new Size(316, 147);
-        textBoxDescription.TabIndex = 23;
-        textBoxDescription.TabStop = false;
-        textBoxDescription.Text = "Description";
+        labelCompanyName.Click += labelCompanyName_Click;
         // 
         // okButton
         // 
@@ -151,6 +139,7 @@ partial class AboutBox
         okButton.Size = new Size(88, 27);
         okButton.TabIndex = 24;
         okButton.Text = "&OK";
+        okButton.Click += labelProductName_Click;
         // 
         // AboutBox
         // 
@@ -170,7 +159,6 @@ partial class AboutBox
         StartPosition = FormStartPosition.CenterParent;
         Text = "AboutBox";
         tableLayoutPanel.ResumeLayout(false);
-        tableLayoutPanel.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)logoPictureBox).EndInit();
         ResumeLayout(false);
     }
@@ -183,6 +171,5 @@ partial class AboutBox
     private System.Windows.Forms.Label labelVersion;
     private System.Windows.Forms.Label labelCopyright;
     private System.Windows.Forms.Label labelCompanyName;
-    private System.Windows.Forms.TextBox textBoxDescription;
     private System.Windows.Forms.Button okButton;
 }

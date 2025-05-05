@@ -89,6 +89,13 @@ function sly3_set_health(health)
 	Memory.WriteInt(entity_address + 0x168,health)
 end
 
+function change_health(delta)
+	local entity_address = Memory.ReadInt(0x5EC654)
+	local curr_health = Memory.WriteInt((entity_address + 0x168)
+	Memory.WriteInt(entity_address + 0x168, curr_health+delta)
+
+end
+
 function sly3_get_coordinates(entity_address)
 	trf_address = Memory.ReadInt(entity_address+0x44)
 	x = Memory.ReadFloat(trf_address+0x130)
