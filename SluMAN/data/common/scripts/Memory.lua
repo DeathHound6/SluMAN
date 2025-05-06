@@ -52,7 +52,7 @@ end
 
 -- Write a table of integers (8-bit) to memory
 -- Limiting the amount of values written at once with 'slice_size'
-Memory.WriteTable = function(addr, table)
+Memory.WriteTable = function(address, values)
     local slice_size = 128
     local num_slices = math.ceil(#values / slice_size)
     for i = 1, num_slices do

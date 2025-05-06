@@ -9,3 +9,8 @@ function sly2_full_load()
 	Memory.WriteInt(0x7B4C54, 17)
 	Memory.WriteInt(0x7B4C50, 1)
 end
+
+function LoadGame(load_type)
+	Memory.WriteInt(0x7B4C54, load_type)
+	Memory.WriteInt(0x7B4C50, 1)
+end

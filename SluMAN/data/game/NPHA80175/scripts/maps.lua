@@ -71,6 +71,20 @@ function sly2_set_map(map_name)
 
 end
 
+function SetMap(map_name)
+	Memory.WriteInt(0x7B4C58, 0)
+	Memory.WriteInt(0x7B4C5C, 0)
+	Memory.WriteInt(0x7B4C60, 0)
+	Memory.WriteInt(0x7B4C64, 0)
+	Memory.WriteInt(0x7B4C68, 0)
+	Memory.WriteInt(0x7B4C6C, 0)
+	Memory.WriteInt(0x7B4C70, 0)
+	Memory.WriteInt(0x7B4C74, 0)
+	Memory.WriteInt(0x7B4C78, 0)
+
+	API:WriteMemory(0x7B4C58, map_name)
+end
+
 function sly2_load_map(map_name)
 	sly2_set_map(map_name)
 	sly2_reset_previous_job()
