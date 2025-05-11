@@ -86,8 +86,7 @@ function SetMap(map_name)
 end
 
 function sly2_load_map(map_name)
-	sly2_set_map(map_name)
-	sly2_reset_previous_job()
-	sly2_reset_job()
-	sly2_reload()
+	SetMap(map_name)
+	ResetPreviousJob()
+	LoadGame(0)
 end

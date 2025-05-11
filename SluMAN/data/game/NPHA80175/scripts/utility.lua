@@ -30,6 +30,10 @@ function sly2_infinite_health()
 	end
 end
 
+function SetCharacter(characterId)
+	Memory.WriteInt(0x7A830C, characterId)
+end
+
 function sly2_set_health(health)
 	local character = Memory.ReadInt(0x7A830C)
 	if character == 7 then Memory.WriteInt(0x7A8360, health)
