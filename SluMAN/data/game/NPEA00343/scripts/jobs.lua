@@ -5,29 +5,29 @@ function load_job_helper(job_id, cp_id, load_mode, map)
 	local start_address = 0x0
 	local values = {}
 	if job_id < 1799 then
-		start_address = 0x6CD764
-		values = dag_table_ep1_start
+		start_address = DAG_EP1_ADDR
+		values = DAG_EP1_DAY0
 	elseif job_id < 2449 then
-		start_address = 0x6CD764
-		values = dag_table_ep1_start
+		start_address = DAG_EP1_ADDR
+		values = DAG_EP1_DAY0
 	elseif job_id < 3007 then
-		start_address = 0x6CE314
-        values = dag_table_ep2_start
+		start_address = DAG_EP2_ADDR
+        values = dag_ep2_start
 	elseif job_id < 3402 then
-		start_address = 0x6CED80
-        values = dag_table_ep3_start
+		start_address = DAG_EP3_ADDR
+        values = dag_ep3_start
 	elseif job_id < 3867 then
-		start_address = 0x6CF688
-        values = dag_table_ep4_start
+		start_address = DAG_EP4_ADDR
+        values = DAG_EP4_DAY1
 	elseif job_id < 4342 then 
-		start_address = 0x6D0680
-        values = dag_table_ep5_start
+		start_address = DAG_EP5_ADDR
+        values = DAG_EP5_DAY0
 	elseif job_id < 4590 then
-		start_address = 0x6D1258
-        values = dag_table_ep6_start
+		start_address = DAG_EP6_ADDR
+        values = DAG_EP6_STAR
 	else 
-		start_address = 0x6D1258
-        values = dag_table_ep6_start
+		start_address = DAG_EP6_ADDR
+        values = DAG_EP6_STAR
 	end
 	Memory.WriteTable(start_address, values)
 

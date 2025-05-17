@@ -1,0 +1,384 @@
+{
+  "TitleID": "NPEA00341",
+  "RacmanVersion": "2.0.0.0",
+  "Labels": [
+    {
+      "Name": "",
+      "Text": "Coin Count:",
+      "Position": {
+        "IsEmpty": false,
+        "X": 22,
+        "Y": 42
+      }
+    },
+    {
+      "Name": "",
+      "Text": "Life Count:",
+      "Position": {
+        "IsEmpty": false,
+        "X": 126,
+        "Y": 42
+      }
+    },
+    {
+      "Name": "",
+      "Text": "Gadget Loadout:",
+      "Position": {
+        "IsEmpty": false,
+        "X": 22,
+        "Y": 201
+      }
+    }
+  ],
+  "Buttons": [
+    {
+      "Name": "saveposButton",
+      "Enabled": true,
+      "Text": "Save Position",
+      "Position": {
+        "IsEmpty": false,
+        "X": 25,
+        "Y": 100
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 206,
+        "Height": 35
+      },
+      "OnClick": "sly1_save_pos()"
+    },
+    {
+      "Name": "loadposButton",
+      "Enabled": true,
+      "Text": "Load Position",
+      "Position": {
+        "IsEmpty": false,
+        "X": 232,
+        "Y": 100
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 206,
+        "Height": 35
+      },
+      "OnClick": "sly1_load_pos()"
+    },
+    {
+      "Name": "removeAllGadgets",
+      "Enabled": true,
+      "Text": "Remove All Gadgets",
+      "Position": {
+        "IsEmpty": false,
+        "X": 25,
+        "Y": 140
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 206,
+        "Height": 35
+      },
+      "OnClick": "sly1_remove_gadgets()"
+    },
+    {
+      "Name": "unlockAllGadgets",
+      "Enabled": true,
+      "Text": "Unlock All Gadgets",
+      "Position": {
+        "IsEmpty": false,
+        "X": 232,
+        "Y": 140
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 206,
+        "Height": 35
+      },
+      "OnClick": "sly1_unlock_allgadgets()"
+    },
+    {
+      "Name": "addCharmButton",
+      "Enabled": true,
+      "Text": "Add Charm",
+      "Position": {
+        "IsEmpty": false,
+        "X": 232,
+        "Y": 63
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 102,
+        "Height": 25
+      },
+      "OnClick": "sly1_addcharm()"
+    },
+    {
+      "Name": "removeCharmsButton",
+      "Enabled": true,
+      "Text": "Remove Charms",
+      "Position": {
+        "IsEmpty": false,
+        "X": 336,
+        "Y": 63
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 102,
+        "Height": 25
+      },
+      "OnClick": "sly1_removecharms()"
+    },
+    {
+      "Name": "loadLoadoutButton",
+      "Enabled": true,
+      "Text": "Load Gadget Loadout",
+      "Position": {
+        "IsEmpty": false,
+        "X": 232,
+        "Y": 180
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 206,
+        "Height": 35
+      },
+      "OnClick": "sly1_loadgadgets()"
+    }
+  ],
+  "TextBoxes": [
+    {
+      "Name": "coinCountTextBox",
+      "Enabled": true,
+      "Text": "",
+      "Position": {
+        "IsEmpty": false,
+        "X": 26,
+        "Y": 64
+      },
+      "OnEnter": "sly4_set_coincount(tonumber(Trainer.GetControlByName(\u0027coinCountTextBox\u0027).Text))"
+    },
+    {
+      "Name": "lifeCountTextBox",
+      "Enabled": true,
+      "Text": "",
+      "Position": {
+        "IsEmpty": false,
+        "X": 130,
+        "Y": 64
+      },
+      "OnEnter": "sly1_set_lifecount(tonumber(Trainer.GetControlByName(\u0027lifeCountTextBox\u0027).Text))"
+    }
+  ],
+  "CheckBoxes": [
+    {
+      "Name": "freezeCharmCheckbox",
+      "Enabled": true,
+      "Text": "Infinite Charms",
+      "CheckState": 0,
+      "Position": {
+        "IsEmpty": false,
+        "X": 233,
+        "Y": 42
+      },
+      "AllowIndeterminate": false,
+      "OnCheck": "sly1_set_freeze_charms(Trainer.GetControlByName(\u0027freezeCharmCheckbox\u0027).Checked)"
+    },
+    {
+      "Name": "dive1Check",
+      "Enabled": true,
+      "Text": "Dive 1",
+      "CheckState": 0,
+      "Position": {
+        "IsEmpty": false,
+        "X": 26,
+        "Y": 225
+      },
+      "AllowIndeterminate": false,
+      "OnCheck": "sly1_dive1check(Trainer.GetControlByName(\u0027dive1Check\u0027).Checked)"
+    },
+    {
+      "Name": "roll1Check",
+      "Enabled": true,
+      "Text": "Roll 1",
+      "CheckState": 0,
+      "Position": {
+        "IsEmpty": false,
+        "X": 94,
+        "Y": 225
+      },
+      "AllowIndeterminate": false,
+      "OnCheck": "sly1_roll1check(Trainer.GetControlByName(\u0027roll1Check\u0027).Checked)"
+    },
+    {
+      "Name": "slow1Check",
+      "Enabled": true,
+      "Text": "Slow 1",
+      "CheckState": 0,
+      "Position": {
+        "IsEmpty": false,
+        "X": 162,
+        "Y": 225
+      },
+      "AllowIndeterminate": false,
+      "OnCheck": "sly1_slow1check(Trainer.GetControlByName(\u0027slow1Check\u0027).Checked)"
+    },
+    {
+      "Name": "dive2Check",
+      "Enabled": true,
+      "Text": "Dive 2",
+      "CheckState": 0,
+      "Position": {
+        "IsEmpty": false,
+        "X": 26,
+        "Y": 250
+      },
+      "AllowIndeterminate": false,
+      "OnCheck": "sly1_dive2check(Trainer.GetControlByName(\u0027dive2Check\u0027).Checked)"
+    },
+    {
+      "Name": "magnetCheck",
+      "Enabled": true,
+      "Text": "Magnet",
+      "CheckState": 0,
+      "Position": {
+        "IsEmpty": false,
+        "X": 233,
+        "Y": 225
+      },
+      "AllowIndeterminate": false,
+      "OnCheck": "sly1_magnetcheck(Trainer.GetControlByName(\u0027magnetCheck\u0027).Checked)"
+    },
+    {
+      "Name": "mineCheck",
+      "Enabled": true,
+      "Text": "Mine",
+      "CheckState": 0,
+      "Position": {
+        "IsEmpty": false,
+        "X": 301,
+        "Y": 225
+      },
+      "AllowIndeterminate": false,
+      "OnCheck": "sly1_minecheck(Trainer.GetControlByName(\u0027mineCheck\u0027).Checked)"
+    },
+    {
+      "Name": "fastCheck",
+      "Enabled": true,
+      "Text": "Fast",
+      "CheckState": 0,
+      "Position": {
+        "IsEmpty": false,
+        "X": 369,
+        "Y": 225
+      },
+      "AllowIndeterminate": false,
+      "OnCheck": "sly1_fastcheck(Trainer.GetControlByName(\u0027fastCheck\u0027).Checked)"
+    },
+    {
+      "Name": "voidCheck",
+      "Enabled": true,
+      "Text": "Void Safety",
+      "CheckState": 0,
+      "Position": {
+        "IsEmpty": false,
+        "X": 162,
+        "Y": 275
+      },
+      "AllowIndeterminate": false,
+      "OnCheck": "sly1_voidcheck(Trainer.GetControlByName(\u0027voidCheck\u0027).Checked)"
+    },
+    {
+      "Name": "sneakCheck",
+      "Enabled": true,
+      "Text": "Sneak",
+      "CheckState": 0,
+      "Position": {
+        "IsEmpty": false,
+        "X": 301,
+        "Y": 250
+      },
+      "AllowIndeterminate": false,
+      "OnCheck": "sly1_sneakcheck(Trainer.GetControlByName(\u0027sneakCheck\u0027).Checked)"
+    },
+    {
+      "Name": "roll2Check",
+      "Enabled": true,
+      "Text": "Roll 2",
+      "CheckState": 0,
+      "Position": {
+        "IsEmpty": false,
+        "X": 94,
+        "Y": 250
+      },
+      "AllowIndeterminate": false,
+      "OnCheck": "sly1_roll2check(Trainer.GetControlByName(\u0027roll2Check\u0027).Checked)"
+    },
+    {
+      "Name": "binocCheck",
+      "Enabled": true,
+      "Text": "Binoc Upgrade",
+      "CheckState": 0,
+      "Position": {
+        "IsEmpty": false,
+        "X": 301,
+        "Y": 275
+      },
+      "AllowIndeterminate": false,
+      "OnCheck": "sly1_binoccheck(Trainer.GetControlByName(\u0027binocCheck\u0027).Checked)"
+    },
+    {
+      "Name": "slow2Check",
+      "Enabled": true,
+      "Text": "Slow 2",
+      "CheckState": 0,
+      "Position": {
+        "IsEmpty": false,
+        "X": 162,
+        "Y": 250
+      },
+      "AllowIndeterminate": false,
+      "OnCheck": "sly1_slow2check(Trainer.GetControlByName(\u0027slow2Check\u0027).Checked)"
+    },
+    {
+      "Name": "decoyCheck",
+      "Enabled": true,
+      "Text": "Decoy",
+      "CheckState": 0,
+      "Position": {
+        "IsEmpty": false,
+        "X": 233,
+        "Y": 250
+      },
+      "AllowIndeterminate": false,
+      "OnCheck": "sly1_decoycheck(Trainer.GetControlByName(\u0027decoyCheck\u0027).Checked)"
+    },
+    {
+      "Name": "waterCheck",
+      "Enabled": true,
+      "Text": "Water Safety",
+      "CheckState": 0,
+      "Position": {
+        "IsEmpty": false,
+        "X": 26,
+        "Y": 275
+      },
+      "AllowIndeterminate": false,
+      "OnCheck": "sly1_watercheck(Trainer.GetControlByName(\u0027waterCheck\u0027).Checked)"
+    },
+    {
+      "Name": "stunCheck",
+      "Enabled": true,
+      "Text": "Stun",
+      "CheckState": 0,
+      "Position": {
+        "IsEmpty": false,
+        "X": 369,
+        "Y": 250
+      },
+      "AllowIndeterminate": false,
+      "OnCheck": "sly1_stuncheck(Trainer.GetControlByName(\u0027stunCheck\u0027).Checked)"
+    }
+  ],
+  "Dropdowns": [],
+  "OnLoad": "",
+  "OnUnload": ""
+}

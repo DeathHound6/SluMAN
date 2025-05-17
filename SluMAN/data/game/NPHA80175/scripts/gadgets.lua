@@ -37,6 +37,12 @@ function sly2_set_gadget_state(name, state)
 	elseif name == "shadow_power" then sly2_set_gadget(48, state)
 	
 	end
+
+	-- Unbind gadget when disabled
+	if state == 0 then
+		sly2_bind_gadget(name, 4)
+	end
+
 end
 
 function sly2_bind_gadget(name, button_index)
@@ -77,7 +83,7 @@ function sly2_bind_gadget(name, button_index)
 	end
 
 	-- Check first if gadget is already binded and unbind in that case
-	for i = 1, 9 do
+	for i = 0, 15 do
 		if gadget_index == Memory.ReadInt(base + i * 4) then
 			Memory.WriteInt(base + i * 4, -1)
 			break
@@ -87,14 +93,15 @@ function sly2_bind_gadget(name, button_index)
 	if button_index == 4 then return end
 
 	if gadget_index > 22 then
-		-- Bentley
-		Memory.WriteInt(base + (button_index + 6) * 4, gadget_index)
+		-- Sly
+		Memory.WriteInt(base + button_index * 4, gadget_index)
 	elseif gadget_index > 14 then
 		-- Murray
 		Memory.WriteInt(base + (button_index + 12) * 4, gadget_index)
 	elseif gadget_index > 6 then
-		-- Sly
-		Memory.WriteInt(base + button_index * 4, gadget_index)
+		-- Bentley
+		Memory.WriteInt(base + (button_index + 6) * 4, gadget_index)
+		
 	else return
 	end
 	sly2_set_gadget_state(name, 1)

@@ -91,7 +91,7 @@ end
 
 function change_health(delta)
 	local entity_address = Memory.ReadInt(0x5EC654)
-	local curr_health = Memory.WriteInt((entity_address + 0x168)
+	local curr_health = Memory.ReadInt(entity_address + 0x168)
 	Memory.WriteInt(entity_address + 0x168, curr_health+delta)
 
 end
