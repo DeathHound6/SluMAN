@@ -83,7 +83,6 @@ public class Game
     public void SaveTrainer()
     {
         File.WriteAllText(trainerPath, JsonSerializer.Serialize(Trainer, jso));
-
     }
 
     public void SaveCombos()

@@ -1,0 +1,38 @@
+{
+  "TitleID": "BCES00968",
+  "RacmanVersion": "1",
+  "Labels": [
+    {
+      "Name": "gameNameLbl",
+      "Text": "Detected Game: Unknown",
+      "Position": {
+        "IsEmpty": false,
+        "X": 10,
+        "Y": 30
+      }
+    }
+  ],
+  "Buttons": [
+    {
+      "Name": "detectGameBtn",
+      "Enabled": true,
+      "Text": "Detect Game",
+      "Position": {
+        "IsEmpty": false,
+        "X": 10,
+        "Y": 50
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 120,
+        "Height": 30
+      },
+      "OnClick": "sly_trilogy_detect_game()"
+    }
+  ],
+  "TextBoxes": [],
+  "CheckBoxes": [],
+  "DropDowns": [],
+  "OnLoad": "sly_trilogy_load()",
+  "OnUnload": ""
+}
