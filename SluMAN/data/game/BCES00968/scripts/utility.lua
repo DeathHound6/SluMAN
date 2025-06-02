@@ -6,3 +6,7 @@
 	end
 	Memory.WriteInt(addr, coins)
 end
+
+function sly_trilogy_set_character(characterId)
+	Memory.WriteInt(0x73490C, characterId)
+end

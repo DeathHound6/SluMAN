@@ -64,7 +64,6 @@ internal class AddressInputProvider : IInputProvider
         }
         else
         {
-
             if (stickPositionSwap == true)
             {
                 API.SubMemory(analogAddress, 2, bytes =>
@@ -112,7 +111,6 @@ internal class AddressInputProvider : IInputProvider
             }
             else
             {
-
                 API.SubMemory(analogAddress, 2, bytes =>
                 {
                     // I thought endianness didn't apply to floats, but I was wrong.
