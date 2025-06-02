@@ -7,7 +7,7 @@
       "Text": "Detected Game: Unknown",
       "Position": {
         "IsEmpty": false,
-        "X": 10,
+        "X": 20,
         "Y": 30
       }
     }
@@ -19,7 +19,7 @@
       "Text": "Detect Game",
       "Position": {
         "IsEmpty": false,
-        "X": 10,
+        "X": 20,
         "Y": 50
       },
       "Size": {
@@ -28,9 +28,42 @@
         "Height": 30
       },
       "OnClick": "sly_trilogy_detect_game()"
+    },
+    {
+      "Name": "setCoinsButton",
+      "Enabled": true,
+      "Text": "Set Coins",
+      "Position": {
+        "IsEmpty": false,
+        "X": 105,
+        "Y": 100
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 100,
+        "Height": 30
+      },
+      "OnClick": "sly_trilogy_set_coin_count(tonumber(Trainer.GetControlByName(\u0027coinCountTextBox\u0027).Text))"
     }
   ],
-  "TextBoxes": [],
+  "TextBoxes": [
+    {
+      "Name": "coinCountTextBox",
+      "Enabled": true,
+      "Text": "",
+      "Position": {
+        "IsEmpty": false,
+        "X": 20,
+        "Y": 100
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 80,
+        "Height": 30
+      },
+      "OnEnter": ""
+    }
+  ],
   "CheckBoxes": [],
   "DropDowns": [],
   "OnLoad": "sly_trilogy_load()",
