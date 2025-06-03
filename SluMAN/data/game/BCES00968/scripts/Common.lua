@@ -1,5 +1,22 @@
 ﻿gameName = "Unknown"
 
+-- enable controls dynamically based on the detected game
+function sly_trilogy_enable_controls(gameName)
+	local controls = {
+		["setCoinsButton"] = {
+			["Sly 1"] = false,
+			["Sly 2"] = true,
+			["Sly 3"] = true
+		}
+	}
+	for controlName, d in pairs(controls) do
+		local control = Trainer.GetControlByName(controlName)
+		if control ~= nil then
+			control.Enabled = d[gameName]
+		end
+	end
+end
+
 function sly_trilogy_load()
 	sly_trilogy_detect_game()
 end
@@ -31,4 +48,5 @@ function sly_trilogy_detect_game()
 		end
 	end
 	Trainer.GetControlByName("gameNameLbl").Text = "Detected Game: " .. gameName
+	sly_trilogy_enable_controls(gameName)
 end
