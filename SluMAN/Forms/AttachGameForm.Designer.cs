@@ -31,7 +31,10 @@ partial class AttachGameForm
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AttachGameForm));
         textBox1 = new TextBox();
         textBox1.Text = state.Settings.RatchetronIP;
+        textBox2 = new TextBox();
+        textBox2.Text = state.Settings.FTPPort.ToString(); // Default FTP port is 21 if not set
         label3 = new Label();
+        label4 = new Label();
         attachButton = new Button();
         versionLabel = new Label();
         rpcs3Button = new Button();
@@ -39,7 +42,7 @@ partial class AttachGameForm
         // 
         // textBox1
         // 
-        textBox1.Location = new Point(24, 46);
+        textBox1.Location = new Point(24, 26);
         textBox1.Margin = new Padding(4, 3, 4, 3);
         textBox1.Name = "textBox1";
         textBox1.Size = new Size(111, 23);
@@ -49,7 +52,7 @@ partial class AttachGameForm
         // label3
         // 
         label3.AutoSize = true;
-        label3.Location = new Point(24, 28);
+        label3.Location = new Point(24, 10);
         label3.Margin = new Padding(4, 0, 4, 0);
         label3.Name = "label3";
         label3.Size = new Size(65, 15);
@@ -66,6 +69,25 @@ partial class AttachGameForm
         attachButton.Text = "Attach";
         attachButton.UseVisualStyleBackColor = true;
         attachButton.Click += attachButton_ClickPS3;
+        // 
+        // textBox2
+        //
+        textBox2.Location = new Point(24, 70);
+        textBox2.Margin = new Padding(4, 3, 4, 3);
+        textBox2.Name = "textBox2";
+        textBox2.Size = new Size(111, 23);
+        textBox2.TabIndex = 6;
+        textBox2.KeyDown += textbox2_KeyDown;
+        //
+        // label4
+        //
+        label4.AutoSize = true;
+        label4.Location = new Point(24, 54);
+        label4.Margin = new Padding(4, 0, 4, 0);
+        label4.Name = "label4";
+        label4.Size = new Size(58, 15);
+        label4.TabIndex = 6;
+        label4.Text = "FTP Port:";
         // 
         // versionLabel
         // 
@@ -97,13 +119,14 @@ partial class AttachGameForm
         Controls.Add(attachButton);
         Controls.Add(label3);
         Controls.Add(textBox1);
+        Controls.Add(textBox2);
+        Controls.Add(label4);
         FormBorderStyle = FormBorderStyle.FixedSingle;
         Icon = (Icon)resources.GetObject("$this.Icon");
         Margin = new Padding(4, 3, 4, 3);
         MaximizeBox = false;
         Name = "AttachGameForm";
         Text = "SluMAN";
-        Load += AttachGameForm_Load;
         Shown += AttachGameForm_Shown;
         ResumeLayout(false);
         PerformLayout();
@@ -113,6 +136,8 @@ partial class AttachGameForm
     private System.Windows.Forms.TextBox textBox1;
     private System.Windows.Forms.Label label3;
     private System.Windows.Forms.Button attachButton;
+    private System.Windows.Forms.TextBox textBox2;
+    private Label label4;
     private Label versionLabel;
     private Button rpcs3Button;
 }

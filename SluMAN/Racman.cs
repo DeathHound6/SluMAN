@@ -109,7 +109,7 @@ public class Racman
                 bool ratchetronLoaded = slot6sprx.Contains("ratchetron_server.sprx");
                 if (!ratchetronLoaded)
                 {
-                    client.UploadFile($"ftp://{form.BoxText}:21/dev_hdd0/tmp/ratchetron_server.sprx", sprxPath + @"\ratchetron_server.sprx");
+                    client.UploadFile($"ftp://{form.BoxText}:{form.FTPPort}/dev_hdd0/tmp/ratchetron_server.sprx", sprxPath + @"\ratchetron_server.sprx");
                     get_data($"http://{form.BoxText}/vshplugin.ps3mapi?prx=%2Fdev_hdd0%2Ftmp%2Fratchetron_server.sprx&load_slot=6");
                 }
                 this.API = new Ratchetron(form.BoxText, (int) Settings.SocketTimeoutInterval);

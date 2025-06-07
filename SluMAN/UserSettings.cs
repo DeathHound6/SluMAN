@@ -9,6 +9,7 @@ internal class UserSettings
 {
     // API settings
     public string? RatchetronIP { get; set; }
+    public int? FTPPort { get; set; } = 21;
     public ushort? RPCS3Slot { get; set; } = 28012;
     public ushort? PCSX2Slot { get; set; } = 28011;
     public int? DefaultAPIDropdownIndex { get; set; } = 0;
