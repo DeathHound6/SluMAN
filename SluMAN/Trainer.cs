@@ -15,7 +15,7 @@ public class Trainer
     public List<DefineTextBox> TextBoxes { get; set; }
     public List<DefineCheckBox> CheckBoxes { get; set; }
     public List<DefineDropdown> Dropdowns { get; set; }
-    public List<DefineGroupBox> GroupBoxes { get; set; } // not implemented yet, but will be in the future
+    public List<DefineGroupBox> GroupBoxes { get; set; } 
 
     // Lua actions
     public string OnLoad { get; set; } // action run when trainer is loaded.

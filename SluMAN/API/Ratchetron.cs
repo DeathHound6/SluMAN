@@ -450,6 +450,23 @@ public class Ratchetron : MemoryAPI
         return -1;
     }
 
+    public void DisplayPopUpAfterLoad(uint address)
+    {
+        var isLoading = 0;
+        var id = SubMemory(address, 1, bytes =>
+        {
+            if (bytes[0] == 3 & isLoading == 1)
+            {
+                WebMAN.DisplayVersionPopUp(ip);
+                isLoading = 0;
+            }
+            else if (bytes[0] == 2 && isLoading == 0)
+            {
+                isLoading = 1;
+            }
+        });
+    }
+
     /// <summary>
     /// Any blasts the data channel with values all the time
     /// Changed only sends data when the value changes

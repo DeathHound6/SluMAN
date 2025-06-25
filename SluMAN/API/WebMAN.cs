@@ -56,6 +56,16 @@ public static class WebMAN
         Get($"http://{ip}/xmb.ps3$rsx_pause");
     }
 
+    public static void ResumeRSX(string ip)
+    {
+        Get($"http://{ip}/xmb.ps3$rsx_resume");
+    }
+
+    public static void DisplayVersionPopUp(string ip)
+    {
+        Get($"http://{ip}/popup.ps3*SluMAN v0.1.6");
+    }
+
     public static void ContinueRSX(string ip)
     {
         Get($"http://{ip}/xmb.ps3$rsx_continue");
