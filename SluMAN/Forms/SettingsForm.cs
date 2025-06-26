@@ -211,4 +211,22 @@ public partial class SettingsForm : Form
             state.ConsoleForm.UpdateColors();
         }
     }
+
+    private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        settings.RatchetronIP = ipTextbox.Text;
+
+
+        state.SaveSettings();
+        state.ConsoleForm.UpdateColors();
+        Console.WriteLine("Settings saved successfully.");
+    }
+
+    private void settingsButton_Click(object sender, EventArgs e)
+    {
+
+        settings.RatchetronIP = ipTextbox.Text;
+        state.SaveSettings();
+        this.Hide();
+    }
 }

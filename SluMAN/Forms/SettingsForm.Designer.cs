@@ -61,6 +61,7 @@ partial class SettingsForm
         folderBrowserDialog1 = new FolderBrowserDialog();
         colorDialog1 = new ColorDialog();
         fontDialog1 = new FontDialog();
+        saveButton = new Button();
         groupBox1.SuspendLayout();
         groupBox2.SuspendLayout();
         groupBox3.SuspendLayout();
@@ -103,7 +104,7 @@ partial class SettingsForm
         label5.AutoSize = true;
         label5.Location = new Point(249, 25);
         label5.Name = "label5";
-        label5.Size = new Size(54, 15);
+        label5.Size = new Size(55, 15);
         label5.TabIndex = 9;
         label5.Text = "Timeout:";
         // 
@@ -213,7 +214,7 @@ partial class SettingsForm
         controllerCombosCheckbox.AutoSize = true;
         controllerCombosCheckbox.Location = new Point(14, 61);
         controllerCombosCheckbox.Name = "controllerCombosCheckbox";
-        controllerCombosCheckbox.Size = new Size(203, 19);
+        controllerCombosCheckbox.Size = new Size(204, 19);
         controllerCombosCheckbox.TabIndex = 1;
         controllerCombosCheckbox.Text = "Trigger combos on button release";
         controllerCombosCheckbox.UseVisualStyleBackColor = true;
@@ -266,7 +267,7 @@ partial class SettingsForm
         // 
         // keyColorButton
         // 
-        keyColorButton.BackColor = Color.FromArgb(  192,   0,   192);
+        keyColorButton.BackColor = Color.FromArgb(192, 0, 192);
         keyColorButton.FlatStyle = FlatStyle.Flat;
         keyColorButton.Location = new Point(173, 57);
         keyColorButton.Name = "keyColorButton";
@@ -341,7 +342,7 @@ partial class SettingsForm
         // 
         // textColorButton
         // 
-        textColorButton.BackColor = Color.FromArgb(  192,   0,   192);
+        textColorButton.BackColor = Color.FromArgb(192, 0, 192);
         textColorButton.FlatStyle = FlatStyle.Flat;
         textColorButton.Location = new Point(73, 59);
         textColorButton.Name = "textColorButton";
@@ -361,7 +362,7 @@ partial class SettingsForm
         // 
         // backColorButton
         // 
-        backColorButton.BackColor = Color.FromArgb(  192,   0,   192);
+        backColorButton.BackColor = Color.FromArgb(192, 0, 192);
         backColorButton.FlatStyle = FlatStyle.Flat;
         backColorButton.Location = new Point(73, 22);
         backColorButton.Name = "backColorButton";
@@ -373,7 +374,7 @@ partial class SettingsForm
         // sampleTextBox
         // 
         sampleTextBox.BackColor = Color.Black;
-        sampleTextBox.Font = new Font("Cascadia Code SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point,  0);
+        sampleTextBox.Font = new Font("Cascadia Code SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
         sampleTextBox.ForeColor = Color.White;
         sampleTextBox.Location = new Point(6, 96);
         sampleTextBox.Multiline = true;
@@ -382,11 +383,22 @@ partial class SettingsForm
         sampleTextBox.TabIndex = 0;
         sampleTextBox.Text = "The quick brown fox jumps over the lazy dog.";
         // 
+        // saveButton
+        // 
+        saveButton.Location = new Point(356, 501);
+        saveButton.Name = "saveButton";
+        saveButton.Size = new Size(105, 32);
+        saveButton.TabIndex = 4;
+        saveButton.Text = "Save Settings";
+        saveButton.UseVisualStyleBackColor = true;
+        saveButton.Click += settingsButton_Click;
+        // 
         // SettingsForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(473, 507);
+        ClientSize = new Size(473, 540);
+        Controls.Add(saveButton);
         Controls.Add(groupBox4);
         Controls.Add(groupBox3);
         Controls.Add(groupBox2);
@@ -394,6 +406,7 @@ partial class SettingsForm
         FormBorderStyle = FormBorderStyle.FixedSingle;
         Name = "SettingsForm";
         Text = "Settings";
+        FormClosing += SettingsForm_FormClosing;
         groupBox1.ResumeLayout(false);
         groupBox1.PerformLayout();
         groupBox2.ResumeLayout(false);
@@ -440,4 +453,5 @@ partial class SettingsForm
     private FolderBrowserDialog folderBrowserDialog1;
     private ColorDialog colorDialog1;
     private FontDialog fontDialog1;
+    private Button saveButton;
 }

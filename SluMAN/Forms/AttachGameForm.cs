@@ -14,13 +14,14 @@ public partial class AttachGameForm : Form
 
     public AttachGameForm(Racman state)
     {
-        InitializeComponent(state);
+        InitializeComponent();
         dm = new DarkModeCS(this)
         {
             //[Optional] Choose your preferred color mode here:
             ColorMode = DarkModeCS.DisplayMode.SystemDefault
         };
         versionLabel.Text = $"v{Assembly.GetEntryAssembly()!.GetName().Version}";
+        textBox1.Text = state.Settings.RatchetronIP;
         this.state = state;
     }
 
@@ -39,6 +40,8 @@ public partial class AttachGameForm : Form
     private void ConnectPS3()
     {
         this.apiType = APIType.PS3;
+        state.Settings.RatchetronIP = textBox1.Text;
+        state.SaveSettings();
         this.Hide();
     }
 

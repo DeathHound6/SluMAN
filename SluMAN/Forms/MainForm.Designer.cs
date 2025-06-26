@@ -68,28 +68,28 @@ partial class MainForm
         // combosHotkeysToolStripMenuItem
         // 
         combosHotkeysToolStripMenuItem.Name = "combosHotkeysToolStripMenuItem";
-        combosHotkeysToolStripMenuItem.Size = new Size(180, 22);
+        combosHotkeysToolStripMenuItem.Size = new Size(167, 22);
         combosHotkeysToolStripMenuItem.Text = "Combos/Hotkeys";
         combosHotkeysToolStripMenuItem.Click += combosHotkeysToolStripMenuItem_Click;
         // 
         // inputDisplayToolStripMenuItem
         // 
         inputDisplayToolStripMenuItem.Name = "inputDisplayToolStripMenuItem";
-        inputDisplayToolStripMenuItem.Size = new Size(180, 22);
+        inputDisplayToolStripMenuItem.Size = new Size(167, 22);
         inputDisplayToolStripMenuItem.Text = "Input Display";
         inputDisplayToolStripMenuItem.Click += inputDisplayToolStripMenuItem_Click;
         // 
         // autosplittersToolStripMenuItem
         // 
         autosplittersToolStripMenuItem.Name = "autosplittersToolStripMenuItem";
-        autosplittersToolStripMenuItem.Size = new Size(180, 22);
+        autosplittersToolStripMenuItem.Size = new Size(167, 22);
         autosplittersToolStripMenuItem.Text = "Autosplitters";
         autosplittersToolStripMenuItem.Click += autosplittersToolStripMenuItem_Click;
         // 
         // luaConsoleToolStripMenuItem
         // 
         luaConsoleToolStripMenuItem.Name = "luaConsoleToolStripMenuItem";
-        luaConsoleToolStripMenuItem.Size = new Size(180, 22);
+        luaConsoleToolStripMenuItem.Size = new Size(167, 22);
         luaConsoleToolStripMenuItem.Text = "Lua Console";
         luaConsoleToolStripMenuItem.Click += luaConsoleToolStripMenuItem_Click;
         // 
@@ -108,10 +108,10 @@ partial class MainForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(624, 441);
+        ClientSize = new Size(624, 381);
         Controls.Add(menuStrip1);
         DoubleBuffered = true;
-        Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
         Icon = (Icon)resources.GetObject("$this.Icon");
         MainMenuStrip = menuStrip1;
         Margin = new Padding(4, 3, 4, 3);
