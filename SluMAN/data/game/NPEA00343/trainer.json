@@ -8,50 +8,18 @@
     {
       "Name": "setCoinsButton",
       "Enabled": true,
-      "Text": "Set Coins",
+      "Text": "Set",
       "Position": {
         "IsEmpty": false,
         "X": 105,
-        "Y": 100
+        "Y": 150
       },
       "Size": {
         "IsEmpty": false,
-        "Width": 80,
-        "Height": 25
+        "Width": 35,
+        "Height": 23
       },
       "OnClick": "sly3_set_coincount(tonumber(Trainer.GetControlByName(\u0027coinCountTextBox\u0027).Text))"
-    },
-    {
-      "Name": "loadRunFileButton",
-      "Enabled": true,
-      "Text": "Load File",
-      "Position": {
-        "IsEmpty": false,
-        "X": 475,
-        "Y": 170
-      },
-      "Size": {
-        "IsEmpty": false,
-        "Width": 80,
-        "Height": 25
-      },
-      "OnClick": "load_run_file(Trainer.GetControlByName(\u0027runFileDropDown\u0027).Text)"
-    },
-    {
-      "Name": "languageButton",
-      "Enabled": true,
-      "Text": "Change",
-      "Position": {
-        "IsEmpty": false,
-        "X": 475,
-        "Y": 200
-      },
-      "Size": {
-        "IsEmpty": false,
-        "Width": 80,
-        "Height": 25
-      },
-      "OnClick": "change_language(Trainer.GetControlByName(\u0027languageDropDown\u0027).Text)"
     },
     {
       "Name": "setHealthButton",
@@ -60,27 +28,59 @@
       "Position": {
         "IsEmpty": false,
         "X": 105,
-        "Y": 130
+        "Y": 180
       },
       "Size": {
         "IsEmpty": false,
-        "Width": 80,
-        "Height": 25
+        "Width": 35,
+        "Height": 23
       },
       "OnClick": "sly3_set_health(tonumber(Trainer.GetControlByName(\u0027healthTextBox\u0027).Text))"
     },
     {
-      "Name": "reloadCpButton",
+      "Name": "loadRunFileButton",
       "Enabled": true,
-      "Text": "Fast Reload",
+      "Text": "Load",
       "Position": {
         "IsEmpty": false,
-        "X": 20,
-        "Y": 30
+        "X": 200,
+        "Y": 305
       },
       "Size": {
         "IsEmpty": false,
-        "Width": 80,
+        "Width": 45,
+        "Height": 23
+      },
+      "OnClick": "load_run_file(Trainer.GetControlByName(\u0027runFileDropDown\u0027).Text)"
+    },
+    {
+      "Name": "languageButton",
+      "Enabled": true,
+      "Text": "Set",
+      "Position": {
+        "IsEmpty": false,
+        "X": 540,
+        "Y": 230
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 50,
+        "Height": 23
+      },
+      "OnClick": "change_language(Trainer.GetControlByName(\u0027languageDropDown\u0027).Text)"
+    },
+    {
+      "Name": "reloadCpButton",
+      "Enabled": true,
+      "Text": "Fast",
+      "Position": {
+        "IsEmpty": false,
+        "X": 40,
+        "Y": 50
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 95,
         "Height": 25
       },
       "OnClick": "load(132)"
@@ -88,15 +88,15 @@
     {
       "Name": "reloadCpButton2",
       "Enabled": true,
-      "Text": "Full Reload",
+      "Text": "Full",
       "Position": {
         "IsEmpty": false,
-        "X": 20,
-        "Y": 60
+        "X": 40,
+        "Y": 85
       },
       "Size": {
         "IsEmpty": false,
-        "Width": 80,
+        "Width": 95,
         "Height": 25
       },
       "OnClick": "load(134)"
@@ -104,48 +104,32 @@
     {
       "Name": "loadMapButton",
       "Enabled": true,
-      "Text": "Load Map",
+      "Text": "Load",
       "Position": {
         "IsEmpty": false,
-        "X": 180,
-        "Y": 200
+        "X": 330,
+        "Y": 50
       },
       "Size": {
         "IsEmpty": false,
-        "Width": 70,
-        "Height": 25
+        "Width": 45,
+        "Height": 55
       },
       "OnClick": "sly3_load_map(get_map_aob_value(Trainer.GetControlByName(\u0027mapsDropDown\u0027).Text))"
     },
     {
-      "Name": "warpLocationButton",
-      "Enabled": false,
-      "Text": "Warp",
-      "Position": {
-        "IsEmpty": false,
-        "X": 180,
-        "Y": 230
-      },
-      "Size": {
-        "IsEmpty": false,
-        "Width": 70,
-        "Height": 25
-      },
-      "OnClick": "load_location(Trainer.GetControlByName(\u0027warpLocationDropDown\u0027).Text)"
-    },
-    {
       "Name": "loadJobButton",
       "Enabled": true,
-      "Text": "Load Job",
+      "Text": "Load",
       "Position": {
         "IsEmpty": false,
-        "X": 230,
-        "Y": 270
+        "X": 540,
+        "Y": 295
       },
       "Size": {
         "IsEmpty": false,
-        "Width": 80,
-        "Height": 25
+        "Width": 45,
+        "Height": 55
       },
       "OnClick": "sly3_load_job(Trainer.GetControlByName(\u0027jobSelectDropDown\u0027).SelectedIndex)"
     },
@@ -155,8 +139,8 @@
       "Text": "Disable",
       "Position": {
         "IsEmpty": false,
-        "X": 20,
-        "Y": 340
+        "X": 175,
+        "Y": 190
       },
       "Size": {
         "IsEmpty": false,
@@ -171,8 +155,8 @@
       "Text": "Enable",
       "Position": {
         "IsEmpty": false,
-        "X": 122,
-        "Y": 340
+        "X": 278,
+        "Y": 190
       },
       "Size": {
         "IsEmpty": false,
@@ -187,8 +171,8 @@
       "Text": "L1",
       "Position": {
         "IsEmpty": false,
-        "X": 20,
-        "Y": 370
+        "X": 175,
+        "Y": 220
       },
       "Size": {
         "IsEmpty": false,
@@ -203,8 +187,8 @@
       "Text": "L2",
       "Position": {
         "IsEmpty": false,
-        "X": 60,
-        "Y": 370
+        "X": 215,
+        "Y": 220
       },
       "Size": {
         "IsEmpty": false,
@@ -219,8 +203,8 @@
       "Text": "R2",
       "Position": {
         "IsEmpty": false,
-        "X": 100,
-        "Y": 370
+        "X": 255,
+        "Y": 220
       },
       "Size": {
         "IsEmpty": false,
@@ -235,8 +219,8 @@
       "Text": "Unbind",
       "Position": {
         "IsEmpty": false,
-        "X": 140,
-        "Y": 370
+        "X": 295,
+        "Y": 220
       },
       "Size": {
         "IsEmpty": false,
@@ -248,16 +232,16 @@
     {
       "Name": "skipCinematicButton",
       "Enabled": true,
-      "Text": "Skip\nCinematic",
+      "Text": "Skip Cinematic",
       "Position": {
         "IsEmpty": false,
-        "X": 400,
-        "Y": 300
+        "X": 35,
+        "Y": 220
       },
       "Size": {
         "IsEmpty": false,
-        "Width": 90,
-        "Height": 55
+        "Width": 105,
+        "Height": 35
       },
       "OnClick": "sly3_skip_FMV()"
     }
@@ -270,12 +254,12 @@
       "PlaceholderText": "Coins",
       "Position": {
         "IsEmpty": false,
-        "X": 20,
-        "Y": 100
+        "X": 35,
+        "Y": 150
       },
       "Size": {
         "IsEmpty": false,
-        "Width": 80,
+        "Width": 70,
         "Height": 25
       },
       "OnEnter": ""
@@ -287,13 +271,13 @@
       "PlaceholderText": "Health",
       "Position": {
         "IsEmpty": false,
-        "X": 20,
-        "Y": 130
+        "X": 35,
+        "Y": 180
       },
       "Size": {
         "IsEmpty": false,
-        "Width": 80,
-        "Height": 25
+        "Width": 70,
+        "Height": 20
       },
       "OnEnter": ""
     }
@@ -304,8 +288,8 @@
       "Enabled": true,
       "Position": {
         "IsEmpty": false,
-        "X": 340,
-        "Y": 30
+        "X": 410,
+        "Y": 45
       },
       "Text": "Invulnerability",
       "OnCheck": "god_mode_toggle()"
@@ -315,8 +299,8 @@
       "Enabled": true,
       "Position": {
         "IsEmpty": false,
-        "X": 340,
-        "Y": 50
+        "X": 410,
+        "Y": 65
       },
       "Text": "Infinite Health",
       "OnCheck": "infinite_health_toggle()"
@@ -326,8 +310,8 @@
       "Enabled": true,
       "Position": {
         "IsEmpty": false,
-        "X": 340,
-        "Y": 70
+        "X": 410,
+        "Y": 85
       },
       "Text": "Infinite Gadget Power",
       "OnCheck": "infinite_gadget_power_toggle()"
@@ -337,8 +321,8 @@
       "Enabled": true,
       "Position": {
         "IsEmpty": false,
-        "X": 340,
-        "Y": 90
+        "X": 410,
+        "Y": 105
       },
       "Text": "Infinite Jumps",
       "OnCheck": "infinite_jumps_toggle()"
@@ -348,8 +332,8 @@
       "Enabled": true,
       "Position": {
         "IsEmpty": false,
-        "X": 340,
-        "Y": 110
+        "X": 410,
+        "Y": 125
       },
       "Text": "Disable Guard AI",
       "OnCheck": "guard_ai_toggle()"
@@ -359,8 +343,8 @@
       "Enabled": true,
       "Position": {
         "IsEmpty": false,
-        "X": 340,
-        "Y": 130
+        "X": 410,
+        "Y": 145
       },
       "Text": "Freeze Game Clock",
       "OnCheck": "game_clock_toggle()"
@@ -372,8 +356,8 @@
       "Enabled": true,
       "Position": {
         "IsEmpty": false,
-        "X": 20,
-        "Y": 200
+        "X": 170,
+        "Y": 51
       },
       "Size": {
         "IsEmpty": false,
@@ -381,6 +365,7 @@
         "Height": 25
       },
       "Options": [
+        "Select a map",
         "Main Menu",
         "Hazard Room",
         "Venice Hub",
@@ -429,12 +414,12 @@
       "Enabled": true,
       "Position": {
         "IsEmpty": false,
-        "X": 320,
-        "Y": 200
+        "X": 410,
+        "Y": 230
       },
       "Size": {
         "IsEmpty": false,
-        "Width": 150,
+        "Width": 125,
         "Height": 25
       },
       "Options": [
@@ -458,8 +443,8 @@
       "Enabled": true,
       "Position": {
         "IsEmpty": false,
-        "X": 320,
-        "Y": 170
+        "X": 40,
+        "Y": 305
       },
       "Size": {
         "IsEmpty": false,
@@ -480,18 +465,18 @@
     },
     {
       "Name": "warpLocationDropDown",
-      "Enabled": true,
+      "Enabled": false,
       "Position": {
         "IsEmpty": false,
-        "X": 20,
-        "Y": 230
+        "X": 170,
+        "Y": 82
       },
       "Size": {
         "IsEmpty": false,
         "Width": 150,
         "Height": 20
       },
-      "Options": [ "" ],
+      "Options": [ "Select a warp location" ],
       "Index": 0,
       "OnItemSelected": ""
     },
@@ -500,15 +485,16 @@
       "Enabled": true,
       "Position": {
         "IsEmpty": false,
-        "X": 20,
-        "Y": 270
+        "X": 280,
+        "Y": 296
       },
       "Size": {
         "IsEmpty": false,
-        "Width": 200,
+        "Width": 250,
         "Height": 20
       },
       "Options": [
+        "Select a job",
         "The Cooper Vault",
         " [TCV] Cave",
         " [TCV] Top",
@@ -795,8 +781,8 @@
       "Enabled": true,
       "Position": {
         "IsEmpty": false,
-        "X": 20,
-        "Y": 310
+        "X": 175,
+        "Y": 160
       },
       "Size": {
         "IsEmpty": false,
@@ -804,55 +790,195 @@
         "Height": 20
       },
       "Options": [
-        "Fishing Pole",
-        "Trigger Bomb",
-        "Rage Bomb",
-        "Size Destabilizer",
-        "Grapple-Cam",
-        "Insanity Strike",
-        "Hover Pack",
-        "Health Extractor",
+        "Select a gadget",
+        "--------------",
         "Adrenaline Burst",
         "Alarm Clock",
-        "Reduction Bomb",
-        "Raging Inferno Flop",
-        "Temporal Lock",
-        "Fists of Flame",
-        "Guttural Roar",
-        "Juggernaut Throw",
-        "Berserker Charge",
         "Be The Ball",
+        "Berserker Charge",
+        "Combat Dodge",
         "Diablo Fire Slam",
+        "Feral Pounce",
+        "Fishing Pole",
+        "Fists of Flame",
+        "Grapple-Cam",
+        "Guttural Roar",
+        "Health Extractor",
+        "Hover Pack",
+        "Insanity Strike",
+        "Juggernaut Throw",
+        "Jump Attack 1",
+        "Jump Attack 2",
+        "Jump Attack 3",
         "Knockout Dive",
         "Mega Jump",
-        "Feral Pounce",
-        "Silent Obliteration",
         "Paraglider",
-        "Combat Dodge",
-        "Smoke Bomb",
-        "Venice Disguise",
         "Photographer Disguise",
         "Pirate Disguise",
-        "Treasure Map",
-        "Rocket Boots",
-        "Shadow Power 1",
-        "Shadow Power 2",
-        "Thief Reflexes",
         "Push Attack 1",
         "Push Attack 2",
         "Push Attack 3",
+        "Rage Bomb",
+        "Raging Inferno Flop",
+        "Reduction Bomb",
+        "Rocket Boots",
+        "Shadow Power 1",
+        "Shadow Power 2",
+        "Silent Obliteration",
+        "Size Destabilizer",
+        "Smoke Bomb",
         "Spin Attack 1",
         "Spin Attack 2",
         "Spin Attack 3",
-        "Jump Attack 1",
-        "Jump Attack 2",
-        "Jump Attack 3"
+        "Temporal Lock",
+        "Thief Reflexes",
+        "Treasure Map",
+        "Trigger Bomb",
+        "Venice Disguise"
       ],
+      "Index": 0,
+      "OnItemSelected": ""
+    },
+    {
+      "Name": "jobCheckpointSelectDropDown",
+      "Enabled": false,
+      "Position": {
+        "IsEmpty": false,
+        "X": 280,
+        "Y": 326
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 250,
+        "Height": 20
+      },
+      "Options": ["Select a checkpoint"],
       "Index": 0,
       "OnItemSelected": ""
     }
   ],
-  "GroupBoxes": [],
+  "GroupBoxes": [
+    {
+      "Name": "toggleGroup",
+      "Text": "Toggles",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 400,
+        "Y": 25
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 200,
+        "Height": 170
+      }
+    },
+    {
+      "Name": "languageGroup",
+      "Text": "Language",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 400,
+        "Y": 200
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 200,
+        "Height": 70
+      }
+    },
+    {
+      "Name": "gadgetGroup",
+      "Text": "Gadgets",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 160,
+        "Y": 130
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 230,
+        "Height": 140
+      }
+    },
+    {
+      "Name": "loadGroup",
+      "Text": "Load Location",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 160,
+        "Y": 25
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 230,
+        "Height": 100
+      }
+    },
+    {
+      "Name": "reloadGroup",
+      "Text": "Reload",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 25,
+        "Y": 25
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 125,
+        "Height": 100
+      }
+    },
+    {
+      "Name": "jobGroup",
+      "Text": "Jobs",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 265,
+        "Y": 270
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 335,
+        "Height": 90
+      }
+    },
+    {
+      "Name": "runFileGroup",
+      "Text": "Load run file",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 25,
+        "Y": 270
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 230,
+        "Height": 90
+      }
+    },
+    {
+      "Name": "miscGroup",
+      "Text": "Misc",
+      "Enabled": true,
+      "Position": {
+        "IsEmpty": false,
+        "X": 25,
+        "Y": 130
+      },
+      "Size": {
+        "IsEmpty": false,
+        "Width": 125,
+        "Height": 140
+      }
+    }
+  ],
   "OnLoad": "",
   "OnUnload": ""
 }

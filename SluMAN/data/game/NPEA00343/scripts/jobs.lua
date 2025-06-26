@@ -12,10 +12,10 @@ function load_job_helper(job_id, cp_id, load_mode, map)
 		values = DAG_EP1_DAY0
 	elseif job_id < 3007 then
 		start_address = DAG_EP2_ADDR
-        values = dag_ep2_start
+        values = DAG_EP2_DAY0
 	elseif job_id < 3402 then
 		start_address = DAG_EP3_ADDR
-        values = dag_ep3_start
+        values = DAG_EP3_DAY0
 	elseif job_id < 3867 then
 		start_address = DAG_EP4_ADDR
         values = DAG_EP4_DAY1
