@@ -24,7 +24,9 @@ partial class AboutBox : Form
         };
         this.Text = String.Format("About {0}", AssemblyTitle);
         //this.labelProductName.Text = AssemblyProduct;
-        this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
+        this.labelVersion.Text = $"v{Assembly.GetEntryAssembly()!.GetName().Version.Major}." +
+            $"{Assembly.GetEntryAssembly()!.GetName().Version.Minor}." +
+            $"{Assembly.GetEntryAssembly()!.GetName().Version.Build}";
         //this.labelCopyright.Text = AssemblyCopyright;
         //this.labelCompanyName.Text = AssemblyCompany;
         //this.textBoxDescription.Text = AssemblyDescription;

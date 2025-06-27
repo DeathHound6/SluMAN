@@ -38,6 +38,16 @@ function load_job_helper(job_id, cp_id, load_mode, map)
 	Memory.WriteInt(0x78D2C0, 1)
 end
 
+function load_job_ep6_helper(job_id, cp_id, load_mode, map)
+	sly3_set_map(map)	
+	sly3_set_active_character(-1)
+	Memory.WriteInt(0x5EB488, job_id)
+	Memory.WriteInt(0x5EB48C, cp_id)
+	Memory.WriteInt(0x5EB490, cp_id)
+	Memory.WriteInt(0x78D2C4, load_mode)
+	Memory.WriteInt(0x78D2C0, 1)
+end
+
 function sly3_load_job(index)
 	-- Loads a job based on the selection in the dropdown menu
 

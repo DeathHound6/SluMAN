@@ -20,7 +20,9 @@ public partial class AttachGameForm : Form
             //[Optional] Choose your preferred color mode here:
             ColorMode = DarkModeCS.DisplayMode.SystemDefault
         };
-        versionLabel.Text = $"v{Assembly.GetEntryAssembly()!.GetName().Version}";
+        versionLabel.Text = $"v{Assembly.GetEntryAssembly()!.GetName().Version.Major}." +
+            $"{Assembly.GetEntryAssembly()!.GetName().Version.Minor}." +
+            $"{Assembly.GetEntryAssembly()!.GetName().Version.Build}";
         textBox1.Text = state.Settings.RatchetronIP;
         this.state = state;
     }

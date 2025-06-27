@@ -43,6 +43,7 @@ function LoadRunFile(name)
     elseif name == "ep6_ngp" then
         gadgets = {255, 255, 255, 191, 223, 255, 11, 0}
         set_run_file_state(DAG_EP6_ADDR, DAG_EP6_NGPL, "Y$KFm_ext", 16386, gadgets)
+        print("ngp")
         -- Set noob mode to max
         Memory.WriteFloat(0x6CCDA0, 1)
         Memory.WriteFloat(0x6CCDC0, 1)
@@ -52,7 +53,7 @@ function LoadRunFile(name)
         Memory.WriteFloat(0x6CCD80, 1)
         Memory.WriteFloat(0x6CCDD0, 1)
         Memory.WriteFloat(0x6CCD70, 1)
-        load_job_helper(4342, 1842, 18, "Y$KFm_ext")
+        load_job_ep6_helper(4342, 1842, 134, "Y$KFm_ext")
     end
 end
 

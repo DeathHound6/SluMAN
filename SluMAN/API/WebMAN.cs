@@ -63,7 +63,7 @@ public static class WebMAN
 
     public static void DisplayVersionPopUp(string ip)
     {
-        Get($"http://{ip}/popup.ps3*SluMAN v0.1.6");
+        Get( $"http://{ip}/popup.ps3*SluMAN v0.2.0");
     }
 
     public static void ContinueRSX(string ip)

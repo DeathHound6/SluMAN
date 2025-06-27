@@ -23,8 +23,8 @@ function get_map_true_name(name)
 	elseif  name == "Holland Hub"					then return "h_ext"
 	elseif  name == "    Hotel"						then return "h_hotel"
 	elseif  name == "    Black Baron's Hangar"		then return "h_hangar_b"
-	elseif  name == "    Cooper Gang Hangar"		then return "h_hangar_a"
-	elseif  name == "    Team Belgium's Hangar"		then return "h_hangar_c"
+	elseif  name == "    Cooper Gang Hangar"		then return "h_hangar_c"
+	elseif  name == "    Team Belgium's Hangar"		then return "h_hangar_a"
 	elseif  name == "    Sewer"						then return "h_sewer"
 	elseif  name == "    Dogfight Arena"			then return "h_dogfight"
 	elseif  name == "    Hackathon Map"				then return "h_hack"
@@ -160,6 +160,7 @@ function sly3_get_current_warp_locations()
 	elseif  map_name == "m_vault"			then return {""}
 	elseif  map_name == "m_gauntlet"		then return {"Slytunkhamon", "Sir Galeth", "Salim al Kupar", "Sleigh", "Rioichi", "Henriette", "Tennessee", "Thadious", "Otto", "Connor"}
 	elseif  map_name == "m_boss"			then return {""}
+	else return {""}
 	end
 end
 
