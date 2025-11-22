@@ -1,6 +1,5 @@
 function sly2_set_gadget_state(name, state)
-	-- print("Setting gadget state: " .. name .. " to " .. tostring(state))
-	if name == "trigger_bomb" then sly2_set_gadget(8, state)
+	if name == "trigger_bomb" then sly2_set_gadget(1, state)
 	elseif name == "size_destabilizer" then sly2_set_gadget(16, state)
 	elseif name == "snooze_bomb" then sly2_set_gadget(15, state)
 	elseif name == "adrenaline_burst" then sly2_set_gadget(14, state)

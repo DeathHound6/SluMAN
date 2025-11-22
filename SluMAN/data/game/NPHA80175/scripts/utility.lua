@@ -22,6 +22,67 @@ function sly2_infinite_juice()
 	end
 end
 
+function skip_dialogue()
+	if (Memory.ReadInt(0x39E4BF54) > 20) then
+		Memory.WriteInt(0x39E4BF70, 0)
+	end
+end
+
+function Wait(ms)
+    local start = os.clock()
+    local target = start + (ms / 1000)
+    while os.clock() < target do
+        -- yield occasionally
+    end
+end
+
+function skip_helper() 
+
+	frame_counter = Memory.ReadInt(0x39E4BF54)
+	dialogue_state = Memory.ReadInt(0x39E4BF70)
+	pause_state = 0
+
+	if dialogue_state ~= 1 then
+		Wait(100)
+		if (Memory.ReadInt(0x39E4BF70) ~= 1) then return end
+	end
+
+	if frame_counter > 20 then Memory.WriteInt(0x39E4BF70, 0) end
+
+	Wait(100)
+
+	time_since_dialogue = os.clock()
+	while pause_state ~= 7 do
+
+		if (os.clock() - time_since_dialogue > 5) then break end -- Too long since last dialogue
+			
+		if Memory.ReadInt(0x7A7200) == 2 then break end -- Loading
+			
+		dialogue_state = Memory.ReadInt(0x39E4BF70)
+		frame_counter = Memory.ReadInt(0x39E4BF54)
+		pause_state = Memory.ReadInt(0x4FFE84)
+
+		if dialogue_state == 1 then
+			time_since_dialogue = os.clock()
+			if (frame_counter > 20) then Memory.WriteInt(0x39E4BF70, 0) end
+		end
+
+		Wait(100)
+
+	end
+end
+
+function sly2_skip_FMV()
+
+	-- Dialogue
+	skip_helper()
+
+	--FMV
+	if (Memory.ReadInt(0x9066FC) == 0) then
+		Memory.WriteInt(0x9066FC, 2)
+	end
+end
+
 function sly2_infinite_health()
 	cur_char = Memory.ReadInt(0x7A830C)
 	if cur_char==7 then API:FreezeMemory(0x7A8360, 40)
