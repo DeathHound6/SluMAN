@@ -104,30 +104,83 @@ function sly3_get_coordinates(entity_address)
 	return {x,y,z}
 end
 
+function sly3_wait(ms)
+	local curr_time = os.clock()
+    local target_time = curr_time + (ms / 1000)
+    while curr_time < target_time do
+        curr_time = os.clock()
+    end
+end
+
+function sly3_skip_helper() 
+
+	-- Addresses
+	frame_counter_address = 0x39B13F54
+	dialuogue_state_address = 0x39B13F70
+	loading_state_address = 0x6CB600
+	pause_state_address = 0x5EC6C4
+
+	-- Constants
+	frame_counter_lower_limit = 10
+	game_is_loading_value = 2
+	five_seconds = 5
+	pause_available_value = 0
+	pause_not_available_value = 1
+	tenth_of_second = 100
+	dialogue_playing = 1
+	dialogue_not_playing = 0
+
+	dialogue_state = Memory.ReadInt(dialuogue_state_address)
+
+	-- If trying to skip slightly early, try again after a short wait
+	if dialogue_state ~= dialogue_playing then
+		sly3_wait(tenth_of_second)
+		dialogue_state = Memory.ReadInt(dialuogue_state_address)
+		if (dialogue_state ~= dialogue_playing) then return end
+	end
+
+	frame_counter = Memory.ReadInt(frame_counter_address)
+	pause_state = pause_not_available_value
+
+	sly3_wait(tenth_of_second)
+
+	if frame_counter > frame_counter_lower_limit then Memory.WriteInt(dialuogue_state_address, dialogue_not_playing) end
+
+	-- Keep checking until dialogue is finished or loading screen appears
+	time_since_dialogue = os.clock()
+	while pause_state ~= pause_available_value do
+
+		-- Break if theres been too long since last dialogue
+		if (os.clock() - time_since_dialogue > five_seconds) then break end
+
+		-- Break if loading screen occurs
+		loading_state = Memory.ReadInt(loading_state_address)
+		if (loading_state == game_is_loading_value) then break end
+
+		dialogue_state = Memory.ReadInt(dialuogue_state_address)
+		frame_counter = Memory.ReadInt(frame_counter_address)
+
+		if dialogue_state == dialogue_playing then
+			time_since_dialogue = os.clock()
+			if (frame_counter > frame_counter_lower_limit) then Memory.WriteInt(dialuogue_state_address, dialogue_not_playing) end
+		end
+
+		sly3_wait(tenth_of_second)
+
+		pause_state = Memory.ReadInt(pause_state_address)
+
+	end
+end
+
 function sly3_skip_FMV()
-	-- Splash FMV
-	if (Memory.ReadInt(0x303E5ECC) > 10) then
-		Memory.WriteInt(0x303E5EC8, 1)
+
+	-- Dialogue
+	sly3_skip_helper()
+
+	-- FMV
+	if (Memory.ReadInt(0x83C8BC) == 0) then
+		Memory.WriteInt(0x83C8BC, 2)
 	end
-
-	-- Outro/Chalktalk FMV
-	if (Memory.ReadInt(0x303F256C) > 10) then
-		Memory.WriteInt(0x303F2568, 1)
-	end
-
-	-- Intro FMV
-	if (Memory.ReadInt(0x303F6C4C) > 10) then
-		Memory.WriteInt(0x303F6C48, 1)
-	end
-
-	-- Dialogues
-	if (Memory.ReadInt(0x39B13F54) > 10) then
-		-- Skips the current dialogue to the end
-		Memory.WriteInt(0x39B13F70, 0)
-	end
-
-	Memory.WriteInt(0x3A2E0B28, 1)
-
 end
 
 function sly3_activate_infinite_jumps()

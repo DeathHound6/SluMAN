@@ -28,7 +28,7 @@ function skip_dialogue()
 	end
 end
 
-function Wait(ms)
+function sly2_wait(ms)
     local start = os.clock()
     local target = start + (ms / 1000)
     while os.clock() < target do
@@ -36,38 +36,59 @@ function Wait(ms)
     end
 end
 
-function skip_helper() 
+function sly2_skip_helper() 
 
-	frame_counter = Memory.ReadInt(0x39E4BF54)
-	dialogue_state = Memory.ReadInt(0x39E4BF70)
-	pause_state = 0
+	-- Addresses
+	frame_counter_address = 0x39E4BF54
+	dialuogue_state_address = 0x39E4BF70
+	loading_state_address = 0x7A7200
+	pause_state_address = 0x4FFE84
 
-	if dialogue_state ~= 1 then
-		Wait(100)
-		if (Memory.ReadInt(0x39E4BF70) ~= 1) then return end
+	-- Constants
+	frame_counter_lower_limit = 10
+	game_is_loading_value = 2
+	five_seconds = 5
+	pause_available_value = 7
+	tenth_of_second = 100
+	dialogue_playing = 1
+	dialogue_not_playing = 0
+
+	dialogue_state = Memory.ReadInt(dialuogue_state_address)
+
+	-- If trying to skip slightly early, try again after a short wait
+	if dialogue_state ~= dialogue_playing then
+		sly2_wait(tenth_of_second)
+		dialogue_state = Memory.ReadInt(dialuogue_state_address)
+		if (dialogue_state ~= dialogue_playing) then return end
 	end
 
-	if frame_counter > 20 then Memory.WriteInt(0x39E4BF70, 0) end
+	frame_counter = Memory.ReadInt(frame_counter_address)
+	pause_state = 0
 
-	Wait(100)
+	if frame_counter > frame_counter_lower_limit then Memory.WriteInt(dialuogue_state_address, dialogue_not_playing) end
 
+	-- Keep checking until dialogue is finished or loading screen appears
 	time_since_dialogue = os.clock()
-	while pause_state ~= 7 do
+	while pause_state ~= pause_available_value do
 
-		if (os.clock() - time_since_dialogue > 5) then break end -- Too long since last dialogue
+		-- Break if theres been too long since last dialogue
+		if (os.clock() - time_since_dialogue > five_seconds) then break end
+		
+		-- Break if loading screen occurs
+		loading_state = Memory.ReadInt(loading_state_address)
+		if (loading_state == game_is_loading_value) then break end
 			
-		if Memory.ReadInt(0x7A7200) == 2 then break end -- Loading
-			
-		dialogue_state = Memory.ReadInt(0x39E4BF70)
-		frame_counter = Memory.ReadInt(0x39E4BF54)
-		pause_state = Memory.ReadInt(0x4FFE84)
+		dialogue_state = Memory.ReadInt(dialuogue_state_address)
+		frame_counter = Memory.ReadInt(frame_counter_address)
 
-		if dialogue_state == 1 then
+		if dialogue_state == dialogue_playing then
 			time_since_dialogue = os.clock()
-			if (frame_counter > 20) then Memory.WriteInt(0x39E4BF70, 0) end
+			if (frame_counter > frame_counter_lower_limit) then Memory.WriteInt(dialuogue_state_address, dialogue_not_playing) end
 		end
 
-		Wait(100)
+		sly2_wait(tenth_of_second)
+
+		pause_state = Memory.ReadInt(pause_state_address)
 
 	end
 end
@@ -75,7 +96,7 @@ end
 function sly2_skip_FMV()
 
 	-- Dialogue
-	skip_helper()
+	sly2_skip_helper()
 
 	--FMV
 	if (Memory.ReadInt(0x9066FC) == 0) then
