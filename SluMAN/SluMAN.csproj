@@ -9,7 +9,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>RacMAN.Program</StartupObject>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-	  <VersionPrefix>0.2.1</VersionPrefix>
+	  <VersionPrefix>0.2.2</VersionPrefix>
 	  <VersionSuffix>alpha</VersionSuffix>
 	  <ApplicationIcon>sluman_icon.ico</ApplicationIcon>
   </PropertyGroup>
@@ -56,11 +56,15 @@
 	  <None Remove="data\game\NPEA00343\scripts\trainer_functions.lua" />
 	  <None Remove="data\game\NPEA00343\scripts\utility.lua" />
 	  <None Remove="data\game\NPEA00343\trainer.json" />
-	  <None Remove="data\game\npha80175\scripts\dag_tables.lua" />
 	  <None Remove="data\game\npha80175\scripts\gadgets.lua" />
 	  <None Remove="data\game\NPHA80175\scripts\inputp.lua" />
 	  <None Remove="data\game\NPHA80175\scripts\jobs.lua" />
-	  <None Remove="data\game\npha80175\scripts\job_states.lua" />
+	  <None Remove="data\game\npha80175\scripts\job_states_e0.lua" />
+	  <None Remove="data\game\npha80175\scripts\job_states_e1.lua" />
+	  <None Remove="data\game\npha80175\scripts\job_states_e5.lua" />
+	  <None Remove="data\game\npha80175\scripts\job_states_e6.lua" />
+	  <None Remove="data\game\NPHA80175\scripts\job_states_e7.lua" />
+	  <None Remove="data\game\npha80175\scripts\job_states_e8.lua" />
 	  <None Remove="data\game\NPHA80175\scripts\load.lua" />
 	  <None Remove="data\game\NPHA80175\scripts\maps.lua" />
 	  <None Remove="data\game\NPHA80175\scripts\utility.lua" />
