@@ -20,7 +20,7 @@ Input the IP address and insert it into the `SluMAN.exe` application on your PC.
 ## RPCS3 Setup
 Just run `SluMAN.exe`, then while your game is open in RPCS3, click the `RPCS3` button.
 
-*Before the first use on RPCS3 you need to enable IPC server in RPCS3. Click "Configuration" > "IPC" and check the box that says "Enable IPC Server". Note the IPC server port. Click "Save".*
+*Before the first use on RPCS3 you need to enable IPC server in RPCS3. Click "Configuration" > "IPC" and check the box that says "Enable IPC Server". Make sure the IPC server port is 28012 (supporting other port numbers is coming in the future). Click "Save".*
 
 ## Building
 1. Use Visual Studio 2022
